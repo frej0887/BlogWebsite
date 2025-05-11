@@ -7,6 +7,8 @@ import {Projects} from "./pages/Projects.tsx";
 import {About} from "./pages/About.tsx";
 import {NoPage} from "./pages/NoPage.tsx";
 import {LayoutContext } from './contexts.tsx';
+import {SingleProject} from "./pages/SingleProject.tsx";
+
 
 function App() {
   const isLaptop = useMediaQuery({
@@ -22,6 +24,8 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path="about" element={<About/>}/>
             <Route path="projects" element={<Projects/>}/>
+            {/*<Route path="projects/:projectId" element={<SingleProject/>}/>*/}
+            <Route path="projects/:projectId" Component={SingleProject}/>
             <Route path="*" element={<NoPage/>}/>
           </Route>
         </Routes>

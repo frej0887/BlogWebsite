@@ -30,6 +30,14 @@ header {
 }
 
 .content {
+  background-color: #456826;
+}
+
+.content-mobile {
+  margin: 20px 0;
+}
+
+.content-desktop {
   margin: 20px auto;
-  background-color: #1abc9c;
+  max-width: 1000px;
 }

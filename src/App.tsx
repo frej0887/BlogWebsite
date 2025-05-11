@@ -10,7 +10,7 @@ import {LayoutContext } from './contexts.tsx';
 
 function App() {
   const isLaptop = useMediaQuery({
-    query: "(min-width: 1000px)",
+    query: "(min-width: 800px)",
   });
 
   const context = {is_mobile: !isLaptop};

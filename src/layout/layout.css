@@ -28,3 +28,8 @@ header {
   font-size: 20px;
   margin: 20px 50px;
 }
+
+.content {
+  margin: 20px auto;
+  background-color: #1abc9c;
+}

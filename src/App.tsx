@@ -1,4 +1,5 @@
 import './App.css'
+import { useMediaQuery } from 'react-responsive';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {Home} from "./pages/Home.tsx";
 import {Layout} from "./layout/layout.tsx";
@@ -7,6 +8,9 @@ import {About} from "./pages/About.tsx";
 import {NoPage} from "./pages/NoPage.tsx";
 
 function App() {
+  const isLaptop = useMediaQuery({
+    query: "(min-device-width: 1000px)",
+  });
 
   return (
     <BrowserRouter>

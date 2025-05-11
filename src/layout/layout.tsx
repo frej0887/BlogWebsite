@@ -7,31 +7,31 @@ export const Header = () => {
     <>
       <header>
         <h1>
-          <a href="{% url 'home' %}">
-            Hello there ✌️
-          </a>
+          <Link to="/">Hello there ✌️</Link>
         </h1>
-        <div className="menu-box">
-          <div className="menuitem">
+        <div className={"menu-box"}>
+          <div className={"menuitem"}>
             <Link to="/">Home</Link>
           </div>
-          <div className="menuitem">
+          <div className={"menuitem"}>
             <Link to="/projects">Projects</Link>
           </div>
-          <div className="menuitem">
+          <div className={"menuitem"}>
             <Link to="/about">About</Link>
           </div>
         </div>
       </header>
-      <Outlet/>
     </>
   )
 }
 
 export const Layout = () => {
   return (
-    <Header>
-
-    </Header>
+    <>
+      <Header/>
+      <div className={"content"}>
+        <Outlet/>
+      </div>
+    </>
   )
 }

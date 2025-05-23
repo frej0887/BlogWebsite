@@ -1,38 +1,45 @@
-import ReactMarkdown from 'react-markdown'
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import projectOverview from "./projects.json";
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 export const SingleProject = () => {
-  const {projectId} = useParams();
-  if (projectId == undefined) {
-    return <div></div>
-  }
-  const project = projectOverview.filter(x => x.id == parseInt(projectId))
-    .map(function (object) {
-    return <Project id={object.id} name={object.name} path={object.path} text={object.text} />;
-  })
+  const [post, setPost] = useState('');
+  const { projectId } = useParams();
+
+  useEffect(() => {
+    if (projectId === undefined) {
+      setPost('');
+      return;
+    }
+
+    const project = projectOverview.find(x => x.id === parseInt(projectId));
+    if (project === undefined) {
+      setPost('');
+      return;
+    }
+
+    const fileName = project.path;
+
+    // Fetch the Markdown file
+    fetch(fileName)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(text => {
+        setPost(text);
+      })
+      .catch(err => {
+        console.log("FetchError: " + err);
+      });
+  }, [projectId]);
 
   return (
     <>
-      {project}
+      <ReactMarkdown>{post}</ReactMarkdown>
     </>
-  )
-}
-
-type ProjectPreview = {
-  "id": number,
-  "name": string,
-  "path": string,
-  "text": string,
-}
-
-const Project = ({name, id, text}: ProjectPreview) => {
-
-  return (
-    <>
-      <h1>{name}</h1>
-      <p>Id: {id}</p>
-      <ReactMarkdown>{text}</ReactMarkdown>
-    </>
-  )
+  );
 }

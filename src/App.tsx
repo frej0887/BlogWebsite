@@ -24,7 +24,7 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path="about" element={<About/>}/>
             <Route path="projects" element={<Projects/>}/>
-            {/*<Route path="projects/:projectId" element={<SingleProject/>}/>*/}
+            {/*<Route path="markdown/:projectId" element={<SingleProject/>}/>*/}
             <Route path="projects/:projectId" Component={SingleProject}/>
             <Route path="*" element={<NoPage/>}/>
           </Route>

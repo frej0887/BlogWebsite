@@ -1,15 +1,22 @@
 [
   {
     "id": 0,
+    "name": "Test",
+    "path": "/markdown/test.md",
+    "previewImage": "",
+    "text": "Test"
+  },
+  {
+    "id": 1,
     "name": "Dinosaur watering can",
-    "path": "./markdown/dinosaur_wateringcan.md",
+    "path": "/markdown/dinosaur_wateringcan.md",
     "previewImage": "image1.png",
     "text": "Dinosaurs are cool"
   },
   {
-    "id": 1,
+    "id": 2,
     "name": "Table clock",
-    "path": "./markdown/dinosaur_wateringcan.md",
+    "path": "/markdown/table_clock.md",
     "previewImage": "image2.jpg",
     "text": "Bad thing with oled"
   }

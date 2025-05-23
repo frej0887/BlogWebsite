@@ -30,10 +30,19 @@ export const SingleProject = () => {
         return response.text();
       })
       .then(text => {
-        setPost(text);
+        if (!text) {
+          setPost('Sorry, this post is not available');
+        }
+        else if (text.startsWith('<!doctype html>')) {
+          setPost('Sorry, this post is not available');
+        }
+        else {
+          setPost(text);
+        }
       })
       .catch(err => {
         console.log("FetchError: " + err);
+        setPost('Sorry, this post is not available');
       });
   }, [projectId]);
 

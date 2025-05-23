@@ -4,20 +4,23 @@
     "name": "Test",
     "path": "/markdown/test.md",
     "previewImage": "",
-    "text": "Test"
+    "text": "Test",
+    "display": true
   },
   {
     "id": 1,
     "name": "Dinosaur watering can",
     "path": "/markdown/dinosaur_wateringcan.md",
     "previewImage": "image1.png",
-    "text": "Dinosaurs are cool"
+    "text": "Dinosaurs are cool",
+    "display": true
   },
   {
     "id": 2,
     "name": "Table clock",
     "path": "/markdown/table_clock.md",
     "previewImage": "image2.jpg",
-    "text": "Bad thing with oled"
+    "text": "Bad thing with oled",
+    "display": true
   }
 ]

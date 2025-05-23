@@ -3,7 +3,8 @@ import {Link} from "react-router-dom";
 
 export const Projects = () => {
 
-  const projects = projectOverview.map(function (object) {
+  const projects = projectOverview.filter((object) => object.display )
+    .map(function (object) {
     return <ProjectPreview id={object.id} name={object.name} path={object.path}/>;
   })
 

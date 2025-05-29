@@ -51,3 +51,21 @@ header {
   width: 80%;
   height: auto;
 }
+
+h2, h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.9rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}

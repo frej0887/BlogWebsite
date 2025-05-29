@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import projectOverview from "./projects.json";
-import { useEffect, useState } from "react";
+import {type ImgHTMLAttributes, useEffect, useState} from "react";
 import ReactMarkdown from "react-markdown";
 
 export const SingleProject = () => {
@@ -48,7 +48,17 @@ export const SingleProject = () => {
 
   return (
     <>
-      <ReactMarkdown>{post}</ReactMarkdown>
+      <ReactMarkdown
+        components={{
+          img: imgTransform
+        }}
+      >{post}</ReactMarkdown>
     </>
   );
+}
+
+const imgTransform = ({ src, alt }:  ImgHTMLAttributes<HTMLImageElement>) => {
+  return <div id={"image"}>
+    <img src={src} alt={alt} />
+  </div>
 }

@@ -19,9 +19,9 @@ export const Projects = () => {
 }
 
 type ProjectPreview = {
-  "id": number,
-  "name": string,
-  "path": string,
+  id: number,
+  name: string,
+  path: string,
 }
 
 const ProjectPreview = ({name, id}: ProjectPreview) => {

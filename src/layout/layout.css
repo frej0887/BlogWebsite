@@ -4,8 +4,12 @@
 }
 
 a {
-  color: inherit;
+  color: #2ab89c;
   text-decoration: inherit;
+}
+
+header a {
+  color: inherit;
 }
 
 header {
@@ -29,10 +33,6 @@ header {
   margin: 20px 50px;
 }
 
-.content {
-  background-color: #456826;
-}
-
 .content-mobile {
   margin: 20px 0;
 }
@@ -40,4 +40,14 @@ header {
 .content-desktop {
   margin: 20px auto;
   max-width: 1000px;
+}
+
+#image {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+#image > img {
+  width: 80%;
+  height: auto;
 }

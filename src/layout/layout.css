@@ -34,7 +34,7 @@ header {
 }
 
 .content-mobile {
-  margin: 20px 0;
+  margin: 0.5rem 0.5rem;
 }
 
 .content-desktop {
@@ -48,8 +48,15 @@ header {
   align-content: center;
 }
 #image > img {
-  width: 80%;
   height: auto;
+}
+
+.image-mobile {
+  width: 100%;
+}
+
+.image-desktop {
+  width: 80%;
 }
 
 h2, h3 {

@@ -50,5 +50,5 @@ const divStyle = {
   justifyContent: 'center',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  height: '800px'
+  aspectRatio: '4/3',
 }

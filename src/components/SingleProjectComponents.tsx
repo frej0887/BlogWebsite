@@ -1,5 +1,6 @@
-import {type PropsWithChildren, type ReactNode} from "react";
+import {type PropsWithChildren, type ReactNode, useContext} from "react";
 import 'react-slideshow-image/dist/styles.css'
+import {LayoutContext} from "../contexts.tsx";
 
 type Props = {
   children: string | ReactNode;
@@ -21,7 +22,10 @@ type ListProps = {
 export const MyHeader1 = ({children}: Props) => <h1>{children}</h1>;
 export const MyHeader2 = ({children}: Props) => <h2>{children}</h2>;
 export const MyHeader3 = ({children}: Props) => <h3>{children}</h3>;
-export const MyImage = ({src, alt}: ImgProps) => <div id={"image"}><img src={'../images/' + src} alt={alt}/></div>;
+export const MyImage = ({src, alt}: ImgProps) => {
+  const theme = useContext(LayoutContext);
+  return <div id={"image"}><img src={'../images/' + src} alt={alt} className={theme.is_mobile ? 'image-mobile' : 'image-desktop'}/></div>;
+}
 export const MyText = ({children}: Props) => <p>{children}</p>;
 export const MyLink = ({href, children}: PropsWithChildren<AProps>) => <a href={href}>{' ' + children}</a>;
 export const MyOuter = ({children}: PropsWithChildren<Props>) => <>{children}</>;

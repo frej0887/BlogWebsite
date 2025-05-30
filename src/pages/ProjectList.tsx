@@ -12,9 +12,9 @@ export const ProjectList = () => {
   return (
     <>
       <h1>Projects</h1>
-      <ul>
+      <div>
         {projects}
-      </ul>
+      </div>
     </>
   )
 }

@@ -5,12 +5,12 @@ import {TableClock} from "./projects/TableClock.tsx";
 export const currentProjects = [{
   project: <Dinosaur/>,
   previewName: 'Dinosaur watering can',
-  previewText: 'Dinosaurs are cool',
-  previewImage: ''
+  previewText: 'A storebought dinosaur shaped watering can painted to look better.',
+  previewImage: 'images/wateringcan_after.jpg'
 },{
   project: <WatchStrap/>,
-  previewName: 'Hand-made leather watchstrap',
-  previewText: '',
+  previewName: 'Handmade leather watchstrap',
+  previewText: 'Leather watchstrap to replace an old broken one',
   previewImage: ''
 },{
   project: <TableClock/>,

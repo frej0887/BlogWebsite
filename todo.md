@@ -1,0 +1,3 @@
+
+- [ ] Adaptive layout
+- [ ] Icons

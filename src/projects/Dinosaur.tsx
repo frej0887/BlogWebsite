@@ -2,7 +2,7 @@ import {
   MyHeader1,
   MyHeader2,
   MyHeader3,
-  MyImage,
+  MyImage, MyImageCarousel,
   MyLink, MyList, MyListItem,
   MyOuter,
   MyText
@@ -18,7 +18,7 @@ const Dinosaur = () => {
       </MyText>
       <MyImage src={'../images/wateringcan_before.png'} alt={'The watering can before'}></MyImage>
       <MyText>This is it after</MyText>
-      <MyImage src={'../images/wateringcan_after.png'} alt={'The watering can after'}></MyImage>
+      <MyImage src={'../images/wateringcan_after.jpg'} alt={'The watering can after'}></MyImage>
       <MyHeader2>Materials</MyHeader2>
       <MyList>
         <MyListItem>Acrylic paint</MyListItem>
@@ -50,6 +50,7 @@ const Dinosaur = () => {
       <MyHeader2>My experience</MyHeader2>
       <MyText>The funny shape of the watering can it not the most practical, but the design is always a joy to look
         at.</MyText>
+      <MyImageCarousel slideImages={[{src:'wateringcan_before.png', caption:'One bland dinosaur-shaped watering can'}, {src:'wateringcan_after.jpg', caption:'yay'}]}/>
     </MyOuter>
   )
 }

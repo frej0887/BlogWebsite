@@ -18,19 +18,17 @@ function App() {
   const context = {is_mobile: !isLaptop};
   return (
     <LayoutContext.Provider value={context}>
-      <LayoutContext.Provider value={context}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Layout/>}>
-              <Route index element={<Home/>}/>
-              <Route path="about" element={<About/>}/>
-              <Route path="projects" element={<ProjectList/>}/>
-              <Route path="projects/:projectId" Component={SingleProject}/>
-              <Route path="*" element={<NoPage/>}/>
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </LayoutContext.Provider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout/>}>
+            <Route index element={<Home/>}/>
+            <Route path="about" element={<About/>}/>
+            <Route path="projects" element={<ProjectList/>}/>
+            <Route path="projects/:projectId" Component={SingleProject}/>
+            <Route path="*" element={<NoPage/>}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </LayoutContext.Provider>
   )
 }

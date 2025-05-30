@@ -11,7 +11,7 @@ export const currentProjects = [{
   project: <WatchStrap/>,
   previewName: 'Handmade leather watchstrap',
   previewText: 'Leather watchstrap to replace an old broken one',
-  previewImage: ''
+  previewImage: 'images/watchstrap.png'
 },{
   project: <TableClock/>,
   previewName: 'Table clock',

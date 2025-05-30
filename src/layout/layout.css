@@ -4,8 +4,11 @@
 }
 
 a {
-  color: #2ab89c;
   text-decoration: inherit;
+}
+
+p>a {
+  color: #2ab89c;
 }
 
 header a {

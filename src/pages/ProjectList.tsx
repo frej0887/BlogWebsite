@@ -1,6 +1,6 @@
-import {Link} from "react-router-dom";
 import {useContext} from "react";
 import {ProjectContext} from "../contexts.tsx";
+import {ProjectPreview} from "../components/ProjectPreview.tsx"
 
 export const ProjectList = () => {
 
@@ -16,20 +16,5 @@ export const ProjectList = () => {
         {projects}
       </ul>
     </>
-  )
-}
-
-type ProjectPreview = {
-  id: number,
-  name: string,
-}
-
-const ProjectPreview = ({name, id}: ProjectPreview) => {
-  return (
-    <Link to={`/projects/${id}`}>
-      <li key={id}>
-        <h2>{name}</h2>
-      </li>
-    </Link>
   )
 }

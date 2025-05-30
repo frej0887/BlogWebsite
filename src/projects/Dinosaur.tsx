@@ -1,11 +1,20 @@
-import {MyHeader1, MyHeader2, MyHeader3, MyImage, MyLink, MyOuter, MyText} from "../SingleProjectComponents.tsx";
+import {
+  MyHeader1,
+  MyHeader2,
+  MyHeader3,
+  MyImage,
+  MyLink,
+  MyOuter,
+  MyText
+} from "../components/SingleProjectComponents.tsx";
 
 const Dinosaur = () => {
   return (
     <MyOuter>
       <MyHeader1>Dinosaur watering can</MyHeader1>
       <MyText>This is the watering can before, bought at
-        <MyLink href={'https://www.imerco.dk/casa-living-vandkande-dinosaur-1-liter-plastik-groen?id=100433309'}>Imerco</MyLink>
+        <MyLink
+          href={'https://www.imerco.dk/casa-living-vandkande-dinosaur-1-liter-plastik-groen?id=100433309'}>Imerco</MyLink>
       </MyText>
       <MyImage src={'../images/wateringcan_before.png'} alt={'The watering can before'}></MyImage>
       <MyText>This is it after</MyText>

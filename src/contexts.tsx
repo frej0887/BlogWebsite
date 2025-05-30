@@ -1,5 +1,5 @@
 import {createContext, type ReactNode} from "react";
-import Dinosaur from "./pages/projects/Dinosaur.tsx";
+import Dinosaur from "./projects/Dinosaur.tsx";
 
 type layoutContext = {
   is_mobile: boolean;

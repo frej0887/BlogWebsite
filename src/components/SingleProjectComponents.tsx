@@ -42,35 +42,38 @@ export const MyImageCarousel = ({slideImages}: ImageCarouselProps) => {
   const slideRef = createRef<SlideshowRef>();
   const [display, setDisplay] = useState<boolean>();
 
+  const displayStyle = display ? {} : {display: 'none'};
   return (
     <div className="slide-container">
       <Slide ref={slideRef} transitionDuration={250}>
-        {slideImages.map((slideImage, index) => (
-          <div key={index} onMouseEnter={() => setDisplay(true)} onMouseLeave={() => setDisplay(false)}>
-            <div style={{...divStyle, 'backgroundImage': `url(../images/${slideImage.src})`}}>
-              <span style={{...spanStyle, ...(display ? {} : {display: 'none'})}}>{slideImage.caption}</span>
+        {slideImages.map((slideImage, index) => {
+          return (
+            <div key={index} onMouseEnter={() => setDisplay(true)} onMouseLeave={() => setDisplay(false)}>
+              <div style={{...divStyle, 'backgroundImage': `url(../images/${slideImage.src})`}}>
+                <button onClick={() => slideRef.current?.goBack()} type="button"
+                        style={{...spanStyle, ...(display ? {} : {display: 'none'}), ...{marginRight: 'auto'}}}>
+                  &lt;
+                </button>
+                <span
+                  style={{...spanStyle, ...(display ? {} : {display: 'none'}), ...{marginTop: 'auto'}}}>{slideImage.caption}</span>
+                <button onClick={() => slideRef.current?.goNext()} type="button"
+                        style={{...spanStyle, ...displayStyle, ...{marginLeft: 'auto'}}}>
+                  &gt;
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </Slide>
-
-      <div style={buttonBarStyling}>
-        <button onClick={() => slideRef.current?.goBack()} type="button" style={buttonStyle}>
-          Go Back
-        </button>
-        <button onClick={() => slideRef.current?.goNext()} type="button" style={buttonStyle}>
-          Go Next
-        </button>
-      </div>
     </div>
   )
 }
 
 const spanStyle = {
   padding: '20px',
-  marginTop: 'auto',
   background: '#efefef',
-  color: '#000000'
+  color: '#000000',
+  border: '0'
 }
 
 const divStyle = {
@@ -80,29 +83,4 @@ const divStyle = {
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   height: '800px'
-}
-
-const buttonBarStyling = {
-  display: 'flex',
-  justifyContent: 'space-between',
-  paddingTop: '0.5rem',
-}
-
-const buttonStyle = {
-  backgroundColor: "#1abc9c",
-  borderRadius: "8px",
-  borderStyle: "none",
-  color: "#FFFFFF",
-  cursor: "pointer",
-  display: "inline-block",
-  height: "40px",
-  lineHeight: "20px",
-  listStyle: "none",
-  margin: "0",
-  outline: "none",
-  padding: "10px 16px",
-  textDecoration: "none",
-  transition: "color 100ms",
-  verticalAlign: "baseline",
-  touchAction: "manipulation"
 }

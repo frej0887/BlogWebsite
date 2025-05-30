@@ -8,7 +8,7 @@ import {
 } from "../components/SingleProjectComponents.tsx";
 import {MyImageCarousel} from "../components/ImageCarousel.tsx";
 
-const Dinosaur = () => {
+export const Dinosaur = () => {
   return (
     <MyOuter>
       <MyHeader1>Dinosaur watering can</MyHeader1>
@@ -54,5 +54,3 @@ const Dinosaur = () => {
     </MyOuter>
   )
 }
-
-export default Dinosaur;

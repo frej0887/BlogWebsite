@@ -1,5 +1,7 @@
 import {createContext, type ReactNode} from "react";
-import Dinosaur from "./projects/Dinosaur.tsx";
+import {Dinosaur} from "./projects/Dinosaur.tsx";
+import {WatchStrap} from "./projects/WatchStrap.tsx";
+import {TableClock} from "./projects/TableClock.tsx";
 
 type layoutContext = {
   is_mobile: boolean;
@@ -20,14 +22,14 @@ const currentProjects = [{
   previewText: 'Dinosaurs are cool',
   previewImage: ''
 },{
-  project: <Dinosaur/>,
-  previewName: 'Dinosaur watering can2',
-  previewText: 'Dinosaurs are cool',
+  project: <WatchStrap/>,
+  previewName: 'Hand-made leather watchstrap',
+  previewText: '',
   previewImage: ''
 },{
-  project: <Dinosaur/>,
-  previewName: 'Dinosaur watering can3',
-  previewText: 'Dinosaurs are cool',
+  project: <TableClock/>,
+  previewName: 'Table clock',
+  previewText: '',
   previewImage: ''
 }];
 

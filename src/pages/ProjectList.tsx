@@ -1,12 +1,13 @@
-import projectOverview from './projects.json'
 import {Link} from "react-router-dom";
+import {useContext} from "react";
+import {ProjectContext} from "../contexts.tsx";
 
-export const Projects = () => {
+export const ProjectList = () => {
 
-  const projects = projectOverview.filter((object) => object.display )
-    .map(function (object) {
-    return <ProjectPreview id={object.id} name={object.name} path={object.path}/>;
-  })
+  const projectList = useContext(ProjectContext);
+  if (projectList == undefined || projectList.length == 0) return <p>No projects</p>
+
+  const projects = projectList.map((project, id) => ProjectPreview({name:project.previewName, id}))
 
   return (
     <>
@@ -21,7 +22,6 @@ export const Projects = () => {
 type ProjectPreview = {
   id: number,
   name: string,
-  path: string,
 }
 
 const ProjectPreview = ({name, id}: ProjectPreview) => {

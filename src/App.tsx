@@ -3,10 +3,10 @@ import {useMediaQuery} from 'react-responsive';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {Home} from "./pages/Home.tsx";
 import {Layout} from "./layout/layout.tsx";
-import {Projects} from "./pages/Projects.tsx";
+import {ProjectList} from "./pages/ProjectList.tsx";
 import {About} from "./pages/About.tsx";
 import {NoPage} from "./pages/NoPage.tsx";
-import {LayoutContext } from './contexts.tsx';
+import {LayoutContext} from './contexts.tsx';
 import {SingleProject} from "./pages/SingleProject.tsx";
 
 
@@ -18,18 +18,19 @@ function App() {
   const context = {is_mobile: !isLaptop};
   return (
     <LayoutContext.Provider value={context}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout/>}>
-            <Route index element={<Home/>}/>
-            <Route path="about" element={<About/>}/>
-            <Route path="projects" element={<Projects/>}/>
-            {/*<Route path="markdown/:projectId" element={<SingleProject/>}/>*/}
-            <Route path="projects/:projectId" Component={SingleProject}/>
-            <Route path="*" element={<NoPage/>}/>
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <LayoutContext.Provider value={context}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout/>}>
+              <Route index element={<Home/>}/>
+              <Route path="about" element={<About/>}/>
+              <Route path="projects" element={<ProjectList/>}/>
+              <Route path="projects/:projectId" Component={SingleProject}/>
+              <Route path="*" element={<NoPage/>}/>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </LayoutContext.Provider>
     </LayoutContext.Provider>
   )
 }

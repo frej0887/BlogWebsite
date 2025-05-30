@@ -1,64 +1,15 @@
-import { useParams } from "react-router-dom";
-import projectOverview from "./projects.json";
-import {type ImgHTMLAttributes, useEffect, useState} from "react";
-import ReactMarkdown from "react-markdown";
+
+import {useParams} from "react-router-dom";
+import {NoPage} from "./NoPage.tsx";
+import {useContext} from "react";
+import {ProjectContext} from "../contexts.tsx";
 
 export const SingleProject = () => {
-  const [post, setPost] = useState('');
   const { projectId } = useParams();
+  const projectList = useContext(ProjectContext);
 
-  useEffect(() => {
-    if (projectId === undefined) {
-      setPost('');
-      return;
-    }
+  if (projectId == undefined) return <NoPage/>
+  if (projectList == undefined || projectList.length < parseInt(projectId)) return <NoPage/>
 
-    const project = projectOverview.find(x => x.id === parseInt(projectId));
-    if (project === undefined) {
-      setPost('');
-      return;
-    }
-
-    const fileName = project.path;
-
-    // Fetch the Markdown file
-    fetch(fileName)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.text();
-      })
-      .then(text => {
-        if (!text) {
-          setPost('Sorry, this post is not available');
-        }
-        else if (text.startsWith('<!doctype html>')) {
-          setPost('Sorry, this post is not available');
-        }
-        else {
-          setPost(text);
-        }
-      })
-      .catch(err => {
-        console.log("FetchError: " + err);
-        setPost('Sorry, this post is not available');
-      });
-  }, [projectId]);
-
-  return (
-    <>
-      <ReactMarkdown
-        components={{
-          img: imgTransform
-        }}
-      >{post}</ReactMarkdown>
-    </>
-  );
-}
-
-const imgTransform = ({ src, alt }:  ImgHTMLAttributes<HTMLImageElement>) => {
-  return <div id={"image"}>
-    <img src={src} alt={alt} />
-  </div>
+  return projectList[parseInt(projectId)].project;
 }

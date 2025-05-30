@@ -3,7 +3,7 @@ import {
   MyHeader2,
   MyHeader3,
   MyImage,
-  MyLink,
+  MyLink, MyList, MyListItem,
   MyOuter,
   MyText
 } from "../components/SingleProjectComponents.tsx";
@@ -20,8 +20,11 @@ const Dinosaur = () => {
       <MyText>This is it after</MyText>
       <MyImage src={'../images/wateringcan_after.png'} alt={'The watering can after'}></MyImage>
       <MyHeader2>Materials</MyHeader2>
-      {/*<MyList></MyList>*/}
-
+      <MyList>
+        <MyListItem>Acrylic paint</MyListItem>
+        <MyListItem>Panduro Limitless Marker</MyListItem>
+        <MyListItem>Schjerning Art Acrylic Lacquer</MyListItem>
+      </MyList>
       <MyHeader2>How it was made</MyHeader2>
       <MyText>
         First I made a green base layer. But then I realised that it is hard to make the next fully layer cover the old

@@ -7,7 +7,7 @@ type layoutContext = {
 
 export const LayoutContext = createContext<layoutContext>({is_mobile: false});
 
-type ProjectMapType = {
+export type ProjectMapType = {
   project: ReactNode;
   previewName: string;
   previewText: string;

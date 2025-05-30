@@ -1,15 +1,15 @@
 import {Link} from "react-router-dom";
+import type {ProjectMapType} from "../contexts.tsx";
 
-type ProjectPreview = {
+type AddId = {
   id: number,
-  name: string,
 }
 
-export const ProjectPreview = ({name, id}: ProjectPreview) => {
+export const ProjectPreview = ({previewName, id}: ProjectMapType & AddId) => {
   return (
     <Link to={`/projects/${id}`}>
       <li key={id}>
-        <h2>{name}</h2>
+        <h2>{previewName}</h2>
       </li>
     </Link>
   )

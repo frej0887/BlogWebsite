@@ -2,11 +2,11 @@ import {
   MyHeader1,
   MyHeader2,
   MyHeader3,
-  MyImage, MyImageCarousel,
-  MyLink, MyList, MyListItem,
+  MyImage, MyLink, MyList, MyListItem,
   MyOuter,
   MyText
 } from "../components/SingleProjectComponents.tsx";
+import {MyImageCarousel} from "../components/ImageCarousel.tsx";
 
 const Dinosaur = () => {
   return (

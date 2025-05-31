@@ -26,7 +26,10 @@ export const MyImage = ({src, alt}: ImgProps) => {
   const theme = useContext(LayoutContext);
   return <div id={"image"}><img src={'../images/' + src} alt={alt} className={theme.is_mobile ? 'image-mobile' : 'image-desktop'}/></div>;
 }
-export const MyText = ({children}: Props) => <p>{children}</p>;
+export const MyText = ({children}: Props) => {
+  const theme = useContext(LayoutContext);
+  return (<p style={{textAlign: (theme.is_mobile ? 'left' : 'justify')}}>{children}</p>)
+};
 export const MyLink = ({href, children}: PropsWithChildren<AProps>) => <a href={href}>{' ' + children}</a>;
 export const MyOuter = ({children}: PropsWithChildren<Props>) => <>{children}</>;
 export const MyList = ({children}: ListProps) => <ul>{children}</ul>;

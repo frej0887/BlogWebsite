@@ -14,7 +14,7 @@ export const MyImageCarousel = ({slideImages}: ImageCarouselProps) => {
 
   const displayStyle = display ? {} : {display: 'none'};
   return (
-    <div className="slide-container">
+    <div style={{marginTop: '2rem'}}>
       <Slide ref={slideRef} transitionDuration={250}>
         {slideImages.map((slideImage, index) => {
           return (
@@ -24,8 +24,8 @@ export const MyImageCarousel = ({slideImages}: ImageCarouselProps) => {
                         style={{...spanStyle, ...(display ? {} : {display: 'none'}), ...{marginRight: 'auto'}}}>
                   &lt;
                 </button>
-                <span
-                  style={{...spanStyle, ...(display ? {} : {display: 'none'}), ...{marginTop: 'auto'}}}>{slideImage.caption}</span>
+                {slideImage.caption ? <span
+                  style={{...spanStyle, ...(display ? {} : {display: 'none'}), ...{marginTop: 'auto'}}}>{slideImage.caption}</span> : null}
                 <button onClick={() => slideRef.current?.goNext()} type="button"
                         style={{...spanStyle, ...displayStyle, ...{marginLeft: 'auto'}}}>
                   &gt;

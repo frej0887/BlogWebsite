@@ -1,5 +1,5 @@
-import {createRef, useState} from "react";
-import {Slide, type SlideshowRef} from "react-slideshow-image";
+import {useState} from "react";
+import {Slide} from "react-slideshow-image";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
 type ImageCarouselItem = {

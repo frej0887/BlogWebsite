@@ -16,9 +16,9 @@ export const Dinosaur = () => {
         <MyLink
           href={'https://www.imerco.dk/casa-living-vandkande-dinosaur-1-liter-plastik-groen?id=100433309'}>Imerco</MyLink>
       </MyText>
-      <MyImage src={'../images/wateringcan_before.png'} alt={'The watering can before'}></MyImage>
+      <MyImage src={'watering_can/wateringcan_before.png'} alt={'The watering can before'}></MyImage>
       <MyText>This is it after</MyText>
-      <MyImage src={'../images/wateringcan_after.jpg'} alt={'The watering can after'}></MyImage>
+      <MyImage src={'watering_can/wateringcan_after.jpg'} alt={'The watering can after'}></MyImage>
       <MyHeader2>Materials</MyHeader2>
       <MyList>
         <MyListItem>Acrylic paint</MyListItem>
@@ -50,7 +50,9 @@ export const Dinosaur = () => {
       <MyHeader2>My experience</MyHeader2>
       <MyText>The funny shape of the watering can it not the most practical, but the design is always a joy to look
         at.</MyText>
-      <MyImageCarousel slideImages={[{src:'wateringcan_before.png', caption:'One bland dinosaur-shaped watering can'}, {src:'wateringcan_after.jpg', caption:'yay'}]}/>
+      <MyImageCarousel slideImages={[
+        {src:'watering_can/wateringcan_before.png', caption:'One bland dinosaur-shaped watering can'},
+        {src:'watering_can/wateringcan_after.jpg', caption:'yay'}]}/>
     </MyOuter>
   )
 }

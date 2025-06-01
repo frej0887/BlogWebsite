@@ -1,6 +1,7 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {Slide} from "react-slideshow-image";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import {LayoutContext} from "../contexts.tsx";
 
 type ImageCarouselItem = {
   src: string;
@@ -11,10 +12,13 @@ type ImageCarouselProps = {
 }
 export const MyImageCarousel = ({slideImages}: ImageCarouselProps) => {
   const [display, setDisplay] = useState<boolean>();
+  const theme = useContext(LayoutContext);
 
   const displayStyle = display ? {} : {display: 'none'};
-  const nextArrow = <button type="button" style={{...hoverOnImageStyle, ...displayStyle, ...{marginLeft: 'auto'}}}><SlArrowRight/></button>;
-  const prevArrow = <button type="button" style={{...hoverOnImageStyle, ...displayStyle, ...{marginLeft: 'auto'}}}><SlArrowLeft/></button>;
+  const deviceStyle= theme.is_mobile ? {padding: '0.5rem'} : {padding: '1rem'};
+
+  const nextArrow = <button type="button" style={{...hoverOnImageStyle, ...deviceStyle, ...displayStyle, ...{marginLeft: 'auto'}}}><SlArrowRight/></button>;
+  const prevArrow = <button type="button" style={{...hoverOnImageStyle, ...deviceStyle, ...displayStyle, ...{marginLeft: 'auto'}}}><SlArrowLeft/></button>;
   return (
     <div style={{marginTop: '2rem'}} onMouseEnter={() => setDisplay(true)} onMouseLeave={() => setDisplay(false)}>
       <Slide transitionDuration={250} arrows={true} nextArrow={nextArrow} prevArrow={prevArrow} canSwipe={true}>
@@ -22,7 +26,7 @@ export const MyImageCarousel = ({slideImages}: ImageCarouselProps) => {
           return (
             <div key={index}>
               <div style={{...imageStyle, 'backgroundImage': `url(../images/${slideImage.src})`}}>
-                {slideImage.caption ? <span style={{...hoverOnImageStyle, ...displayStyle, ...{marginTop: 'auto'}}}>{slideImage.caption}</span> : null}
+                {slideImage.caption ? <span style={{...hoverOnImageStyle, ...deviceStyle, ...displayStyle, ...{marginTop: 'auto'}}}>{slideImage.caption}</span> : null}
               </div>
             </div>
           );
@@ -32,7 +36,6 @@ export const MyImageCarousel = ({slideImages}: ImageCarouselProps) => {
   )
 }
 const hoverOnImageStyle = {
-  padding: '20px',
   background: '#efefef',
   color: '#000000',
   border: '0'
@@ -41,7 +44,9 @@ const imageStyle = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundSize: 'cover',
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
-  aspectRatio: '4/3',
+  // width: 'auto',
+  aspectRatio: '3/2',
 }

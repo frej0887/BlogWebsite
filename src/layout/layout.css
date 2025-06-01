@@ -67,6 +67,10 @@ h2, h3 {
   margin-bottom: 0.5rem;
 }
 
+.content > h1 {
+  font-size: 2.4rem;
+}
+
 h2 {
   font-size: 1.9rem;
 }

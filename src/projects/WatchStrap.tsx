@@ -109,9 +109,11 @@ export const WatchStrap = () => {
         would get a tool for making the edge nicer, and remember to measure before making holes for sewing.
       </MyText>
       <MyImageCarousel slideImages={[
-        {src: 'watchstrap/watchstrap.png', caption: 'The watchstrap'},
+        {src: 'watchstrap/watchstrap.png', caption: ''},
+        {src: 'watchstrap/full.png', caption: ''},
         {src: 'watchstrap/buckle_side.png', caption: 'The buckle side'},
-        {src: 'watchstrap/point_side.png', caption: 'The point side'},]}/>
+        {src: 'watchstrap/point_side.png', caption: 'The point side'},
+      ]}/>
     </MyOuter>
   )
 }

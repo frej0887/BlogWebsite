@@ -4,4 +4,6 @@
   - [ ] px to rem
   - [ ] Widescreen
   - [ ] Text size
-- [ ] Icons
+  - [ ] Even fucking smaller images!
+- [x] Icons
+- [ ] Title and icon 

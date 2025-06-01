@@ -20,6 +20,7 @@ header {
   text-align: center;
   background: #1abc9c;
   font-size: 30px;
+  user-select: none;
 }
 
 .menu-box {

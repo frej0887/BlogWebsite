@@ -15,6 +15,6 @@ export const currentProjects = [{
 },{
   project: <TableClock/>,
   previewName: 'Table clock',
-  previewText: '',
+  previewText: 'Upcoming...',
   previewImage: ''
 }];

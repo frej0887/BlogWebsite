@@ -34,4 +34,4 @@ export const MyLink = ({href, children}: PropsWithChildren<AProps>) => <a href={
 export const MyOuter = ({children}: PropsWithChildren<Props>) => <>{children}</>;
 export const MyList = ({children}: ListProps) => <ul>{children}</ul>;
 export const MyListItem = ({children}: Props) => <li>{children}</li>
-
+export const MyEmail = ({href, children}: PropsWithChildren<AProps>) => <a href={'mailto:' + href}>{' ' + children}</a>;

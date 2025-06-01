@@ -55,8 +55,8 @@ export const Dinosaur = () => {
         {src:'watering_can/front2.png', caption:''},
         {src:'watering_can/left.png', caption:''},
         {src:'watering_can/right.png', caption:''},
-        {src:'watering_can/eater_of_worlds.png', caption:''},
         {src:'watering_can/wateringcan_before.png', caption:'The old and bland dinosaur-shaped watering can'},
+        {src:'watering_can/eater_of_worlds.png', caption:''},
       ]}/>
     </MyOuter>
   )

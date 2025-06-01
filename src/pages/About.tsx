@@ -8,7 +8,6 @@ export const About = () => {
 
   return (
     <MyOuter>
-      <title>Yo</title>
       <MyHeader1>About me</MyHeader1>
       <MyText>
         Please contact me at:

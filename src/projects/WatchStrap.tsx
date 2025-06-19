@@ -20,7 +20,7 @@ export const WatchStrap = () => {
       </MyText>
       <MyImage src={'watchstrap/watchstrap.png'} alt={'My new leather strap'}></MyImage>
       <MyText>
-        There exists a lot of tools for leatherwork, but I decided to try to create this strap while buying as little
+        There exists a lot of tools for leatherwork, but I decided to try to create this strap while buying as few
         tools as possible.
       </MyText>
       <MyHeader2>Materials</MyHeader2>

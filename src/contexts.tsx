@@ -14,5 +14,4 @@ export type ProjectMapType = {
   previewImage: string|null;
 }
 
-
 export const ProjectContext = createContext<ProjectMapType[]>(currentProjects)

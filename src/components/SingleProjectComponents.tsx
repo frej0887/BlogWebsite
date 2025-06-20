@@ -30,8 +30,8 @@ export const MyText = ({children}: Props) => {
   const theme = useContext(LayoutContext);
   return (<p style={{textAlign: (theme.is_mobile ? 'left' : 'justify')}}>{children}</p>)
 };
-export const MyLink = ({href, children}: PropsWithChildren<AProps>) => <a href={href}>{' ' + children}</a>;
+export const MyLink = ({href, children}: PropsWithChildren<AProps>) => <a href={href}> {children}</a>;
 export const MyOuter = ({children}: PropsWithChildren<Props>) => <>{children}</>;
 export const MyList = ({children}: ListProps) => <ul>{children}</ul>;
 export const MyListItem = ({children}: Props) => <li>{children}</li>
-export const MyEmail = ({href, children}: PropsWithChildren<AProps>) => <a href={'mailto:' + href}>{' ' + children}</a>;
+export const MyEmail = ({href, children}: PropsWithChildren<AProps>) => <a href={'mailto:' + href}> {children}</a>;

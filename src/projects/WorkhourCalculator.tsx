@@ -23,11 +23,11 @@ const WeekdayContext = createContext<WeekdayType>(weekdayType);
 
 
 export const WorkhourCalculator = () => {
-  const [usedWeekdays, setUsedWeekdays] = useState<boolean[]>([true, true, true, true, true, false, false]);
+  const [usedWeekdays, setUsedWeekdays] = useState([true, true, true, true, true, false, false]);
   const toggleWeekdayVisibility = useCallback((weekday: number) =>
-    setUsedWeekdays(m => m.map((value, i) => i !== weekday ? value : !value)),
+      setUsedWeekdays(m => m.map((value, i) => i !== weekday ? value : !value)),
     [])
-  
+
 
   return (
     <div>
@@ -39,8 +39,6 @@ export const WorkhourCalculator = () => {
     </div>
   )
 }
-
-
 
 
 const TimeField = (i: number) => {

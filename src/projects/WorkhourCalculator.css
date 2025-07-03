@@ -1,0 +1,16 @@
+.field {
+    width: 8rem;
+    height: 1rem;
+    font-size: 0.8rem;
+    cursor: cell;
+}
+
+.tableHeader, .tableHeader *{
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+}
+
+.timeField {
+    user-select: none;
+}

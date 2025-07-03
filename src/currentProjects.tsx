@@ -1,6 +1,7 @@
 import {Dinosaur} from "./projects/Dinosaur.tsx";
 import {WatchStrap} from "./projects/WatchStrap.tsx";
 import {TableClock} from "./projects/TableClock.tsx";
+import { WorkhourCalculator } from "./projects/WorkhourCalculator.tsx";
 
 export const currentProjects = [{
   project: <Dinosaur/>,
@@ -17,4 +18,10 @@ export const currentProjects = [{
   previewName: 'Table clock',
   previewText: 'Upcoming...',
   previewImage: ''
-}];
+},{
+  project: <WorkhourCalculator/>,
+  previewName: 'Workhour Calculator',
+  previewText: 'Upcoming...',
+  previewImage: ''
+}
+];

@@ -20,6 +20,7 @@ export const WorkhourCalculator = () => {
       return [...Array(7).keys()].map(() => {return baseCell})
     })
   );
+  const [selection, setSelection] = useState<Selection|null>(null);
 
   const changeOneCell = useCallback((rowId: number, colId: number, value: string) => {
     setData(
@@ -32,16 +33,29 @@ export const WorkhourCalculator = () => {
   }, []);
 
   const onSelect = (selected: Selection)=> {
-    const startLoc = selected.toRange(data)?.start;
-    if (!startLoc) return;
-    console.log(startLoc);
-    changeOneCell(startLoc.row, startLoc.column, "Hello")
-    // const endLoc = selected.toRange(data)?.end;
+    setSelection(selected);
+    console.log(selected);
   }
-  return <Spreadsheet
+
+  const onMouseUp = () => {
+    if (!selection) return;
+    const pointRange = selection.toRange(data);
+    const startLoc = pointRange?.start;
+    const endLoc = pointRange?.end;
+    if (!startLoc || !endLoc) return;
+    for (let rowNumber = startLoc.row; rowNumber <= endLoc.row; rowNumber++) {
+      for (let columnNumber = startLoc.column; columnNumber <= endLoc.column; columnNumber++) {
+        changeOneCell(rowNumber, columnNumber, "Hello")
+      }
+    }
+  }
+
+  return <div onMouseUp={onMouseUp}><Spreadsheet
     data={data}
     columnLabels={columnLabels}
     rowLabels={rowLabels}
     onSelect={onSelect}
-  />;
+  /></div>;
 }
+
+// TODO: Fix row/column selection

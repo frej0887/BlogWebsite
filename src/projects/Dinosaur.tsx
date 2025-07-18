@@ -1,17 +1,16 @@
 import {
-  MyHeader1,
   MyHeader2,
   MyHeader3,
   MyImage, MyLink, MyList, MyListItem,
   MyOuter,
-  MyText
+  MyText, MyProjectTitle
 } from "../components/SingleProjectComponents.tsx";
 import {MyImageCarousel} from "../components/ImageCarousel.tsx";
 
 export const Dinosaur = () => {
   return (
     <MyOuter>
-      <MyHeader1>Dinosaur watering can</MyHeader1>
+      <MyProjectTitle date={new Date('2025-01')}>Dinosaur watering can</MyProjectTitle>
       <MyText>This is the watering can before, bought at
         <MyLink
           href={'https://www.imerco.dk/casa-living-vandkande-dinosaur-1-liter-plastik-groen?id=100433309'}>Imerco</MyLink>

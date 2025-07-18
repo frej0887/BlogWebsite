@@ -19,8 +19,9 @@ export const MyImageCarousel = ({slideImages}: ImageCarouselProps) => {
 
   const nextArrow = <button type="button" style={{...hoverOnImageStyle, ...deviceStyle, ...displayStyle, ...{marginLeft: 'auto'}}}><SlArrowRight/></button>;
   const prevArrow = <button type="button" style={{...hoverOnImageStyle, ...deviceStyle, ...displayStyle, ...{marginLeft: 'auto'}}}><SlArrowLeft/></button>;
+  const beneathSpacing = theme.is_mobile ? {marginBottom: "10rem"} : {marginBottom: "5rem"};
   return (
-    <div style={{marginTop: '2rem'}} onMouseEnter={() => setDisplay(true)} onMouseLeave={() => setDisplay(false)}>
+    <div style={{...{marginTop: '2rem'}, ...beneathSpacing}} onMouseEnter={() => setDisplay(true)} onMouseLeave={() => setDisplay(false)}>
       <Slide transitionDuration={250} arrows={true} nextArrow={nextArrow} prevArrow={prevArrow} canSwipe={true}>
         {slideImages.map((slideImage, index) => {
           return (

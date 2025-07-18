@@ -6,12 +6,12 @@ export const currentProjects = [{
   project: <Dinosaur/>,
   previewName: 'Dinosaur watering can',
   previewText: 'A storebought dinosaur shaped watering can painted to look better.',
-  previewImage: 'images/watering_can/left.png'
+  previewImage: 'images/watering_can/left.jpg'
 },{
   project: <WatchStrap/>,
   previewName: 'Leather watchstrap',
   previewText: 'Leather watchstrap to replace an old broken one',
-  previewImage: 'images/watchstrap/watchstrap.png'
+  previewImage: 'images/watchstrap/watchstrap.jpg'
 },{
   project: <TableClock/>,
   previewName: 'Table clock',

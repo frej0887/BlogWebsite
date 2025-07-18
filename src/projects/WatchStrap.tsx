@@ -18,7 +18,7 @@ export const WatchStrap = () => {
       <MyText>
         My old watchstrap was breaking, so I decided to create a new one
       </MyText>
-      <MyImage src={'watchstrap/watchstrap.jpg'} alt={'My new leather strap'}></MyImage>
+      <MyImage src={'watchstrap/watchstrap.png'} alt={'My new leather strap'}></MyImage>
       <MyText>
         There exists a lot of tools for leatherwork, but I decided to try to create this strap while buying as few
         tools as possible.
@@ -109,10 +109,10 @@ export const WatchStrap = () => {
         would get a tool for making the edge nicer, and remember to measure before making holes for sewing.
       </MyText>
       <MyImageCarousel slideImages={[
-        {src: 'watchstrap/watchstrap.jpg', caption: ''},
-        {src: 'watchstrap/full.jpg', caption: ''},
-        {src: 'watchstrap/buckle_side.jpg', caption: 'The buckle side'},
-        {src: 'watchstrap/point_side.jpg', caption: 'The point side'},
+        {src: 'watchstrap/watchstrap.png', caption: ''},
+        {src: 'watchstrap/full.png', caption: ''},
+        {src: 'watchstrap/buckle_side.png', caption: 'The buckle side'},
+        {src: 'watchstrap/point_side.png', caption: 'The point side'},
       ]}/>
     </MyOuter>
   )

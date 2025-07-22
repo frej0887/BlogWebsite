@@ -1,7 +1,7 @@
 import {useCallback, useState} from "react";
 import './workhourCalculator/WorkhourCalculator.css';
 import {TimeFieldColumn} from "./workhourCalculator/TimeFieldColumn.tsx";
-import {FieldColumn} from "./workhourCalculator/Field.tsx";
+import {FieldColumn} from "./workhourCalculator/FieldColumn.tsx";
 import {WeekdayContext, WeekdayContextDispatch} from "./workhourCalculator/contexts.tsx";
 
 const ALL_WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];

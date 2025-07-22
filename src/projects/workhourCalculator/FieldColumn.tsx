@@ -11,8 +11,8 @@ const Field = (time: number, weekday: number) => {
   }
 
   const onMouseUp = () => {
-    weekdayContextDispatch.setSelectedEnd(undefined);
-    weekdayContextDispatch.setSelectedStart(undefined);
+    weekdayContextDispatch.clearSelectedStart();
+    weekdayContextDispatch.clearSelectedEnd();
   }
 
   const onMouseDown = () => {
@@ -23,7 +23,6 @@ const Field = (time: number, weekday: number) => {
     if (!selectedStart)
       return;
     weekdayContextDispatch.setSelectedEnd({time: time, day: weekday});
-    console.log(weekdayContextDispatch);
   }
 
   const selectedStart = weekdayContext.selectedStart;

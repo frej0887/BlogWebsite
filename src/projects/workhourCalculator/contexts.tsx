@@ -4,6 +4,8 @@ import type {WeekdayType, WeekdayTypeSet} from "./types.tsx";
 const weekdayTypeSet: WeekdayTypeSet = {
   toggleWeekdayVisibility: () => null,
   setSelectedStart: () => null,
+  clearSelectedStart: () => null,
+  clearSelectedEnd: () => null,
   setSelectedEnd: () => null,
 }
 const weekdayType: WeekdayType = {

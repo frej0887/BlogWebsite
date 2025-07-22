@@ -15,11 +15,13 @@ export const WorkhourCalculator = () => {
   const toggleWeekdayVisibility = useCallback((weekday: number) =>
       setUsedWeekdays(m => m.map((value, i) => i !== weekday ? value : !value)),
     [])
+  const clearSelectedStart = useCallback(() => setSelectedStart(undefined), [setSelectedStart]);
+  const clearSelectedEnd = useCallback(() => setSelectedEnd(undefined), [setSelectedEnd]);
 
   return (
     <div>
       <WeekdayContext value={{usedWeekdays, selectedStart, selectedEnd}}>
-        <WeekdayContextDispatch value={{toggleWeekdayVisibility, setSelectedStart, setSelectedEnd}}>
+        <WeekdayContextDispatch value={{toggleWeekdayVisibility, setSelectedStart, setSelectedEnd, clearSelectedStart, clearSelectedEnd}}>
           <Table/>
         </WeekdayContextDispatch>
       </WeekdayContext>

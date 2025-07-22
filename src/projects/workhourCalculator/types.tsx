@@ -5,8 +5,10 @@ export type Point = {
 
 export type WeekdayTypeSet = {
   toggleWeekdayVisibility: (weekday: number) => void,
-  setSelectedStart: (start: Point|undefined) => void,
-  setSelectedEnd: (end: Point|undefined) => void,
+  setSelectedStart: (start: Point) => void,
+  setSelectedEnd: (end: Point) => void,
+  clearSelectedStart: () => void,
+  clearSelectedEnd: () => void,
 }
 export type WeekdayType = {
   usedWeekdays: boolean[],

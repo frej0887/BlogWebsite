@@ -1,5 +1,5 @@
 import {
-  MyHeader1,
+  MyProjectTitle,
   MyHeader2, MyHeader3,
   MyImage,
   MyList,
@@ -14,7 +14,7 @@ export const WatchStrap = () => {
 
   return (
     <MyOuter>
-      <MyHeader1>Leather watchstrap</MyHeader1>
+      <MyProjectTitle date={new Date('2025-03')}>Leather watchstrap</MyProjectTitle>
       <MyText>
         My old watchstrap was breaking, so I decided to create a new one
       </MyText>

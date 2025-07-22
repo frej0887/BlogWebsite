@@ -19,7 +19,15 @@ type ListProps = {
   children: ReactNode;
 }
 
+type DateProps = {
+  date: Date
+}
+
 export const MyHeader1 = ({children}: Props) => <h1>{children}</h1>;
+export const MyProjectTitle = ({date, children}: PropsWithChildren<DateProps>) => <div style={{marginBottom: '1rem'}}>
+  <h1>{children}</h1>
+  <i>{date.toLocaleString('default', { month: 'long' }) + " " + date.getFullYear().toString()}</i>
+</div>;
 export const MyHeader2 = ({children}: Props) => <h2>{children}</h2>;
 export const MyHeader3 = ({children}: Props) => <h3>{children}</h3>;
 export const MyImage = ({src, alt}: ImgProps) => {

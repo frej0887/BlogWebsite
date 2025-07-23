@@ -7,11 +7,13 @@ const weekdayTypeSet: WeekdayTypeSet = {
   clearSelectedStart: () => null,
   clearSelectedEnd: () => null,
   setSelectedEnd: () => null,
+  setSelectedSetting: () => null,
 }
 const weekdayType: WeekdayType = {
   usedWeekdays: [true, true, true, true, true, false, false],
   selectedStart: undefined,
   selectedEnd: undefined,
+  selectedSetting: undefined,
 }
 export const WeekdayContextDispatch = createContext<WeekdayTypeSet>(weekdayTypeSet);
 export const WeekdayContext = createContext<WeekdayType>(weekdayType);

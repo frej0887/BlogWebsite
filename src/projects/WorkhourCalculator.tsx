@@ -3,7 +3,8 @@ import './workhourCalculator/WorkhourCalculator.css';
 import {TimeFieldColumn} from "./workhourCalculator/TimeFieldColumn.tsx";
 import {FieldColumn} from "./workhourCalculator/FieldColumn.tsx";
 import {WeekdayContext, WeekdayContextDispatch} from "./workhourCalculator/contexts.tsx";
-import type {Point} from "./workhourCalculator/types.tsx";
+import {CurrentUserSetting, type Point} from "./workhourCalculator/types.tsx";
+import {UserSettings} from "./workhourCalculator/UserSettings.tsx";
 
 const ALL_WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -17,11 +18,13 @@ export const WorkhourCalculator = () => {
     [])
   const clearSelectedStart = useCallback(() => setSelectedStart(undefined), [setSelectedStart]);
   const clearSelectedEnd = useCallback(() => setSelectedEnd(undefined), [setSelectedEnd]);
+  const [selectedSetting, setSelectedSetting] = useState<CurrentUserSetting|undefined>();
 
   return (
     <div>
-      <WeekdayContext value={{usedWeekdays, selectedStart, selectedEnd}}>
-        <WeekdayContextDispatch value={{toggleWeekdayVisibility, setSelectedStart, setSelectedEnd, clearSelectedStart, clearSelectedEnd}}>
+      <WeekdayContext value={{usedWeekdays, selectedStart, selectedEnd, selectedSetting}}>
+        <WeekdayContextDispatch value={{toggleWeekdayVisibility, setSelectedStart, setSelectedEnd, clearSelectedStart, clearSelectedEnd, setSelectedSetting}}>
+          <UserSettings/>
           <Table/>
         </WeekdayContextDispatch>
       </WeekdayContext>
@@ -40,7 +43,7 @@ const Table = () => {
 }
 
 /*
-
-
-
+- Hard deadlines Sleep etc. - same col as sat+sun - weekly
+- weekly plz no
+- this week
  */

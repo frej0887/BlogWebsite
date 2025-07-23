@@ -10,16 +10,19 @@ const Field = (time: number, weekday: number) => {
     )
   }
 
-  const onMouseUp = () => {
+  const onMouseUp = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.preventDefault();
     weekdayContextDispatch.clearSelectedStart();
     weekdayContextDispatch.clearSelectedEnd();
   }
 
-  const onMouseDown = () => {
+  const onMouseDown = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.preventDefault();
     weekdayContextDispatch.setSelectedStart({time: time, day: weekday});
   }
 
-  const onMouseMove = () => {
+  const onMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.preventDefault();
     if (!selectedStart)
       return;
     weekdayContextDispatch.setSelectedEnd({time: time, day: weekday});

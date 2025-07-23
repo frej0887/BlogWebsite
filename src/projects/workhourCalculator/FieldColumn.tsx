@@ -40,9 +40,9 @@ const Field = (time: number, weekday: number) => {
           key={time}
           className={'field'}
           style={{background: '#bbbbbb'}}
-          onMouseUp={onMouseUp}
-          onMouseDown={onMouseDown}
-          onMouseMove={onMouseMove}
+          onMouseUp={event => onMouseUp(event)}
+          onMouseDown={event => onMouseDown(event)}
+          onMouseMove={event => onMouseMove(event)}
         />
       )
     }

@@ -1,7 +1,7 @@
 import {createContext} from "react";
-import type {WeekdayType, WeekdayTypeSet} from "./types.tsx";
+import type {WeekdayType, WeekdayTypeDispatch} from "./types.tsx";
 
-const weekdayTypeSet: WeekdayTypeSet = {
+const weekdayTypeSet: WeekdayTypeDispatch = {
   toggleWeekdayVisibility: () => null,
   setSelectedStart: () => null,
   clearSelectedStart: () => null,
@@ -9,6 +9,9 @@ const weekdayTypeSet: WeekdayTypeSet = {
   setSelectedEnd: () => null,
   setSelectedSetting: () => null,
   clearSelectedSetting: () => null,
+  getRules: () => [],
+  addToRules: () => null,
+  removeFromRules: () => null,
 }
 const weekdayType: WeekdayType = {
   usedWeekdays: [true, true, true, true, true, false, false],
@@ -16,5 +19,5 @@ const weekdayType: WeekdayType = {
   selectedEnd: undefined,
   selectedSetting: undefined,
 }
-export const WeekdayContextDispatch = createContext<WeekdayTypeSet>(weekdayTypeSet);
+export const WeekdayContextDispatch = createContext<WeekdayTypeDispatch>(weekdayTypeSet);
 export const WeekdayContext = createContext<WeekdayType>(weekdayType);

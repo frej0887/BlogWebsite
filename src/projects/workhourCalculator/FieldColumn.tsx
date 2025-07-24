@@ -1,5 +1,6 @@
 import {useContext} from "react";
 import {WeekdayContext, WeekdayContextDispatch} from "./contexts.tsx";
+import * as React from "react";
 
 const Field = (time: number, weekday: number) => {
   const weekdayContext = useContext(WeekdayContext);
@@ -12,6 +13,9 @@ const Field = (time: number, weekday: number) => {
 
   const onMouseUp = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault();
+    if (weekdayContext.selectedSetting != undefined && selectedStart) {
+      weekdayContextDispatch.addToRules(weekdayContext.selectedSetting, [selectedStart])
+    }
     weekdayContextDispatch.clearSelectedStart();
     weekdayContextDispatch.clearSelectedEnd();
   }

@@ -9,7 +9,7 @@ export enum CurrentUserSetting {
   YesThis,
   NoThis,
 }
-export type WeekdayTypeSet = {
+export type WeekdayTypeDispatch = {
   toggleWeekdayVisibility: (weekday: number) => void,
   setSelectedStart: (start: Point) => void,
   setSelectedEnd: (end: Point) => void,
@@ -17,10 +17,13 @@ export type WeekdayTypeSet = {
   clearSelectedEnd: () => void,
   setSelectedSetting: (userSetting: CurrentUserSetting) => void,
   clearSelectedSetting: () => void,
+  removeFromRules: (userSetting: CurrentUserSetting, points: Point[]) => void,
+  addToRules: (userSetting: CurrentUserSetting, points: Point[]) => void,
+  getRules: (userSetting: CurrentUserSetting) => Point[],
 }
 export type WeekdayType = {
   usedWeekdays: boolean[],
   selectedStart?: Point,
   selectedEnd?: Point,
-  selectedSetting?: CurrentUserSetting
+  selectedSetting?: CurrentUserSetting,
 }

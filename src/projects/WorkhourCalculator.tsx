@@ -11,20 +11,50 @@ const ALL_WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "S
 
 export const WorkhourCalculator = () => {
   const [usedWeekdays, setUsedWeekdays] = useState([true, true, true, true, true, false, false]);
-  const [selectedStart, setSelectedStart] = useState<Point|undefined>();
-  const [selectedEnd, setSelectedEnd] = useState<Point|undefined>();
+  const [selectedStart, setSelectedStart] = useState<Point | undefined>();
+  const [selectedEnd, setSelectedEnd] = useState<Point | undefined>();
   const toggleWeekdayVisibility = useCallback((weekday: number) =>
       setUsedWeekdays(m => m.map((value, i) => i !== weekday ? value : !value)),
     [])
   const clearSelectedStart = useCallback(() => setSelectedStart(undefined), [setSelectedStart]);
   const clearSelectedEnd = useCallback(() => setSelectedEnd(undefined), [setSelectedEnd]);
-  const [selectedSetting, setSelectedSetting] = useState<CurrentUserSetting|undefined>();
+  const [selectedSetting, setSelectedSetting] = useState<CurrentUserSetting | undefined>();
   const clearSelectedSetting = useCallback(() => setSelectedSetting(undefined), [setSelectedSetting]);
+  const [rules, setRules] = useState(new Map<string, Point[]>(new Map(Object.values(CurrentUserSetting).filter((key) => typeof key == "string").map((textKey) => [textKey.toString(), []]))));
+  const addToRules = useCallback((userSetting: CurrentUserSetting, points: Point[]) => {
+    if (points.length === 0) return;
+    const updatableRules = rules;
+    points.forEach(point => (updatableRules.get(CurrentUserSetting[userSetting].toString()) || []).push(point));
+    setRules(updatableRules);
+  }, [rules]);
+  const removeFromRules = useCallback((userSetting: CurrentUserSetting, points: Point[]) => {
+    if (points.length === 0) return;
+    const updatableRules = rules;
+    points.forEach(point => (updatableRules.get(CurrentUserSetting[userSetting].toString()) || []).filter((thisPoint: Point) => thisPoint !== point));
+    setRules(updatableRules);
+  }, [rules]);
+  const getRules = useCallback((userSetting: CurrentUserSetting) => {
+    const points = rules.get(CurrentUserSetting[userSetting].toString());
+    if (!points || !points.length) return [];
+    return points;
+  }, [rules]);
+
 
   return (
     <div>
       <WeekdayContext value={{usedWeekdays, selectedStart, selectedEnd, selectedSetting}}>
-        <WeekdayContextDispatch value={{toggleWeekdayVisibility, setSelectedStart, setSelectedEnd, clearSelectedStart, clearSelectedEnd, setSelectedSetting, clearSelectedSetting}}>
+        <WeekdayContextDispatch value={{
+          toggleWeekdayVisibility,
+          setSelectedStart,
+          setSelectedEnd,
+          clearSelectedStart,
+          clearSelectedEnd,
+          setSelectedSetting,
+          clearSelectedSetting,
+          getRules,
+          addToRules,
+          removeFromRules,
+        }}>
           <UserSettings/>
           <Table/>
         </WeekdayContextDispatch>

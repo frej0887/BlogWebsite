@@ -19,11 +19,12 @@ export const WorkhourCalculator = () => {
   const clearSelectedStart = useCallback(() => setSelectedStart(undefined), [setSelectedStart]);
   const clearSelectedEnd = useCallback(() => setSelectedEnd(undefined), [setSelectedEnd]);
   const [selectedSetting, setSelectedSetting] = useState<CurrentUserSetting|undefined>();
+  const clearSelectedSetting = useCallback(() => setSelectedSetting(undefined), [setSelectedSetting]);
 
   return (
     <div>
       <WeekdayContext value={{usedWeekdays, selectedStart, selectedEnd, selectedSetting}}>
-        <WeekdayContextDispatch value={{toggleWeekdayVisibility, setSelectedStart, setSelectedEnd, clearSelectedStart, clearSelectedEnd, setSelectedSetting}}>
+        <WeekdayContextDispatch value={{toggleWeekdayVisibility, setSelectedStart, setSelectedEnd, clearSelectedStart, clearSelectedEnd, setSelectedSetting, clearSelectedSetting}}>
           <UserSettings/>
           <Table/>
         </WeekdayContextDispatch>

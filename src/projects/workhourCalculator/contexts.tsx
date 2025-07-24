@@ -8,6 +8,7 @@ const weekdayTypeSet: WeekdayTypeSet = {
   clearSelectedEnd: () => null,
   setSelectedEnd: () => null,
   setSelectedSetting: () => null,
+  clearSelectedSetting: () => null,
 }
 const weekdayType: WeekdayType = {
   usedWeekdays: [true, true, true, true, true, false, false],

@@ -17,12 +17,12 @@ export const UserSettings = () => {
         <div>Weekly</div>
         <button
           style={selectedStyle(CurrentUserSetting.NoWeekly)}
-          onClick={() => weekdayContextDispatch.setSelectedSetting(CurrentUserSetting.NoWeekly)}>
+          onClick={() => weekdayContext.selectedSetting == CurrentUserSetting.NoWeekly ? weekdayContextDispatch.clearSelectedSetting() : weekdayContextDispatch.setSelectedSetting(CurrentUserSetting.NoWeekly)}>
           Hard no
         </button>
         <button
           style={selectedStyle(CurrentUserSetting.MaybeWeekly)}
-          onClick={() => weekdayContextDispatch.setSelectedSetting(CurrentUserSetting.MaybeWeekly)}>
+          onClick={() => weekdayContext.selectedSetting == CurrentUserSetting.MaybeWeekly ? weekdayContextDispatch.clearSelectedSetting() : weekdayContextDispatch.setSelectedSetting(CurrentUserSetting.MaybeWeekly)}>
           Meh
         </button>
       </div>
@@ -30,12 +30,12 @@ export const UserSettings = () => {
         <div>This week</div>
         <button
           style={selectedStyle(CurrentUserSetting.YesThis)}
-          onClick={() => weekdayContextDispatch.setSelectedSetting(CurrentUserSetting.YesThis)}>
+          onClick={() => weekdayContext.selectedSetting == CurrentUserSetting.YesThis ? weekdayContextDispatch.clearSelectedSetting() : weekdayContextDispatch.setSelectedSetting(CurrentUserSetting.YesThis)}>
           Yes
         </button>
         <button
           style={selectedStyle(CurrentUserSetting.NoThis)}
-          onClick={() => weekdayContextDispatch.setSelectedSetting(CurrentUserSetting.NoThis)}>
+          onClick={() => weekdayContext.selectedSetting == CurrentUserSetting.NoThis ? weekdayContextDispatch.clearSelectedSetting() : weekdayContextDispatch.setSelectedSetting(CurrentUserSetting.NoThis)}>
           No
         </button>
       </div>

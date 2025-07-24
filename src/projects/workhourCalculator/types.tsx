@@ -16,6 +16,7 @@ export type WeekdayTypeSet = {
   clearSelectedStart: () => void,
   clearSelectedEnd: () => void,
   setSelectedSetting: (userSetting: CurrentUserSetting) => void,
+  clearSelectedSetting: () => void,
 }
 export type WeekdayType = {
   usedWeekdays: boolean[],

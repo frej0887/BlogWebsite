@@ -3,7 +3,7 @@ import './workhourCalculator/WorkhourCalculator.css';
 import {TimeFieldColumn} from "./workhourCalculator/TimeFieldColumn.tsx";
 import {FieldColumn} from "./workhourCalculator/FieldColumn.tsx";
 import {WeekdayContext, WeekdayContextDispatch} from "./workhourCalculator/contexts.tsx";
-import {CurrentUserSetting, type Point} from "./workhourCalculator/types.tsx";
+import {CurrentUserSetting, type Point, pointContains} from "./workhourCalculator/types.tsx";
 import {UserSettings} from "./workhourCalculator/UserSettings.tsx";
 
 const ALL_WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -21,11 +21,18 @@ export const WorkhourCalculator = () => {
   const [selectedSetting, setSelectedSetting] = useState<CurrentUserSetting | undefined>();
   const clearSelectedSetting = useCallback(() => setSelectedSetting(undefined), [setSelectedSetting]);
   const [rules, setRules] = useState(new Map<string, Point[]>(new Map(Object.values(CurrentUserSetting).filter((key) => typeof key == "string").map((textKey) => [textKey.toString(), []]))));
-  const addToRules = useCallback((userSetting: CurrentUserSetting, points: Point[]) => {
-    if (points.length === 0) return;
+  const addToRules = useCallback((userSetting: CurrentUserSetting, pointsToAdd: Point[]) => {
+    if (pointsToAdd.length === 0) return;
     const updatableRules = rules;
-    points.forEach(point => (updatableRules.get(CurrentUserSetting[userSetting].toString()) || []).push(point));
+    const currentPoints = updatableRules.get(CurrentUserSetting[userSetting].toString());
+    if (currentPoints == undefined) return;
+    for (const point of pointsToAdd) {
+      if (pointContains(currentPoints, point)) break;
+      currentPoints.push(point);
+    }
+    updatableRules.set(CurrentUserSetting[userSetting].toString(), currentPoints);
     setRules(updatableRules);
+    console.log(rules)
   }, [rules]);
   const removeFromRules = useCallback((userSetting: CurrentUserSetting, points: Point[]) => {
     if (points.length === 0) return;

@@ -3,6 +3,11 @@ export type Point = {
   day: number;
 }
 
+export const pointContains = (arr: Point[], val: Point) => {
+  const pointEquality = (element: Point) =>  val.day === element.day && val.time === element.time;
+  return arr.some(v => pointEquality(v));
+}
+
 export enum CurrentUserSetting {
   NoWeekly,
   MaybeWeekly,

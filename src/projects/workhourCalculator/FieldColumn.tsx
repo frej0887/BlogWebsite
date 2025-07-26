@@ -1,9 +1,10 @@
+import * as React from "react";
 import {useContext} from "react";
 import {WeekdayContext, WeekdayContextDispatch} from "./contexts.tsx";
-import * as React from "react";
-import {pointRangeToPointList} from "./tools.ts";
+import {getListWithRules, pointRangeToPointList} from "./tools.ts";
 
 const Field = (time: number, weekday: number) => {
+  const viridisColorscale = ['#fafa6e', '#9cdf7c', '#4abd8c', '#00968e'];
   const weekdayContext = useContext(WeekdayContext);
   const weekdayContextDispatch = useContext(WeekdayContextDispatch);
   if (!weekdayContext.usedWeekdays[weekday]) {
@@ -37,29 +38,27 @@ const Field = (time: number, weekday: number) => {
   const selectedStart = weekdayContext.selectedStart;
   const selectedEnd = weekdayContext.selectedEnd;
 
-  if (selectedStart && selectedEnd) {
-    if ((selectedStart.time <= time && time <= selectedEnd.time || selectedEnd.time <= time && time <= selectedStart.time) &&
-      (selectedStart.day <= weekday && weekday <= selectedEnd.day || selectedEnd.day <= weekday && weekday <= selectedStart.day)) {
-      return (
-        <div
-          draggable={false}
-          key={time}
-          className={'field'}
-          style={{background: '#bbbbbb'}}
-          onMouseUp={event => onMouseUp(event)}
-          onMouseDown={event => onMouseDown(event)}
-          onMouseMove={event => onMouseMove(event)}
-        />
-      )
+  const fieldColor = () => {
+    // Current selection
+    if (selectedStart && selectedEnd) {
+      if ((selectedStart.time <= time && time <= selectedEnd.time || selectedEnd.time <= time && time <= selectedStart.time) &&
+        (selectedStart.day <= weekday && weekday <= selectedEnd.day || selectedEnd.day <= weekday && weekday <= selectedStart.day)) {
+        return '#bbbbbb'
+      }
     }
+    // Color based on
+    const userSetting = getListWithRules(weekdayContext.rules, {time: time, day: weekday});
+    if (userSetting) {
+      return userSetting.toString()
+    }
+    return viridisColorscale[time%4]
   }
 
-  const viridisColorscale = ['#fafa6e', '#9cdf7c', '#4abd8c', '#00968e'];
   return (
     <div
       key={time}
       className={'field'}
-      style={{background: viridisColorscale[time % 4]}}
+      style={{background: fieldColor()}}
       onMouseUp={onMouseUp}
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}

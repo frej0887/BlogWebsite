@@ -9,10 +9,10 @@ export const pointContains = (arr: Point[], val: Point) => {
 }
 
 export enum CurrentUserSetting {
-  NoWeekly,
-  MaybeWeekly,
-  YesThis,
-  NoThis,
+  NoWeekly = '#932F67',
+  MaybeWeekly = '#D92C54',
+  YesThis = '#DDDEAB',
+  NoThis = '#8ABB6C',
 }
 export type WeekdayTypeDispatch = {
   toggleWeekdayVisibility: (weekday: number) => void,
@@ -31,4 +31,5 @@ export type WeekdayType = {
   selectedStart?: Point,
   selectedEnd?: Point,
   selectedSetting?: CurrentUserSetting,
+  rules: Map<string, Point[]>
 }

@@ -3,8 +3,9 @@ import './workhourCalculator/WorkhourCalculator.css';
 import {TimeFieldColumn} from "./workhourCalculator/TimeFieldColumn.tsx";
 import {FieldColumn} from "./workhourCalculator/FieldColumn.tsx";
 import {WeekdayContext, WeekdayContextDispatch} from "./workhourCalculator/contexts.tsx";
-import {CurrentUserSetting, type Point, pointContains} from "./workhourCalculator/types.tsx";
+import {CurrentUserSetting, type Point} from "./workhourCalculator/types.tsx";
 import {UserSettings} from "./workhourCalculator/UserSettings.tsx";
+import {pointInList, userSettingToString} from "./workhourCalculator/tools.ts";
 
 const ALL_WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -21,27 +22,28 @@ export const WorkhourCalculator = () => {
   const [selectedSetting, setSelectedSetting] = useState<CurrentUserSetting | undefined>();
   const clearSelectedSetting = useCallback(() => setSelectedSetting(undefined), [setSelectedSetting]);
   const [rules, setRules] = useState(new Map<string, Point[]>(new Map(Object.values(CurrentUserSetting).filter((key) => typeof key == "string").map((textKey) => [textKey.toString(), []]))));
+
   const addToRules = useCallback((userSetting: CurrentUserSetting, pointsToAdd: Point[]) => {
     if (pointsToAdd.length === 0) return;
     const updatableRules = rules;
-    const currentPoints = updatableRules.get(CurrentUserSetting[userSetting].toString());
+    const currentPoints = updatableRules.get(userSettingToString(userSetting));
     if (currentPoints == undefined) return;
     for (const point of pointsToAdd) {
-      if (pointContains(currentPoints, point)) break;
+      if (pointInList(rules, userSetting, point)) continue;
       currentPoints.push(point);
     }
-    updatableRules.set(CurrentUserSetting[userSetting].toString(), currentPoints);
+    updatableRules.set(userSettingToString(userSetting), currentPoints);
     setRules(updatableRules);
-    console.log(rules)
   }, [rules]);
+
   const removeFromRules = useCallback((userSetting: CurrentUserSetting, points: Point[]) => {
     if (points.length === 0) return;
     const updatableRules = rules;
-    points.forEach(point => (updatableRules.get(CurrentUserSetting[userSetting].toString()) || []).filter((thisPoint: Point) => thisPoint !== point));
+    points.forEach(point => (updatableRules.get(userSettingToString(userSetting)) || []).filter((thisPoint: Point) => thisPoint !== point));
     setRules(updatableRules);
   }, [rules]);
   const getRules = useCallback((userSetting: CurrentUserSetting) => {
-    const points = rules.get(CurrentUserSetting[userSetting].toString());
+    const points = rules.get(userSettingToString(userSetting));
     if (!points || !points.length) return [];
     return points;
   }, [rules]);
@@ -49,7 +51,13 @@ export const WorkhourCalculator = () => {
 
   return (
     <div>
-      <WeekdayContext value={{usedWeekdays, selectedStart, selectedEnd, selectedSetting}}>
+      <WeekdayContext value={{
+        usedWeekdays,
+        selectedStart,
+        selectedEnd,
+        selectedSetting,
+        rules
+      }}>
         <WeekdayContextDispatch value={{
           toggleWeekdayVisibility,
           setSelectedStart,

@@ -1,15 +1,19 @@
 import {useContext} from "react";
 import {WeekdayContext, WeekdayContextDispatch} from "./contexts.tsx";
 import {CurrentUserSetting} from "./types.tsx";
+import {userSettingToString} from "./tools.ts";
 
 export const UserSettings = () => {
   const weekdayContext = useContext(WeekdayContext);
   const weekdayContextDispatch = useContext(WeekdayContextDispatch);
 
-  const activeStyle = {backgroundColor: "#1abc9c", border: 0, margin: "0.1rem", width: "10rem"};
-  const notActiveStyle = {backgroundColor: "black", border: 0, margin: "0.1rem", width: "10rem"};
-
-  const selectedStyle = (setting: CurrentUserSetting) => weekdayContext.selectedSetting == setting ? activeStyle : notActiveStyle;
+  const baseStyle = {border: 0, margin: "0.1rem", width: "10rem"};
+  const colorStyle = (currentSetting: CurrentUserSetting) => {
+    if (!currentSetting) return { backgroundColor: "black" }
+    return { backgroundColor: userSettingToString(currentSetting) }
+  }
+  const selectedStyle = (setting: CurrentUserSetting) =>
+    weekdayContext.selectedSetting == setting ? {...colorStyle(setting), ...baseStyle} : baseStyle;
 
   return (
     <div style={{display: 'flex', justifyContent: 'space-around'}}>

@@ -35,10 +35,6 @@ const Field = (time: number, weekday: number) => {
     weekdayContextDispatch.setSelectedEnd({time: time, day: weekday});
   }
 
-  useEffect(() => {
-    setColor(fieldColor())
-  }, [weekdayContext])
-
   const fieldColor = () => {
     // Unavailable days
     if (!weekdayContext.usedWeekdays[weekday])
@@ -58,6 +54,10 @@ const Field = (time: number, weekday: number) => {
     // Background color
     return viridisColorscale[time%4]
   }
+
+  useEffect(() => {
+    setColor(fieldColor())
+  }, [weekdayContext])
 
   return (
     <div

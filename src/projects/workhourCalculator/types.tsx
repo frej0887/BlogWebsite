@@ -16,7 +16,6 @@ export type WeekdayTypeDispatch = {
   clearSelectedSetting: () => void,
   removeFromRules: (userSetting: CurrentUserSetting|undefined, points: PointList) => void,
   addToRules: (userSetting: CurrentUserSetting, points: PointList) => void,
-  getRules: (userSetting: CurrentUserSetting) => PointList,
 }
 export type WeekdayType = {
   usedWeekdays: boolean[],

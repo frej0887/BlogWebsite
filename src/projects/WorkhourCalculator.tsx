@@ -46,13 +46,6 @@ export const WorkhourCalculator = () => {
     setRules(updatableRules);
   }, [rules]);
 
-  const getRules = useCallback((userSetting: CurrentUserSetting) => {
-    const points = rules.get(userSettingToString(userSetting));
-    if (!points || !points.length()) return new PointList();
-    return points;
-  }, [rules]);
-
-
   return (
     <div>
       <WeekdayContext value={{
@@ -70,7 +63,6 @@ export const WorkhourCalculator = () => {
           clearSelectedEnd,
           setSelectedSetting,
           clearSelectedSetting,
-          getRules,
           addToRules,
           removeFromRules,
         }}>

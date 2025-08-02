@@ -10,7 +10,6 @@ const weekdayTypeSet: WeekdayTypeDispatch = {
   setSelectedEnd: () => null,
   setSelectedSetting: () => null,
   clearSelectedSetting: () => null,
-  getRules: () => new PointList(),
   addToRules: () => null,
   removeFromRules: () => null,
 }

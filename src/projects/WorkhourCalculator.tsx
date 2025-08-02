@@ -5,8 +5,8 @@ import {FieldColumn} from "./workhourCalculator/FieldColumn.tsx";
 import {WeekdayContext, WeekdayContextDispatch} from "./workhourCalculator/contexts.tsx";
 import {CurrentUserSetting} from "./workhourCalculator/types.tsx";
 import {UserSettings} from "./workhourCalculator/UserSettings.tsx";
-import {pointInList, userSettingToString} from "./workhourCalculator/tools.ts";
-import type {Point} from "./workhourCalculator/PointList.tsx";
+import {userSettingToString} from "./workhourCalculator/tools.ts";
+import {type Point, PointList} from "./workhourCalculator/PointList.tsx";
 
 const ALL_WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -22,30 +22,34 @@ export const WorkhourCalculator = () => {
   const clearSelectedEnd = useCallback(() => setSelectedEnd(undefined), [setSelectedEnd]);
   const [selectedSetting, setSelectedSetting] = useState<CurrentUserSetting | undefined>();
   const clearSelectedSetting = useCallback(() => setSelectedSetting(undefined), [setSelectedSetting]);
-  const [rules, setRules] = useState(new Map<string, Point[]>(new Map(Object.values(CurrentUserSetting).filter((key) => typeof key == "string").map((textKey) => [textKey.toString(), []]))));
+  const [rules, setRules] = useState(new Map<string, PointList>(new Map(Object.values(CurrentUserSetting).map((textKey) => [textKey.toString(), new PointList()]))));
 
-  const addToRules = useCallback((userSetting: CurrentUserSetting, pointsToAdd: Point[]) => {
-    if (pointsToAdd.length === 0) return;
+  const addToRules = useCallback((userSetting: CurrentUserSetting, pointsToAdd: PointList) => {
+    if (!pointsToAdd.length()) return;
     const updatableRules = rules;
-    const currentPoints = updatableRules.get(userSettingToString(userSetting));
-    if (currentPoints == undefined) return;
-    for (const point of pointsToAdd) {
-      if (pointInList(rules, userSetting, point)) continue;
-      currentPoints.push(point);
-    }
-    updatableRules.set(userSettingToString(userSetting), currentPoints);
+    updatableRules.forEach((rule, setting) => {
+      if (setting == userSettingToString(userSetting))
+        rule.intersection(pointsToAdd)
+      else
+        rule.without(pointsToAdd)
+    })
     setRules(updatableRules);
   }, [rules]);
 
-  const removeFromRules = useCallback((userSetting: CurrentUserSetting, points: Point[]) => {
-    if (points.length === 0) return;
+  const removeFromRules = useCallback((userSetting: CurrentUserSetting, points: PointList) => {
+    if (!points.length()) return;
+
     const updatableRules = rules;
-    points.forEach(point => (updatableRules.get(userSettingToString(userSetting)) || []).filter((thisPoint: Point) => thisPoint !== point));
+    updatableRules.forEach((rule, setting) => {
+      if (setting != userSettingToString(userSetting))
+        rule.without(points)
+    })
     setRules(updatableRules);
   }, [rules]);
+
   const getRules = useCallback((userSetting: CurrentUserSetting) => {
     const points = rules.get(userSettingToString(userSetting));
-    if (!points || !points.length) return [];
+    if (!points || !points.length()) return new PointList();
     return points;
   }, [rules]);
 

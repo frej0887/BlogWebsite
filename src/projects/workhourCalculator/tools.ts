@@ -1,37 +1,19 @@
-import {CurrentUserSetting, pointContains} from "./types.tsx";
-import type {Point} from "./PointList.tsx";
+import {CurrentUserSetting} from "./types.tsx";
+import {type Point, PointList} from "./PointList.tsx";
 
-export const pointRangeToPointList = (startPoint: Point, endPoint: Point) => {
-  const out: Point[] = [];
+export const pointRangeToPointList = (startPoint: Point, endPoint: Point): PointList => {
+  const out: PointList = new PointList();
   for (let time = startPoint.time; time <= endPoint.time; time++) {
     for (let day = startPoint.day; day <= endPoint.day; day++) {
-      out.push({time: time, day: day});
+      out.add({time: time, day: day});
     }
   }
   return out;
 }
 
-
-export const pointInList = (rules: Map<string, Point[]>, userSetting: CurrentUserSetting, point: Point) => {
-  const points = rules.get(userSettingToString(userSetting));
-  if (!points || !points.length) return false;
-  return pointContains(points, point)
-}
-
-
-export const getRules = (rules: Map<string, Point[]>, userSetting: CurrentUserSetting) => {
-  const points = rules.get(userSettingToString(userSetting));
-  if (!points || !points.length) return [];
-  return points;
-}
-
-export const getListWithRules = (rules: Map<string, Point[]>, point: Point) => {
-  const userSettings = Object.values(CurrentUserSetting)//.filter((key) => typeof key != "string")
-  console.log(userSettings)
-  for (const userSettingsKey of userSettings) {
-    if (pointInList(rules, userSettingsKey, point))
-      return userSettingsKey;
-  }
+export const getListWithRules = (rules: Map<string, PointList>, point: Point) => {
+  for (const [rule, pointList] of rules)
+    if (pointList.has(point)) return rule
   return undefined;
 }
 

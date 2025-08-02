@@ -1,5 +1,5 @@
 import * as React from "react";
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 import {WeekdayContext, WeekdayContextDispatch} from "./contexts.tsx";
 import {getListWithRules, pointRangeToPointList} from "./tools.ts";
 
@@ -7,6 +7,7 @@ const Field = (time: number, weekday: number) => {
   const viridisColorscale = ['#fafa6e', '#9cdf7c', '#4abd8c', '#00968e'];
   const weekdayContext = useContext(WeekdayContext);
   const weekdayContextDispatch = useContext(WeekdayContextDispatch);
+  const [color, setColor] = useState(viridisColorscale[time%4])
   if (!weekdayContext.usedWeekdays[weekday]) {
     return (
       <div key={time} className={'field'} style={{background: '#333333'}}/>
@@ -38,6 +39,10 @@ const Field = (time: number, weekday: number) => {
   const selectedStart = weekdayContext.selectedStart;
   const selectedEnd = weekdayContext.selectedEnd;
 
+  useEffect(() => {
+    setColor(fieldColor())
+  }, [weekdayContext])
+
   const fieldColor = () => {
     // Current selection
     if (selectedStart && selectedEnd) {
@@ -49,7 +54,7 @@ const Field = (time: number, weekday: number) => {
     // Color based on
     const userSetting = getListWithRules(weekdayContext.rules, {time: time, day: weekday});
     if (userSetting) {
-      return userSetting.toString()
+      return userSetting
     }
     return viridisColorscale[time%4]
   }
@@ -58,7 +63,7 @@ const Field = (time: number, weekday: number) => {
     <div
       key={time}
       className={'field'}
-      style={{background: fieldColor()}}
+      style={{background: color}}
       onMouseUp={onMouseUp}
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}

@@ -1,9 +1,4 @@
-import type {Point} from "./PointList.tsx";
-
-export const pointContains = (arr: Point[], val: Point) => {
-  const pointEquality = (element: Point) =>  val.day === element.day && val.time === element.time;
-  return arr.some(v => pointEquality(v));
-}
+import {type Point, PointList} from "./PointList.tsx";
 
 export enum CurrentUserSetting {
   NoWeekly = '#932F67',
@@ -19,14 +14,14 @@ export type WeekdayTypeDispatch = {
   clearSelectedEnd: () => void,
   setSelectedSetting: (userSetting: CurrentUserSetting) => void,
   clearSelectedSetting: () => void,
-  removeFromRules: (userSetting: CurrentUserSetting, points: Point[]) => void,
-  addToRules: (userSetting: CurrentUserSetting, points: Point[]) => void,
-  getRules: (userSetting: CurrentUserSetting) => Point[],
+  removeFromRules: (userSetting: CurrentUserSetting, points: PointList) => void,
+  addToRules: (userSetting: CurrentUserSetting, points: PointList) => void,
+  getRules: (userSetting: CurrentUserSetting) => PointList,
 }
 export type WeekdayType = {
   usedWeekdays: boolean[],
   selectedStart?: Point,
   selectedEnd?: Point,
   selectedSetting?: CurrentUserSetting,
-  rules: Map<string, Point[]>
+  rules: Map<string, PointList>
 }

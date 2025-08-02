@@ -1,6 +1,6 @@
 import {createContext} from "react";
 import type {WeekdayType, WeekdayTypeDispatch} from "./types.tsx";
-import type {Point} from "./PointList.tsx";
+import {PointList} from "./PointList.tsx";
 
 const weekdayTypeSet: WeekdayTypeDispatch = {
   toggleWeekdayVisibility: () => null,
@@ -10,7 +10,7 @@ const weekdayTypeSet: WeekdayTypeDispatch = {
   setSelectedEnd: () => null,
   setSelectedSetting: () => null,
   clearSelectedSetting: () => null,
-  getRules: () => [],
+  getRules: () => new PointList(),
   addToRules: () => null,
   removeFromRules: () => null,
 }
@@ -19,7 +19,7 @@ const weekdayType: WeekdayType = {
   selectedStart: undefined,
   selectedEnd: undefined,
   selectedSetting: undefined,
-  rules: new Map<string, Point[]>,
+  rules: new Map<string, PointList>,
 }
 export const WeekdayContextDispatch = createContext<WeekdayTypeDispatch>(weekdayTypeSet);
 export const WeekdayContext = createContext<WeekdayType>(weekdayType);

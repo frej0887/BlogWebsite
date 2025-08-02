@@ -40,8 +40,7 @@ export class PointList extends Set<Point>{
   without(other: PointList): PointList {
     const out = new PointList();
     for (const thisElement of this) {
-      if (other.has(thisElement)) continue;
-      out.add(thisElement);
+      if (!other.has(thisElement)) out.add(thisElement);
     }
     return out;
   }

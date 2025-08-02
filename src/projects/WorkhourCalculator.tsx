@@ -27,12 +27,11 @@ export const WorkhourCalculator = () => {
   const addToRules = useCallback((userSetting: CurrentUserSetting, pointsToAdd: PointList) => {
     if (!pointsToAdd.length()) return;
     const updatableRules = rules;
-    updatableRules.forEach((rule, setting) => {
-      if (setting == userSettingToString(userSetting))
-        rule.intersection(pointsToAdd)
-      else
-        rule.without(pointsToAdd)
-    })
+    updatableRules.forEach((rule, setting) =>
+      setting == userSettingToString(userSetting)
+        ? rule.union(pointsToAdd)
+        : rule.without(pointsToAdd)
+    )
     setRules(updatableRules);
   }, [rules]);
 

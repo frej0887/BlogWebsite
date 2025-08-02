@@ -51,7 +51,7 @@ const Field = (time: number, weekday: number) => {
         return '#bbbbbb'
       }
     }
-    // Color based on
+    // Color based on rules
     const userSetting = getListWithRules(weekdayContext.rules, {time: time, day: weekday});
     if (userSetting) {
       return userSetting

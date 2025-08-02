@@ -29,7 +29,7 @@ export class PointList extends Set<Point>{
     return true;
   }
 
-  intersection(other: PointList): PointList {
+  union(other: PointList): PointList {
     for (const otherElement of other) {
       if (this.has(otherElement)) continue;
       this.add(otherElement);
@@ -38,10 +38,9 @@ export class PointList extends Set<Point>{
   }
 
   without(other: PointList): PointList {
-    const out = new PointList();
     for (const thisElement of this) {
-      if (!other.has(thisElement)) out.add(thisElement);
+      if (other.has(thisElement)) super.delete(thisElement);
     }
-    return out;
+    return this;
   }
 }

@@ -1,7 +1,4 @@
-export type Point = {
-  time: number;
-  day: number;
-}
+import type {Point} from "./PointList.tsx";
 
 export const pointContains = (arr: Point[], val: Point) => {
   const pointEquality = (element: Point) =>  val.day === element.day && val.time === element.time;

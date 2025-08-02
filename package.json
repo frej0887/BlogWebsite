@@ -2,12 +2,13 @@
   "name": "website",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite --host",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -19,6 +20,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^30.0.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.5.2",
@@ -26,8 +31,12 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
+    "jest": "^30.0.5",
+    "jsdom": "^26.1.0",
+    "ts-jest": "^29.4.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.1",
-    "vite": "~6.3.5"
+    "vite": "~6.3.5",
+    "vitest": "^3.2.4"
   }
 }

@@ -1,5 +1,6 @@
 import {createContext} from "react";
-import type {Point, WeekdayType, WeekdayTypeDispatch} from "./types.tsx";
+import type {WeekdayType, WeekdayTypeDispatch} from "./types.tsx";
+import type {Point} from "./PointList.tsx";
 
 const weekdayTypeSet: WeekdayTypeDispatch = {
   toggleWeekdayVisibility: () => null,

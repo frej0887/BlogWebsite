@@ -1,4 +1,5 @@
-import {CurrentUserSetting, type Point, pointContains} from "./types.tsx";
+import {CurrentUserSetting, pointContains} from "./types.tsx";
+import type {Point} from "./PointList.tsx";
 
 export const pointRangeToPointList = (startPoint: Point, endPoint: Point) => {
   const out: Point[] = [];

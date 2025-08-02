@@ -3,9 +3,10 @@ import './workhourCalculator/WorkhourCalculator.css';
 import {TimeFieldColumn} from "./workhourCalculator/TimeFieldColumn.tsx";
 import {FieldColumn} from "./workhourCalculator/FieldColumn.tsx";
 import {WeekdayContext, WeekdayContextDispatch} from "./workhourCalculator/contexts.tsx";
-import {CurrentUserSetting, type Point} from "./workhourCalculator/types.tsx";
+import {CurrentUserSetting} from "./workhourCalculator/types.tsx";
 import {UserSettings} from "./workhourCalculator/UserSettings.tsx";
 import {pointInList, userSettingToString} from "./workhourCalculator/tools.ts";
+import type {Point} from "./workhourCalculator/PointList.tsx";
 
 const ALL_WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 

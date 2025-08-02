@@ -6,6 +6,7 @@ export enum CurrentUserSetting {
   YesThis = '#DDDEAB',
   NoThis = '#8ABB6C',
 }
+
 export type WeekdayTypeDispatch = {
   toggleWeekdayVisibility: (weekday: number) => void,
   setSelectedStart: (start: Point) => void,
@@ -17,6 +18,7 @@ export type WeekdayTypeDispatch = {
   removeFromRules: (userSetting: CurrentUserSetting|undefined, points: PointList) => void,
   addToRules: (userSetting: CurrentUserSetting, points: PointList) => void,
 }
+
 export type WeekdayType = {
   usedWeekdays: boolean[],
   selectedStart?: Point,

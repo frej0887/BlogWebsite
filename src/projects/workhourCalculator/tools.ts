@@ -17,7 +17,7 @@ export const getListWithRules = (rules: Map<string, PointList>, point: Point) =>
   return undefined;
 }
 
-export const userSettingToString = (userSetting: CurrentUserSetting): string => {
+export const userSettingToString = (userSetting?: CurrentUserSetting): string => {
   if (userSetting)
     return userSetting
   return ''

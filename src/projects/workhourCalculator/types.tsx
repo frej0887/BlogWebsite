@@ -14,7 +14,7 @@ export type WeekdayTypeDispatch = {
   clearSelectedEnd: () => void,
   setSelectedSetting: (userSetting: CurrentUserSetting) => void,
   clearSelectedSetting: () => void,
-  removeFromRules: (userSetting: CurrentUserSetting, points: PointList) => void,
+  removeFromRules: (userSetting: CurrentUserSetting|undefined, points: PointList) => void,
   addToRules: (userSetting: CurrentUserSetting, points: PointList) => void,
   getRules: (userSetting: CurrentUserSetting) => PointList,
 }

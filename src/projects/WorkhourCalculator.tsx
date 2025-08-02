@@ -35,7 +35,7 @@ export const WorkhourCalculator = () => {
     setRules(updatableRules);
   }, [rules]);
 
-  const removeFromRules = useCallback((userSetting: CurrentUserSetting, points: PointList) => {
+  const removeFromRules = useCallback((userSetting: CurrentUserSetting|undefined, points: PointList) => {
     if (!points.length()) return;
 
     const updatableRules = rules;

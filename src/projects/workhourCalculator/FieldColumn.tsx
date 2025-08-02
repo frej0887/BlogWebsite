@@ -17,9 +17,11 @@ const Field = (time: number, weekday: number) => {
   const onMouseUp = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (!selectedStart || !selectedEnd) return;
     event.preventDefault();
-    if (weekdayContext.selectedSetting != undefined) {
+    if (weekdayContext.selectedSetting == undefined)
+      weekdayContextDispatch.removeFromRules(undefined, pointRangeToPointList(selectedStart, selectedEnd))
+    else
       weekdayContextDispatch.addToRules(weekdayContext.selectedSetting, pointRangeToPointList(selectedStart, selectedEnd))
-    }
+
     weekdayContextDispatch.clearSelectedStart();
     weekdayContextDispatch.clearSelectedEnd();
   }

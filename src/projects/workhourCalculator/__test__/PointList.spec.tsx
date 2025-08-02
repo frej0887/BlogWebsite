@@ -1,8 +1,4 @@
-import { PointList } from "../projects/workhourCalculator/PointList";
-
-test('demo', () => {
-  expect(true).toBe(true)
-})
+import {PointList} from "../PointList";
 
 test("createPointList", () => {
   const pointList = new PointList();

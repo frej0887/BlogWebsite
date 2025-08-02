@@ -1,10 +1,16 @@
-import {CurrentUserSetting} from "./types.tsx";
-import {type Point, PointList} from "./PointList.tsx";
+import {CurrentUserSetting} from "./types";
+import {type Point, PointList} from "./PointList";
 
 export const pointRangeToPointList = (startPoint: Point, endPoint: Point): PointList => {
   const out: PointList = new PointList();
-  for (let time = startPoint.time; time <= endPoint.time; time++) {
-    for (let day = startPoint.day; day <= endPoint.day; day++) {
+
+  const minTime = Math.min(startPoint.time, endPoint.time);
+  const maxTime = Math.max(startPoint.time, endPoint.time);
+  const minDay = Math.min(startPoint.day, endPoint.day);
+  const maxDay = Math.max(startPoint.day, endPoint.day);
+
+  for (let time = minTime; time <= maxTime; time++) {
+    for (let day = minDay; day <= maxDay; day++) {
       out.add({time: time, day: day});
     }
   }

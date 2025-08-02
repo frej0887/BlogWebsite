@@ -8,11 +8,8 @@ const Field = (time: number, weekday: number) => {
   const weekdayContext = useContext(WeekdayContext);
   const weekdayContextDispatch = useContext(WeekdayContextDispatch);
   const [color, setColor] = useState(viridisColorscale[time%4])
-  if (!weekdayContext.usedWeekdays[weekday]) {
-    return (
-      <div key={time} className={'field'} style={{background: '#333333'}}/>
-    )
-  }
+  const selectedStart = weekdayContext.selectedStart;
+  const selectedEnd = weekdayContext.selectedEnd;
 
   const onMouseUp = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (!selectedStart || !selectedEnd) return;
@@ -38,26 +35,27 @@ const Field = (time: number, weekday: number) => {
     weekdayContextDispatch.setSelectedEnd({time: time, day: weekday});
   }
 
-  const selectedStart = weekdayContext.selectedStart;
-  const selectedEnd = weekdayContext.selectedEnd;
-
   useEffect(() => {
     setColor(fieldColor())
   }, [weekdayContext])
 
   const fieldColor = () => {
-    // Current selection
-    if (selectedStart && selectedEnd) {
+    // Unavailable days
+    if (!weekdayContext.usedWeekdays[weekday])
+      return '#333333'
+
+    // Active selection
+    if (selectedStart && selectedEnd)
       if ((selectedStart.time <= time && time <= selectedEnd.time || selectedEnd.time <= time && time <= selectedStart.time) &&
-        (selectedStart.day <= weekday && weekday <= selectedEnd.day || selectedEnd.day <= weekday && weekday <= selectedStart.day)) {
+        (selectedStart.day <= weekday && weekday <= selectedEnd.day || selectedEnd.day <= weekday && weekday <= selectedStart.day))
         return '#bbbbbb'
-      }
-    }
-    // Color based on rules
+
+    // Color based on active rules
     const userSetting = getListWithRules(weekdayContext.rules, {time: time, day: weekday});
-    if (userSetting) {
+    if (userSetting)
       return userSetting
-    }
+
+    // Background color
     return viridisColorscale[time%4]
   }
 

@@ -24,5 +24,5 @@ export type WeekdayType = {
   selectedStart?: Point,
   selectedEnd?: Point,
   selectedSetting?: CurrentUserSetting,
-  rules: Map<string, PointList>
+  rules: Map<string, PointList>,
 }

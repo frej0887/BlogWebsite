@@ -53,7 +53,7 @@ export const WorkhourCalculator = () => {
         selectedStart,
         selectedEnd,
         selectedSetting,
-        rules
+        rules,
       }}>
         <WeekdayContextDispatch value={{
           toggleWeekdayVisibility,

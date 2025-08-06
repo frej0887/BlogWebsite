@@ -1,0 +1,7 @@
+- [ ] Undo button - usePrevious
+- [ ] Actual calculations
+  - [ ] Add hours input
+- [ ] Remove night-hours better
+- [ ] Fix times
+- [ ] Colors and texts
+- [ ]   

@@ -1,7 +1,6 @@
 .field {
     width: 8rem;
-    height: 1rem;
-    font-size: 0.8rem;
+    height: 0.8rem;
     cursor: cell;
 }
 
@@ -13,4 +12,7 @@
 
 .timeField {
     user-select: none;
+    width: 4rem;
+    height: calc(0.8rem*4);
+    align-content: center;
 }

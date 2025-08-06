@@ -4,6 +4,6 @@
   - [ ] Calculations
   - [ ] Add Yes color for selected
 - [ ] Remove night-hours better
-- [ ] Fix times
+- [x] Fix times
 - [ ] Colors and texts
 - [ ] Button for removing color

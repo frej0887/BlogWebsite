@@ -1,6 +1,9 @@
 - [ ] Undo button - usePrevious
 - [ ] Actual calculations
   - [ ] Add hours input
+  - [ ] Calculations
+  - [ ] Add Yes color for selected
 - [ ] Remove night-hours better
 - [ ] Fix times
 - [ ] Colors and texts
+- [ ] Button for removing color

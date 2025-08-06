@@ -26,3 +26,11 @@ export type WeekdayType = {
   selectedSetting?: CurrentUserSetting,
   rules: Map<string, PointList>,
 }
+
+export type storageType = {
+  noWeekly: Point[],
+  maybeWeekly: Point[],
+  yesThis: Point[],
+  noThis: Point[],
+  timestamp: number,
+}

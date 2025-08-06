@@ -1,12 +1,13 @@
-import {useCallback, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import './workhourCalculator/WorkhourCalculator.css';
 import {TimeFieldColumn} from "./workhourCalculator/TimeFieldColumn.tsx";
 import {FieldColumn} from "./workhourCalculator/FieldColumn.tsx";
 import {WeekdayContext, WeekdayContextDispatch} from "./workhourCalculator/contexts.tsx";
-import {CurrentUserSetting} from "./workhourCalculator/types.tsx";
+import {CurrentUserSetting, type storageType} from "./workhourCalculator/types.tsx";
 import {UserSettings} from "./workhourCalculator/UserSettings.tsx";
-import {userSettingToString} from "./workhourCalculator/tools.ts";
+import {createLocalStorage, readLocalStorage, userSettingToString} from "./workhourCalculator/tools.ts";
 import {type Point, PointList} from "./workhourCalculator/PointList.tsx";
+import {useLocalStorage} from "@uidotdev/usehooks";
 
 const ALL_WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -23,6 +24,11 @@ export const WorkhourCalculator = () => {
   const [selectedSetting, setSelectedSetting] = useState<CurrentUserSetting | undefined>();
   const clearSelectedSetting = useCallback(() => setSelectedSetting(undefined), [setSelectedSetting]);
   const [rules, setRules] = useState(new Map<string, PointList>(new Map(Object.values(CurrentUserSetting).map((textKey) => [textKey.toString(), new PointList()]))));
+  const [localStorage, saveLocalStorage] = useLocalStorage<storageType>('rules', undefined);
+
+  useEffect(() => {
+    setRules(readLocalStorage(localStorage))
+  }, [])
 
   const addToRules = useCallback((userSetting: CurrentUserSetting, pointsToAdd: PointList) => {
     if (!pointsToAdd.length()) return;
@@ -33,6 +39,7 @@ export const WorkhourCalculator = () => {
         : rule.without(pointsToAdd)
     )
     setRules(updatableRules);
+    saveLocalStorage(createLocalStorage(updatableRules))
   }, [rules]);
 
   const removeFromRules = useCallback((userSetting: CurrentUserSetting|undefined, points: PointList) => {
@@ -44,6 +51,7 @@ export const WorkhourCalculator = () => {
         rule.without(points)
     })
     setRules(updatableRules);
+    saveLocalStorage(createLocalStorage(updatableRules))
   }, [rules]);
 
   return (
@@ -83,9 +91,3 @@ const Table = () => {
     </div>
   )
 }
-
-/*
-- Hard deadlines Sleep etc. - same col as sat+sun - weekly
-- weekly plz no
-- this week
- */

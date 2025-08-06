@@ -43,4 +43,8 @@ export class PointList extends Set<Point>{
     }
     return this;
   }
+
+  object(): Point[] {
+    return [...this.values()];
+  }
 }

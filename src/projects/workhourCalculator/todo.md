@@ -4,4 +4,3 @@
 - [ ] Remove night-hours better
 - [ ] Fix times
 - [ ] Colors and texts
-- [ ]   

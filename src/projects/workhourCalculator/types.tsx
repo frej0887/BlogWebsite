@@ -17,6 +17,7 @@ export type WeekdayTypeDispatch = {
   clearSelectedSetting: () => void,
   removeFromRules: (userSetting: CurrentUserSetting|undefined, points: PointList) => void,
   addToRules: (userSetting: CurrentUserSetting, points: PointList) => void,
+  setWorkingHours: (hours: number) => void,
 }
 
 export type WeekdayType = {
@@ -25,6 +26,7 @@ export type WeekdayType = {
   selectedEnd?: Point,
   selectedSetting?: CurrentUserSetting,
   rules: Map<string, PointList>,
+  workingHours: number,
 }
 
 export type storageType = {

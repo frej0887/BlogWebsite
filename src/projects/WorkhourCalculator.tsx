@@ -25,6 +25,7 @@ export const WorkhourCalculator = () => {
   const clearSelectedSetting = useCallback(() => setSelectedSetting(undefined), [setSelectedSetting]);
   const [rules, setRules] = useState(new Map<string, PointList>(new Map(Object.values(CurrentUserSetting).map((textKey) => [textKey.toString(), new PointList()]))));
   const [localStorage, saveLocalStorage] = useLocalStorage<storageType>('rules', undefined);
+  const [workingHours, setWorkingHours] = useState(37);
 
   useEffect(() => {
     setRules(readLocalStorage(localStorage))
@@ -62,6 +63,7 @@ export const WorkhourCalculator = () => {
         selectedEnd,
         selectedSetting,
         rules,
+        workingHours
       }}>
         <WeekdayContextDispatch value={{
           toggleWeekdayVisibility,
@@ -73,6 +75,7 @@ export const WorkhourCalculator = () => {
           clearSelectedSetting,
           addToRules,
           removeFromRules,
+          setWorkingHours
         }}>
           <UserSettings/>
           <Table/>

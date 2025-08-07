@@ -51,6 +51,11 @@ export const UserSettings = () => {
           Delete
         </button>
       </div>
+      <div style={{display: 'flex', flexDirection: 'column'}}>
+        <div>Meta</div>
+        <input style={baseStyle} type={'number'} defaultValue={37} onChange={(event) => weekdayContextDispatch.setWorkingHours(parseInt(event.target.value))}/>
+        <button style={baseStyle}>Calculate</button>
+      </div>
     </div>
   )
 }

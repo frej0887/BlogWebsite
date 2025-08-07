@@ -8,11 +8,11 @@ export const UserSettings = () => {
   const weekdayContextDispatch = useContext(WeekdayContextDispatch);
 
   const baseStyle = {border: 0, margin: "0.1rem", width: "10rem"};
-  const colorStyle = (currentSetting: CurrentUserSetting) => {
-    if (!currentSetting) return { backgroundColor: "black" }
+  const colorStyle = (currentSetting?: CurrentUserSetting) => {
+    if (!currentSetting) return { backgroundColor: "#666666" }
     return { backgroundColor: userSettingToString(currentSetting) }
   }
-  const selectedStyle = (setting: CurrentUserSetting) =>
+  const selectedStyle = (setting?: CurrentUserSetting) =>
     weekdayContext.selectedSetting == setting ? {...colorStyle(setting), ...baseStyle} : baseStyle;
 
   return (
@@ -41,6 +41,14 @@ export const UserSettings = () => {
           style={selectedStyle(CurrentUserSetting.NoThis)}
           onClick={() => weekdayContext.selectedSetting == CurrentUserSetting.NoThis ? weekdayContextDispatch.clearSelectedSetting() : weekdayContextDispatch.setSelectedSetting(CurrentUserSetting.NoThis)}>
           No
+        </button>
+      </div>
+      <div style={{display: 'flex', flexDirection: 'column'}}>
+        <div>Meta</div>
+        <button
+          style={selectedStyle(undefined)}
+          onClick={weekdayContextDispatch.clearSelectedSetting}>
+          Delete
         </button>
       </div>
     </div>

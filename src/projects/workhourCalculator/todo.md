@@ -6,4 +6,4 @@
 - [ ] Remove night-hours better
 - [x] Fix times
 - [ ] Colors and texts
-- [ ] Button for removing color
+- [x] Button for removing color

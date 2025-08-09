@@ -18,6 +18,7 @@ export type WeekdayTypeDispatch = {
   removeFromRules: (userSetting: CurrentUserSetting|undefined, points: PointList) => void,
   addToRules: (userSetting: CurrentUserSetting, points: PointList) => void,
   setWorkingHours: (hours: number) => void,
+  calculate: () => void,
 }
 
 export type WeekdayType = {

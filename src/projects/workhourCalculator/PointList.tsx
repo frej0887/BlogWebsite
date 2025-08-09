@@ -47,4 +47,16 @@ export class PointList extends Set<Point>{
   object(): Point[] {
     return [...this.values()];
   }
+
+  copy(): PointList {
+    return new PointList(...this.values())
+  }
+
+  firstN(n: number): PointList {
+    const compareFunc = (a: Point, b: Point) => {
+      if (a.day == b.day) return a.time - b.time;
+      return a.day - b.day;
+    }
+    return new PointList(...this.object().sort(compareFunc).slice(0, n));
+  }
 }

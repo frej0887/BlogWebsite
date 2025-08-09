@@ -13,6 +13,7 @@ const weekdayTypeSet: WeekdayTypeDispatch = {
   addToRules: () => null,
   removeFromRules: () => null,
   setWorkingHours: () => null,
+  calculate: () => null,
 }
 const weekdayType: WeekdayType = {
   usedWeekdays: [true, true, true, true, true, false, false],

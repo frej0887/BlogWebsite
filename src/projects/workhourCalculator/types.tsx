@@ -1,6 +1,6 @@
 import {type Point, PointList} from "./PointList.tsx";
 
-export enum CurrentUserSetting {
+export enum UserSetting {
   NoWeekly = '#932F67',
   MaybeWeekly = '#D92C54',
   YesThis = '#DDDEAB',
@@ -13,21 +13,16 @@ export type WeekdayTypeDispatch = {
   setSelectedEnd: (end: Point) => void,
   clearSelectedStart: () => void,
   clearSelectedEnd: () => void,
-  setSelectedSetting: (userSetting?: CurrentUserSetting) => void,
-  clearSelectedSetting: () => void,
-  removeFromRules: (userSetting: CurrentUserSetting|undefined, points: PointList) => void,
-  addToRules: (userSetting: CurrentUserSetting, points: PointList) => void,
-  setWorkingHours: (hours: number) => void,
-  calculate: () => void,
+  removeFromRules: (userSetting: UserSetting|undefined, points: PointList) => void,
+  addToRules: (userSetting: UserSetting, points: PointList) => void,
 }
 
 export type WeekdayType = {
   usedWeekdays: boolean[],
   selectedStart?: Point,
   selectedEnd?: Point,
-  selectedSetting?: CurrentUserSetting,
+  selectedSetting?: UserSetting,
   rules: Map<string, PointList>,
-  workingHours: number,
 }
 
 export type storageType = {

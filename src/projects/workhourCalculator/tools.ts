@@ -1,4 +1,4 @@
-import {CurrentUserSetting, type storageType} from "./types";
+import {UserSetting, type storageType} from "./types";
 import {type Point, PointList} from "./PointList";
 
 export const pointRangeToPointList = (startPoint: Point, endPoint: Point): PointList => {
@@ -23,17 +23,17 @@ export const getListWithRules = (rules: Map<string, PointList>, point: Point) =>
   return undefined;
 }
 
-export const userSettingToString = (userSetting?: CurrentUserSetting): string => {
+export const userSettingToString = (userSetting?: UserSetting): string => {
   if (userSetting)
     return userSetting
   return ''
 }
 
 export const createLocalStorage = (rules:  Map<string, PointList>): storageType => {
-  const maybeWeekly = rules.get(CurrentUserSetting.MaybeWeekly)?.object() ?? [];
-  const noWeekly = rules.get(CurrentUserSetting.NoWeekly)?.object() ?? [];
-  const noThis = rules.get(CurrentUserSetting.NoThis)?.object() ?? [];
-  const yesThis = rules.get(CurrentUserSetting.YesThis)?.object() ?? [];
+  const maybeWeekly = rules.get(UserSetting.MaybeWeekly)?.object() ?? [];
+  const noWeekly = rules.get(UserSetting.NoWeekly)?.object() ?? [];
+  const noThis = rules.get(UserSetting.NoThis)?.object() ?? [];
+  const yesThis = rules.get(UserSetting.YesThis)?.object() ?? [];
   return {
     maybeWeekly: maybeWeekly,
     noWeekly: noWeekly,
@@ -46,10 +46,10 @@ export const createLocalStorage = (rules:  Map<string, PointList>): storageType 
 export const readLocalStorage = (storage: storageType): Map<string, PointList> => {
   if (!storage)
     return new Map([
-      [CurrentUserSetting.MaybeWeekly, new PointList()],
-      [CurrentUserSetting.NoWeekly, new PointList()],
-      [CurrentUserSetting.NoThis, new PointList()],
-      [CurrentUserSetting.YesThis, new PointList()],
+      [UserSetting.MaybeWeekly, new PointList()],
+      [UserSetting.NoWeekly, new PointList()],
+      [UserSetting.NoThis, new PointList()],
+      [UserSetting.YesThis, new PointList()],
     ])
   const timestamp = storage['timestamp'];
   const maybeWeekly = storage['maybeWeekly'];
@@ -63,16 +63,16 @@ export const readLocalStorage = (storage: storageType): Map<string, PointList> =
   mondayMidnight.setHours(0, 0, 0, 0);
   if (date < mondayMidnight) {
     return new Map([
-      [CurrentUserSetting.MaybeWeekly, new PointList(...maybeWeekly)],
-      [CurrentUserSetting.NoWeekly, new PointList(...noWeekly)],
-      [CurrentUserSetting.NoThis, new PointList()],
-      [CurrentUserSetting.YesThis, new PointList()],
+      [UserSetting.MaybeWeekly, new PointList(...maybeWeekly)],
+      [UserSetting.NoWeekly, new PointList(...noWeekly)],
+      [UserSetting.NoThis, new PointList()],
+      [UserSetting.YesThis, new PointList()],
     ])
   }
   return new Map([
-    [CurrentUserSetting.MaybeWeekly, new PointList(...maybeWeekly)],
-    [CurrentUserSetting.NoWeekly, new PointList(...noWeekly)],
-    [CurrentUserSetting.NoThis, new PointList(...noThis)],
-    [CurrentUserSetting.YesThis, new PointList(...yesThis)],
+    [UserSetting.MaybeWeekly, new PointList(...maybeWeekly)],
+    [UserSetting.NoWeekly, new PointList(...noWeekly)],
+    [UserSetting.NoThis, new PointList(...noThis)],
+    [UserSetting.YesThis, new PointList(...yesThis)],
   ])
 }

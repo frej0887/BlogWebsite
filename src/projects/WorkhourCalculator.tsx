@@ -3,8 +3,8 @@ import './workhourCalculator/WorkhourCalculator.css';
 import {TimeFieldColumn} from "./workhourCalculator/TimeFieldColumn.tsx";
 import {FieldColumn} from "./workhourCalculator/FieldColumn.tsx";
 import {WeekdayContext, WeekdayContextDispatch} from "./workhourCalculator/contexts.tsx";
-import {CurrentUserSetting, type storageType} from "./workhourCalculator/types.tsx";
-import {UserSettings} from "./workhourCalculator/UserSettings.tsx";
+import {UserSetting, type storageType} from "./workhourCalculator/types.tsx";
+import {UserSettingsComponent} from "./workhourCalculator/UserSettingsComponent.tsx";
 import {
   createLocalStorage,
   pointRangeToPointList,
@@ -26,9 +26,9 @@ export const WorkhourCalculator = () => {
     [])
   const clearSelectedStart = useCallback(() => setSelectedStart(undefined), [setSelectedStart]);
   const clearSelectedEnd = useCallback(() => setSelectedEnd(undefined), [setSelectedEnd]);
-  const [selectedSetting, setSelectedSetting] = useState<CurrentUserSetting | undefined>();
+  const [selectedSetting, setSelectedSetting] = useState<UserSetting | undefined>();
   const clearSelectedSetting = useCallback(() => setSelectedSetting(undefined), [setSelectedSetting]);
-  const [rules, setRules] = useState(new Map<string, PointList>(new Map(Object.values(CurrentUserSetting).map((textKey) => [textKey.toString(), new PointList()]))));
+  const [rules, setRules] = useState(new Map<string, PointList>(new Map(Object.values(UserSetting).map((textKey) => [textKey.toString(), new PointList()]))));
   const [localStorage, saveLocalStorage] = useLocalStorage<storageType>('rules', undefined);
   const [workingHours, setWorkingHours] = useState(37);
 
@@ -36,7 +36,7 @@ export const WorkhourCalculator = () => {
     setRules(readLocalStorage(localStorage))
   }, [])
 
-  const addToRules = useCallback((userSetting: CurrentUserSetting, pointsToAdd: PointList) => {
+  const addToRules = useCallback((userSetting: UserSetting, pointsToAdd: PointList) => {
     if (!pointsToAdd.length()) return;
     const updatableRules = rules;
     updatableRules.forEach((rule, setting) =>
@@ -48,7 +48,7 @@ export const WorkhourCalculator = () => {
     saveLocalStorage(createLocalStorage(updatableRules))
   }, [rules]);
 
-  const removeFromRules = useCallback((userSetting: CurrentUserSetting|undefined, points: PointList) => {
+  const removeFromRules = useCallback((userSetting: UserSetting|undefined, points: PointList) => {
     if (!points.length()) return;
 
     const updatableRules = rules;
@@ -63,8 +63,8 @@ export const WorkhourCalculator = () => {
   const calculate = () => {
     let neededQuarters = workingHours*4;
     console.log(neededQuarters);
-    const no = (rules.get(CurrentUserSetting.NoWeekly) || new PointList()).union(rules.get(CurrentUserSetting.NoThis) || new PointList());
-    const preferablyNot = rules.get(CurrentUserSetting.MaybeWeekly) || new PointList();
+    const no = (rules.get(UserSetting.NoWeekly) || new PointList()).union(rules.get(UserSetting.NoThis) || new PointList());
+    const preferablyNot = rules.get(UserSetting.MaybeWeekly) || new PointList();
 
     const possible = usedWeekdays.map((v, i) => v ? pointRangeToPointList({time: 0, day: i}, {time: 24*4-1, day: i}).without(no) : new PointList())
     const allOneList = possible
@@ -79,7 +79,7 @@ export const WorkhourCalculator = () => {
       .without(no)
       .without(preferablyNot);
 
-    addToRules(CurrentUserSetting.YesThis, preferred);
+    addToRules(UserSetting.YesThis, preferred);
     if (neededQuarters >= preferred.length()) {
       // Use all preferred + what is needed from allAvailable
       neededQuarters -= preferred.length();
@@ -91,12 +91,12 @@ export const WorkhourCalculator = () => {
     // Put it all early on
     for (const pointList of possible) {
       if (pointList.length() >= neededQuarters) {
-        addToRules(CurrentUserSetting.YesThis, pointList.firstN(neededQuarters));
+        addToRules(UserSetting.YesThis, pointList.firstN(neededQuarters));
         neededQuarters = 0;
         break;
       }
       neededQuarters -= pointList.length();
-      addToRules(CurrentUserSetting.YesThis, pointList);
+      addToRules(UserSetting.YesThis, pointList);
     }
     console.log(rules)
   }
@@ -109,7 +109,6 @@ export const WorkhourCalculator = () => {
         selectedEnd,
         selectedSetting,
         rules,
-        workingHours
       }}>
         <WeekdayContextDispatch value={{
           toggleWeekdayVisibility,
@@ -117,14 +116,10 @@ export const WorkhourCalculator = () => {
           setSelectedEnd,
           clearSelectedStart,
           clearSelectedEnd,
-          setSelectedSetting,
-          clearSelectedSetting,
           addToRules,
           removeFromRules,
-          setWorkingHours,
-          calculate,
         }}>
-          <UserSettings/>
+          <UserSettingsComponent setSelectedSetting={setSelectedSetting} calculate={calculate} clearSelectedSetting={clearSelectedSetting} setWorkingHours={setWorkingHours} />
           <Table/>
         </WeekdayContextDispatch>
       </WeekdayContext>

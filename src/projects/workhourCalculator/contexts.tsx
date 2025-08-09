@@ -8,12 +8,8 @@ const weekdayTypeSet: WeekdayTypeDispatch = {
   clearSelectedStart: () => null,
   clearSelectedEnd: () => null,
   setSelectedEnd: () => null,
-  setSelectedSetting: () => null,
-  clearSelectedSetting: () => null,
   addToRules: () => null,
   removeFromRules: () => null,
-  setWorkingHours: () => null,
-  calculate: () => null,
 }
 const weekdayType: WeekdayType = {
   usedWeekdays: [true, true, true, true, true, false, false],
@@ -21,7 +17,6 @@ const weekdayType: WeekdayType = {
   selectedEnd: undefined,
   selectedSetting: undefined,
   rules: new Map<string, PointList>,
-  workingHours: 37,
 }
 export const WeekdayContextDispatch = createContext<WeekdayTypeDispatch>(weekdayTypeSet);
 export const WeekdayContext = createContext<WeekdayType>(weekdayType);

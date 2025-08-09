@@ -6,4 +6,5 @@
 - [ ] Remove night-hours better
 - [x] Fix times
 - [ ] Colors and texts
+- [ ] Add at least goal hours to local storage
 - [x] Button for removing color

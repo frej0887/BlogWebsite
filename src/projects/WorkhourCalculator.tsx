@@ -13,6 +13,7 @@ import {
 } from "./workhourCalculator/tools.ts";
 import {type Point, PointList} from "./workhourCalculator/PointList.tsx";
 import {useLocalStorage} from "@uidotdev/usehooks";
+import {early} from "./workhourCalculator/distributionMethods.ts";
 
 const ALL_WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -97,15 +98,7 @@ export const WorkhourCalculator = () => {
 
     // Put it all early on
     // TODO: Make more
-    for (const pointList of possible) {
-      if (pointList.length() >= neededQuarters) {
-        addToRules(UserSetting.YesThis, pointList.firstN(neededQuarters));
-        neededQuarters = 0;
-        break;
-      }
-      neededQuarters -= pointList.length();
-      addToRules(UserSetting.YesThis, pointList);
-    }
+    addToRules(UserSetting.YesThis, early([preferred], neededQuarters));
     console.log(rules)
   }
 

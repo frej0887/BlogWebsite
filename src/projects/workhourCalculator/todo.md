@@ -2,6 +2,7 @@
 - [ ] Actual calculations
   - [x] Add hours input
   - [ ] Calculations
+  - [ ] Multiple ways to do calculations
   - [ ] Add Yes color for selected
 - [ ] Remove night-hours better
 - [x] Fix times

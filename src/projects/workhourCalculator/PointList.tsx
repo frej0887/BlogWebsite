@@ -52,11 +52,16 @@ export class PointList extends Set<Point>{
     return new PointList(...this.values())
   }
 
+  private compareFunc = (a: Point, b: Point) => {
+    if (a.day == b.day) return a.time - b.time;
+    return a.day - b.day;
+  }
+
   firstN(n: number): PointList {
-    const compareFunc = (a: Point, b: Point) => {
-      if (a.day == b.day) return a.time - b.time;
-      return a.day - b.day;
-    }
-    return new PointList(...this.object().sort(compareFunc).slice(0, n));
+    return new PointList(...this.object().sort(this.compareFunc).slice(0, n));
+  }
+
+  lastN(n: number): PointList {
+    return new PointList(...this.object().sort(this.compareFunc).slice(this.length() - n));
   }
 }

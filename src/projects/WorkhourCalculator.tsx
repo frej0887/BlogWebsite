@@ -61,12 +61,18 @@ export const WorkhourCalculator = () => {
   }, [rules]);
 
   const calculate = () => {
-    let neededQuarters = workingHours*4;
+    const yes = rules.get(UserSetting.YesThis) || new PointList();
+    let neededQuarters = workingHours*4 - yes.length();
     console.log(neededQuarters);
+    if (neededQuarters <= 0) {
+      console.log("Needs are already fulfilled")
+      return;
+    }
     const no = (rules.get(UserSetting.NoWeekly) || new PointList()).union(rules.get(UserSetting.NoThis) || new PointList());
     const preferablyNot = rules.get(UserSetting.MaybeWeekly) || new PointList();
 
-    const possible = usedWeekdays.map((v, i) => v ? pointRangeToPointList({time: 0, day: i}, {time: 24*4-1, day: i}).without(no) : new PointList())
+    const oneDayPointList = (i: number) => pointRangeToPointList({time: 0, day: i}, {time: 24 * 4 - 1, day: i});
+    const possible = usedWeekdays.map((v, i) => v ? oneDayPointList(i).without(no).without(yes) : new PointList())
     const allOneList = possible
       .map(x => x.copy())
       .reduce((prev, current) => prev.union(current));
@@ -77,9 +83,10 @@ export const WorkhourCalculator = () => {
     const preferred = allOneList
       .copy()
       .without(no)
+      .without(yes)
       .without(preferablyNot);
+    console.log(preferred);
 
-    addToRules(UserSetting.YesThis, preferred);
     if (neededQuarters >= preferred.length()) {
       // Use all preferred + what is needed from allAvailable
       neededQuarters -= preferred.length();
@@ -89,6 +96,7 @@ export const WorkhourCalculator = () => {
     }
 
     // Put it all early on
+    // TODO: Make more
     for (const pointList of possible) {
       if (pointList.length() >= neededQuarters) {
         addToRules(UserSetting.YesThis, pointList.firstN(neededQuarters));

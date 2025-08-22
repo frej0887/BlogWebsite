@@ -11,5 +11,5 @@ export const early = (toChooseFrom: PointList[], neededQuarters: number) => {
     neededQuarters -= pointList.length();
     out.union(pointList);
   }
-  return out;
+  return {out, newNeededQuarters: neededQuarters};
 }

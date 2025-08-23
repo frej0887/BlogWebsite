@@ -67,13 +67,8 @@ export class PointList extends Set<Point>{
 
   middleN(n: number): PointList {
     const listLength = this.length();
-    let midOfList;
-    let upperHalf;
-    midOfList = Math.ceil(listLength / 2);
-    if (n % 2 == 0 && listLength % 2 != 0)
-      upperHalf = n/2 - 1;
-    else
-      upperHalf = Math.floor(n/2);
+    const midOfList = Math.ceil(listLength / 2);
+    const upperHalf = n % 2 == 0 && listLength % 2 != 0 ? n/2 - 1 : Math.floor(n/2);
     return new PointList(...this.sort().firstN(midOfList + upperHalf).lastN(n));
   }
 

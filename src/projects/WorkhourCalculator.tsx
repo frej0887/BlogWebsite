@@ -13,7 +13,7 @@ import {
 } from "./workhourCalculator/tools.ts";
 import {type Point, PointList} from "./workhourCalculator/PointList.tsx";
 import {useLocalStorage} from "@uidotdev/usehooks";
-import {early} from "./workhourCalculator/distributionMethods.ts";
+import {middle} from "./workhourCalculator/distributionMethods.ts";
 
 const ALL_WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -88,10 +88,10 @@ export const WorkhourCalculator = () => {
       .copy()
       .without(maybeWeekly)
 
-    const {out, newNeededQuarters} = early([preferredPointList], neededQuarters);
+    const {out, newNeededQuarters} = middle([preferredPointList], neededQuarters);
     addToRules(UserSetting.YesThis, out);
     if (newNeededQuarters >= 0)
-      addToRules(UserSetting.YesThis, early([possiblePointList.without(preferredPointList)], newNeededQuarters).out);
+      addToRules(UserSetting.YesThis, middle([possiblePointList.without(preferredPointList)], newNeededQuarters).out);
   }
 
   return (

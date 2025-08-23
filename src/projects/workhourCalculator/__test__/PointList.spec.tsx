@@ -44,7 +44,29 @@ test("pointListFirstN", () => {
 })
 
 
-test("pointListMiddleNOddList", () => {
+test("pointListMiddleNOddListOddWant", () => {
+
+  // Odd list length
+  const pointListOdd = new PointList(
+    {day: 0, time: 1},
+    {day: 0, time: 2},
+    {day: 0, time: 3},
+    {day: 0, time: 4},
+    {day: 0, time: 5},
+    {day: 0, time: 6},
+    {day: 0, time: 7},
+  );
+
+  const pointListOddMiddle3 = new PointList(
+    {day: 0, time: 3},
+    {day: 0, time: 4},
+    {day: 0, time: 5},
+  );
+  console.log(pointListOdd.middleN(3))
+  expect(pointListOdd.middleN(3).equal(pointListOddMiddle3)).toBe(true);
+})
+
+test("pointListMiddleNOddListEvenWant", () => {
 
   // Odd list length
   const pointListOdd = new PointList(
@@ -64,17 +86,28 @@ test("pointListMiddleNOddList", () => {
     {day: 0, time: 5},
   );
   expect(pointListOdd.middleN(4).equal(pointListOddMiddle4)).toBe(true);
+})
 
-  const pointListOddMiddle3 = new PointList(
+test("pointListMiddleNEvenListOddWant", () => {
+  // Even lists
+  const pointListEven = new PointList(
+    {day: 0, time: 1},
+    {day: 0, time: 2},
     {day: 0, time: 3},
     {day: 0, time: 4},
     {day: 0, time: 5},
+    {day: 0, time: 6},
   );
-  console.log(pointListOdd.middleN(3))
-  expect(pointListOdd.middleN(3).equal(pointListOddMiddle3)).toBe(true);
+
+  const pointListEvenMiddle3 = new PointList(
+    {day: 0, time: 2},
+    {day: 0, time: 3},
+    {day: 0, time: 4},
+  );
+  expect(pointListEven.middleN(3).equal(pointListEvenMiddle3)).toBe(true);
 })
 
-test("pointListMiddleNEvenList", () => {
+test("pointListMiddleNEvenListEvenWant", () => {
   // Even lists
   const pointListEven = new PointList(
     {day: 0, time: 1},
@@ -92,12 +125,4 @@ test("pointListMiddleNEvenList", () => {
     {day: 0, time: 5},
   );
   expect(pointListEven.middleN(4).equal(pointListEvenMiddle4)).toBe(true);
-
-  const pointListEvenMiddle3 = new PointList(
-    {day: 0, time: 2},
-    {day: 0, time: 3},
-    {day: 0, time: 4},
-  );
-  expect(pointListEven.middleN(3).equal(pointListEvenMiddle3)).toBe(true);
-
 })

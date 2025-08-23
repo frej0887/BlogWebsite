@@ -64,4 +64,30 @@ export class PointList extends Set<Point>{
   lastN(n: number): PointList {
     return new PointList(...this.object().sort(this.compareFunc).slice(this.length() - n));
   }
+
+  middleN(n: number): PointList {
+    const listLength = this.length();
+    let midOfList;
+    let upperHalf;
+    if (listLength % 2 == 0) {
+      midOfList = listLength / 2;
+      if (n % 2 == 0)
+        upperHalf = n/2
+      else
+        upperHalf = Math.floor(n/2)
+    }
+    else {
+      midOfList = Math.ceil(listLength / 2);
+      if (n % 2 == 0)
+        upperHalf = n/2 - 1;
+      else {
+        upperHalf = Math.floor(n / 2);
+      }
+    }
+    return new PointList(...this.sort().firstN(midOfList + upperHalf).lastN(n));
+  }
+
+  sort(): PointList {
+    return new PointList(...this.object().sort(this.compareFunc));
+  }
 }

@@ -42,3 +42,62 @@ test("pointListFirstN", () => {
   expect(pointList1.firstN(2).length()).toBe(2);
   expect(pointList1.firstN(4).equal(pointList2)).toBe(true);
 })
+
+
+test("pointListMiddleNOddList", () => {
+
+  // Odd list length
+  const pointListOdd = new PointList(
+    {day: 0, time: 1},
+    {day: 0, time: 2},
+    {day: 0, time: 3},
+    {day: 0, time: 4},
+    {day: 0, time: 5},
+    {day: 0, time: 6},
+    {day: 0, time: 7},
+  );
+
+  const pointListOddMiddle4 = new PointList(
+    {day: 0, time: 2},
+    {day: 0, time: 3},
+    {day: 0, time: 4},
+    {day: 0, time: 5},
+  );
+  expect(pointListOdd.middleN(4).equal(pointListOddMiddle4)).toBe(true);
+
+  const pointListOddMiddle3 = new PointList(
+    {day: 0, time: 3},
+    {day: 0, time: 4},
+    {day: 0, time: 5},
+  );
+  console.log(pointListOdd.middleN(3))
+  expect(pointListOdd.middleN(3).equal(pointListOddMiddle3)).toBe(true);
+})
+
+test("pointListMiddleNEvenList", () => {
+  // Even lists
+  const pointListEven = new PointList(
+    {day: 0, time: 1},
+    {day: 0, time: 2},
+    {day: 0, time: 3},
+    {day: 0, time: 4},
+    {day: 0, time: 5},
+    {day: 0, time: 6},
+  );
+
+  const pointListEvenMiddle4 = new PointList(
+    {day: 0, time: 2},
+    {day: 0, time: 3},
+    {day: 0, time: 4},
+    {day: 0, time: 5},
+  );
+  expect(pointListEven.middleN(4).equal(pointListEvenMiddle4)).toBe(true);
+
+  const pointListEvenMiddle3 = new PointList(
+    {day: 0, time: 2},
+    {day: 0, time: 3},
+    {day: 0, time: 4},
+  );
+  expect(pointListEven.middleN(3).equal(pointListEvenMiddle3)).toBe(true);
+
+})

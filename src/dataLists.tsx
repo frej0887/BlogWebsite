@@ -1,8 +1,9 @@
 import {Dinosaur} from "./projects/Dinosaur.tsx";
 import {WatchStrap} from "./projects/WatchStrap.tsx";
 import {TableClock} from "./projects/TableClock.tsx";
+import {BananaPancakes} from "./recipes/BananaPancakes.tsx";
 
-export const currentProjects = [{
+const dataLists = [{
   project: <Dinosaur/>,
   previewName: 'Dinosaur watering can',
   previewText: 'A storebought dinosaur shaped watering can painted to look better.',
@@ -18,3 +19,23 @@ export const currentProjects = [{
   previewText: 'Upcoming...',
   previewImage: ''
 }];
+
+const recipesData = [{
+  project: <BananaPancakes/>,
+  previewName: 'Banana pancakes',
+  previewText: '',
+  previewImage: ''
+}];
+
+const origamiData = [{
+  project: <BananaPancakes/>,
+  previewName: 'Origami',
+  previewText: '',
+  previewImage: ''
+}];
+
+export const LIST_LIST = {
+  projects: {title: "Projects", type: "projects", projectMapTypes: dataLists},
+  recipes: {title: "Recipes", type: "recipes", projectMapTypes: recipesData},
+  origami: {title: "Origami", type: "origami", projectMapTypes: origamiData},
+}

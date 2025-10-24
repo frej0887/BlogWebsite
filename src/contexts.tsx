@@ -1,11 +1,17 @@
 import {createContext, type ReactNode} from "react";
-import {currentProjects} from "./currentProjects.tsx";
+import {LIST_LIST} from "./dataLists.tsx";
 
 type layoutContext = {
   is_mobile: boolean;
 }
 
 export const LayoutContext = createContext<layoutContext>({is_mobile: false});
+
+export type ProjectListType = {
+  type: string;
+  title: string;
+  projectMapTypes: ProjectMapType[];
+}
 
 export type ProjectMapType = {
   project: ReactNode;
@@ -14,4 +20,4 @@ export type ProjectMapType = {
   previewImage: string|null;
 }
 
-export const ProjectContext = createContext<ProjectMapType[]>(currentProjects)
+export const ListContext = createContext<Record<string, ProjectListType>>(LIST_LIST)

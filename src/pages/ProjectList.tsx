@@ -1,20 +1,25 @@
+import {useParams} from "react-router-dom";
+import {ProjectPreview} from "../components/ProjectPreview.tsx";
 import {useContext} from "react";
-import {ProjectContext} from "../contexts.tsx";
-import {ProjectPreview} from "../components/ProjectPreview.tsx"
+import {ListContext, type ProjectListType} from "../contexts.tsx";
+import {NoPage} from "./NoPage.tsx";
 
 export const ProjectList = () => {
-
-  const projectList = useContext(ProjectContext);
-  if (projectList == undefined || projectList.length == 0) return <p>No projects</p>
-
-  const projects = projectList.map((project, id) => ProjectPreview({...project,  id: id}))
+  const { type } = useParams();
+  const projectList = useContext(ListContext);
+  if (!type)
+    return <NoPage/>
+  const project: ProjectListType = projectList[type];
 
   return (
     <>
-      <h1>Projects</h1>
+      <h1>{project.title}</h1>
+      {
+        project.projectMapTypes.map((project, id) => ProjectPreview({id, project, type}))
+        }
       <div>
-        {projects}
       </div>
     </>
   )
 }
+

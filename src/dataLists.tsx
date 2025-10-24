@@ -2,6 +2,7 @@ import {Dinosaur} from "./projects/Dinosaur.tsx";
 import {WatchStrap} from "./projects/WatchStrap.tsx";
 import {TableClock} from "./projects/TableClock.tsx";
 import {BananaPancakes} from "./recipes/BananaPancakes.tsx";
+import {BananaIceCream} from "./recipes/BananaIceCream.tsx";
 
 const dataLists = [{
   project: <Dinosaur/>,
@@ -23,8 +24,11 @@ const dataLists = [{
 const recipesData = [{
   project: <BananaPancakes/>,
   previewName: 'Banana pancakes',
-  previewText: '',
-  previewImage: ''
+  previewText: ''
+},{
+  project: <BananaIceCream/>,
+  previewName: 'Banana ice cream',
+  previewText: ''
 }];
 
 const origamiData = [{

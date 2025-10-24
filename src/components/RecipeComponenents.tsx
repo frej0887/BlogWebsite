@@ -20,8 +20,8 @@ const tableCheckmark = () =>
 export const MyIngredient = ({count, unit, item}: IngredientsProps) =>
   <tr>
     {tableCheckmark()}
-    <td style={{width: '1rem'}}><p>{numToSymbol(count)}</p></td>
-    <td style={{width: '1.5rem'}}><p>{unit}</p></td>
+    <td style={{width: '1.2rem'}}><p>{numToSymbol(count)}</p></td>
+    <td style={{width: '1.2rem'}}><p>{unit}</p></td>
     <td><p>{item}</p></td>
   </tr>
 

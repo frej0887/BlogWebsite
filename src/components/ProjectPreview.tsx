@@ -4,14 +4,17 @@ import {useContext} from "react";
 
 type AddId = {
   id: number,
+  project: ProjectMapType,
+  type: string,
 }
 
-export const ProjectPreview = ({previewName, previewImage, previewText, id}: ProjectMapType & AddId) => {
-  const theme = useContext(LayoutContext);
+export const ProjectPreview = ({id, project, type}: AddId) => {
   const navigate = useNavigate();
+  const theme = useContext(LayoutContext);
+  const { previewName, previewImage, previewText } = project;
 
   return (
-    <div onClick={() => navigate(`/projects/${id}`)} style={theme.is_mobile ? styleMobile : styleDesktop}>
+    <div onClick={() => navigate(`/${type}/${id}`)} style={theme.is_mobile ? styleMobile : styleDesktop}>
       <div>
         <h2>{previewName}</h2>
         <p>{previewText}</p>
@@ -20,7 +23,6 @@ export const ProjectPreview = ({previewName, previewImage, previewText, id}: Pro
     </div>
   )
 }
-
 
 const styleMobile = {}
 

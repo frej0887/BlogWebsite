@@ -1,15 +1,17 @@
-
 import {useParams} from "react-router-dom";
-import {NoPage} from "./NoPage.tsx";
 import {useContext} from "react";
-import {ProjectContext} from "../contexts.tsx";
+import {ListContext} from "../contexts.tsx";
+import {NoPage} from "./NoPage.tsx";
 
 export const SingleProject = () => {
-  const { projectId } = useParams();
-  const projectList = useContext(ProjectContext);
+  const { type, projectId } = useParams();
 
-  if (projectId == undefined) return <NoPage/>
-  if (projectList == undefined || projectList.length < parseInt(projectId)) return <NoPage/>
+  const projectList = useContext(ListContext);
+  if (!type || !projectId)
+    return <NoPage/>
+  const project = projectList[type].projectMapTypes;
+  if (!project || parseInt(projectId) >= project.length)
+    return <NoPage/>
 
-  return projectList[parseInt(projectId)].project;
+  return project[parseInt(projectId)].project;
 }

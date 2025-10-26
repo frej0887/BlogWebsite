@@ -15,26 +15,47 @@ header a {
   color: inherit;
 }
 
+.menu-content {
+  position: absolute;
+  background-color: #1ABC9C;
+  padding: 1em 2em 1em 1em;
+  width: 100%;
+  left: 0;
+  border-radius: 1px;
+}
+
+svg {
+  height: 1em;
+  width: 1em;
+  fill: #ffffff;
+}
+
 header {
-  padding-top: 60px;
   text-align: center;
   background: #1abc9c;
-  font-size: 30px;
+  font-size: 20px;
   user-select: none;
+}
+
+.open-menu-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.open-menu-button svg {
+  vertical-align: middle;
 }
 
 .menu-box {
   display: flex;
-  margin-left: 200px;
-  margin-right: 200px;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
+  align-items: center;
+  margin-left: 3rem;
 }
 
 .menuitem {
-  text-align: center;
-  font-size: 20px;
-  margin: 20px 50px;
+  margin: 20px 30px;
 }
 
 .content-mobile {

@@ -1,13 +1,15 @@
 import './layout.css'
 import {Link, Outlet} from "react-router-dom";
 import {useContext, useEffect, useRef, useState} from "react";
-import {LayoutContext} from "../contexts.tsx";
+import {LayoutContext, ListContext} from "../contexts.tsx";
 import { ReactSVG } from 'react-svg'
+import {LIST_LIST_KEYS} from "../dataLists.tsx";
 
 export const Header = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
   const [menuVisible, setMenuVisible] = useState(false);
+  const projectList = useContext(ListContext);
 
   useEffect(() => {
     if (ref.current)
@@ -32,9 +34,9 @@ export const Header = () => {
         </div>
       </div>
       <div className={"menu-content"} style={{...{top: headerHeight}, ...(menuVisible? {display: "block"} : {display: "none"})}}>
-        <div><Link to={"/projects"} onClick={() => setMenuVisible(false)}>Projects</Link></div>
-        <div><Link to={"/recipes"} onClick={() => setMenuVisible(false)}>Recipes</Link></div>
-        <div><Link to={"/origami"} onClick={() => setMenuVisible(false)}>Origami</Link></div>
+        {LIST_LIST_KEYS.map((key) => (
+          <div key={key}><Link to={"/" + key} onClick={() => setMenuVisible(false)}>{projectList[key].title}</Link></div>
+        ))}
       </div>
     </header>
   )

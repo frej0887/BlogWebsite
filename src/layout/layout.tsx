@@ -4,11 +4,13 @@ import {useContext, useEffect, useRef, useState} from "react";
 import {LayoutContext, ListContext} from "../contexts.tsx";
 import { ReactSVG } from 'react-svg'
 import {LIST_LIST_KEYS} from "../dataLists.tsx";
+import Hamburger from "hamburger-react";
 
 export const Header = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
   const [menuVisible, setMenuVisible] = useState(false);
+  const theme = useContext(LayoutContext);
   const projectList = useContext(ListContext);
 
   useEffect(() => {
@@ -16,6 +18,31 @@ export const Header = () => {
       setHeaderHeight(ref.current.clientHeight);
   }, [ref]);
 
+  if (theme.is_mobile)
+    return (
+      <header>
+        <div style={{display: "flex", justifyContent: "space-between", margin: "0.5rem 1rem", alignItems: "center"}}>
+          <h1>
+            <Link to="/">Hello there ✌️</Link>
+          </h1>
+          <Hamburger
+            toggle={setMenuVisible}
+            toggled={menuVisible}
+          />
+        </div>
+        <div className={"navbar"} style={menuVisible ? { display: "flex" } : {display: "none"}}>
+          <h1>
+            <Link to="/" onClick={() => setMenuVisible(false)}>Home</Link>
+          </h1>
+          {LIST_LIST_KEYS.map((key) => (
+            <h2 key={key}><Link to={"/" + key} onClick={() => setMenuVisible(false)}>{projectList[key].title}</Link></h2>
+          ))}
+          <h1>
+            <Link to="/about" onClick={() => setMenuVisible(false)}>About</Link>
+          </h1>
+        </div>
+      </header>
+    )
   return (
     <header>
       <div className={"menu-box"} id={"menu"} ref={ref}>

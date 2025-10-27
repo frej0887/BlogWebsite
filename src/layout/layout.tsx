@@ -3,7 +3,6 @@ import {Link, Outlet} from "react-router-dom";
 import {useContext, useEffect, useRef, useState} from "react";
 import {LayoutContext, ListContext} from "../contexts.tsx";
 import { ReactSVG } from 'react-svg'
-import {LIST_LIST_KEYS} from "../dataLists.tsx";
 import Hamburger from "hamburger-react";
 
 export const Header = () => {
@@ -34,7 +33,7 @@ export const Header = () => {
           <h1>
             <Link to="/" onClick={() => setMenuVisible(false)}>Home</Link>
           </h1>
-          {LIST_LIST_KEYS.map((key) => (
+          {Object.keys(projectList).map((key) => (
             <h2 key={key}><Link to={"/" + key} onClick={() => setMenuVisible(false)}>{projectList[key].title}</Link></h2>
           ))}
           <h1>
@@ -61,7 +60,7 @@ export const Header = () => {
         </div>
       </div>
       <div className={"menu-content"} style={{...{top: headerHeight}, ...(menuVisible? {display: "block"} : {display: "none"})}}>
-        {LIST_LIST_KEYS.map((key) => (
+        {Object.keys(projectList).map((key) => (
           <div key={key}><Link to={"/" + key} onClick={() => setMenuVisible(false)}>{projectList[key].title}</Link></div>
         ))}
       </div>

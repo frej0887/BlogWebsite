@@ -43,5 +43,3 @@ export const LIST_LIST = {
   recipes: {title: "Recipes", type: "recipes", projectMapTypes: recipesData},
   origami: {title: "Origami", type: "origami", projectMapTypes: origamiData},
 }
-
-export const LIST_LIST_KEYS = ["projects", "origami", "recipes"]

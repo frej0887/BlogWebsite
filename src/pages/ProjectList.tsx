@@ -17,7 +17,7 @@ export const ProjectList = () => {
       <h1>{project.title}</h1>
       {
         project.projectMapTypes.map(({previewName, previewImage, previewText}, id) =>
-          <div onClick={() => navigate(`/${type}/${id}`)} style={theme.is_mobile ? styleMobile : styleDesktop} key={id}>
+          <div onClick={() => navigate(`/${type}/${id}`)} style={theme.is_mobile ? styleMobile : styleDesktop} key={previewName}>
             <div>
               <h2>{previewName}</h2>
               <p>{previewText}</p>

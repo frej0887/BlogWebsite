@@ -33,8 +33,8 @@ export const Header = () => {
           <h1>
             <Link to="/" onClick={() => setMenuVisible(false)}>Home</Link>
           </h1>
-          {Object.keys(projectList).map((key) => (
-            <h2 key={key}><Link to={"/" + key} onClick={() => setMenuVisible(false)}>{projectList[key].title}</Link></h2>
+          {projectList.map(({title}, key) => (
+            <h2 key={key}><Link to={"/" + key} onClick={() => setMenuVisible(false)}>{title}</Link></h2>
           ))}
           <h1>
             <Link to="/about" onClick={() => setMenuVisible(false)}>About</Link>
@@ -60,8 +60,8 @@ export const Header = () => {
         </div>
       </div>
       <div className={"menu-content"} style={{...{top: headerHeight}, ...(menuVisible? {display: "block"} : {display: "none"})}}>
-        {Object.keys(projectList).map((key) => (
-          <div key={key}><Link to={"/" + key} onClick={() => setMenuVisible(false)}>{projectList[key].title}</Link></div>
+        {projectList.map(({title}, key) => (
+          <h2 key={key}><Link to={"/" + key} onClick={() => setMenuVisible(false)}>{title}</Link></h2>
         ))}
       </div>
     </header>

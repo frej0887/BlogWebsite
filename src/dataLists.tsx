@@ -38,8 +38,8 @@ const origamiData = [{
   previewImage: ''
 }];
 
-export const LIST_LIST = {
-  projects: {title: "Projects", type: "projects", projectMapTypes: dataLists},
-  recipes: {title: "Recipes", type: "recipes", projectMapTypes: recipesData},
-  origami: {title: "Origami", type: "origami", projectMapTypes: origamiData},
-}
+export const LIST_LIST = [
+  {title: "Projects", type: "projects", projectMapTypes: dataLists},
+  {title: "Recipes", type: "recipes", projectMapTypes: recipesData},
+  {title: "Origami", type: "origami", projectMapTypes: origamiData},
+]

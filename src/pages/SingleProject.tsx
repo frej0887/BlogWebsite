@@ -5,13 +5,16 @@ import {NoPage} from "./NoPage.tsx";
 
 export const SingleProject = () => {
   const { type, projectId } = useParams();
-
   const projectList = useContext(ListContext);
-  if (!type || !projectId)
-    return <NoPage/>
-  const project = projectList[type].projectMapTypes;
-  if (!project || parseInt(projectId) >= project.length)
-    return <NoPage/>
 
-  return project[parseInt(projectId)].project;
+  if (!projectId)
+    return <NoPage/>
+  if (!type)
+    return <NoPage/>
+  const project = projectList.find((x) => x.type === type);
+  if (!project)
+    return <NoPage/>
+  if (isNaN(parseInt(projectId)))
+    return <NoPage/>
+  return project.projectMapTypes[parseInt(projectId)].project
 }

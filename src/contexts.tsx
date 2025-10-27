@@ -17,7 +17,7 @@ export type ProjectMapType = {
   project: ReactNode;
   previewName: string;
   previewText: string;
-  previewImage: string|null;
+  previewImage?: string;
 }
 
-export const ListContext = createContext<Record<string, ProjectListType>>(LIST_LIST)
+export const ListContext = createContext<ProjectListType[]>(LIST_LIST)

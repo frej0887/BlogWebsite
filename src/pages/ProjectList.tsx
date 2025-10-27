@@ -1,6 +1,6 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {useContext} from "react";
-import {LayoutContext, ListContext, type ProjectListType} from "../contexts.tsx";
+import {LayoutContext, ListContext} from "../contexts.tsx";
 import {NoPage} from "./NoPage.tsx";
 
 export const ProjectList = () => {
@@ -10,7 +10,10 @@ export const ProjectList = () => {
   const projectList = useContext(ListContext);
   if (!type)
     return <NoPage/>
-  const project: ProjectListType = projectList[type];
+  const projects = projectList.filter((x) => x.type === type);
+  if (projects.length != 1)
+    return <NoPage/>
+  const project = projects[0]
 
   return (
     <>

@@ -8,7 +8,12 @@ import Hamburger from "hamburger-react";
 export const Header = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
-  const [menuVisible, setMenuVisible] = useState(false);
+  const [mainMenuVisible, setMainMenuVisible] = useState(false);
+  const [subMenuVisible, setSubMenuVisible] = useState(false);
+  const closeMenus = () => {
+    setMainMenuVisible(false)
+    setSubMenuVisible(false)
+  }
   const theme = useContext(LayoutContext);
   const projectList = useContext(ListContext);
 
@@ -16,6 +21,29 @@ export const Header = () => {
     if (ref.current)
       setHeaderHeight(ref.current.clientHeight);
   }, [ref]);
+
+  const mainMenu = (
+    <>
+      <h2 onClick={() => setMainMenuVisible(false)}>
+        <Link to="/">Home</Link>
+      </h2>
+      <h2 onClick={() => setSubMenuVisible(true)}>
+        <ReactSVG src="./icons/left-arrow.svg" wrapper={'span'}/>
+        Projects
+      </h2>
+      <h2 onClick={() => setMainMenuVisible(false)}>
+        <Link to="/about">About</Link>
+      </h2>
+    </>
+  );
+
+  const subMenu = (
+    <>
+      {projectList.map(({title, type}, key) => (
+        <h2 key={key}><Link to={"/" + type} onClick={() => closeMenus()}>{title}</Link></h2>
+      ))}
+    </>
+  );
 
   if (theme.is_mobile)
     return (
@@ -25,20 +53,12 @@ export const Header = () => {
             <Link to="/">Hello there ✌️</Link>
           </h1>
           <Hamburger
-            toggle={setMenuVisible}
-            toggled={menuVisible}
+            toggle={(value) => subMenuVisible ? closeMenus() : setMainMenuVisible(value)}
+            toggled={mainMenuVisible}
           />
         </div>
-        <div className={"navbar"} style={menuVisible ? { display: "flex" } : {display: "none"}}>
-          <h1>
-            <Link to="/" onClick={() => setMenuVisible(false)}>Home</Link>
-          </h1>
-          {projectList.map(({title}, key) => (
-            <h2 key={key}><Link to={"/" + key} onClick={() => setMenuVisible(false)}>{title}</Link></h2>
-          ))}
-          <h1>
-            <Link to="/about" onClick={() => setMenuVisible(false)}>About</Link>
-          </h1>
+        <div className={"navbar"} style={mainMenuVisible ? { display: "flex" } : {display: "none"}}>
+          {subMenuVisible ? subMenu : mainMenu}
         </div>
       </header>
     )
@@ -51,7 +71,7 @@ export const Header = () => {
         <div className={"menuitem"}>
           <Link to="/">Home</Link>
         </div>
-        <div className={"menuitem open-menu-button"} onClick={() => setMenuVisible(!menuVisible)}>
+        <div className={"menuitem open-menu-button"} onClick={() => setMainMenuVisible(!mainMenuVisible)}>
           Projects
           <ReactSVG src="./icons/dropdown-arrow.svg" wrapper={'span'}/>
         </div>
@@ -59,9 +79,9 @@ export const Header = () => {
           <Link to="/about">About</Link>
         </div>
       </div>
-      <div className={"menu-content"} style={{...{top: headerHeight}, ...(menuVisible? {display: "block"} : {display: "none"})}}>
+      <div className={"menu-content"} style={{...{top: headerHeight}, ...(mainMenuVisible? {display: "block"} : {display: "none"})}}>
         {projectList.map(({title}, key) => (
-          <h2 key={key}><Link to={"/" + key} onClick={() => setMenuVisible(false)}>{title}</Link></h2>
+          <h2 key={key}><Link to={"/" + key} onClick={() => setMainMenuVisible(false)}>{title}</Link></h2>
         ))}
       </div>
     </header>

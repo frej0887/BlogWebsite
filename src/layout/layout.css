@@ -55,14 +55,9 @@ header {
 }
 
 .navbar h2 {
-  font-size: 1.2em;
+  font-size: 1em;
   margin-top: 0.4em;
   margin-bottom: 0.4em;
-  font-weight: normal;
-}
-
-.navbar h1 {
-  font-size: 1.5em;
   font-weight: normal;
 }
 

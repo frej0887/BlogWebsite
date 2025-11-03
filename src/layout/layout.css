@@ -28,6 +28,7 @@ svg {
   height: 1em;
   width: 1em;
   fill: #ffffff;
+  vertical-align: middle;
 }
 
 header {

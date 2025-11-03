@@ -1,4 +1,4 @@
-import './App.css'
+import './App.sass'
 import {useMediaQuery} from 'react-responsive';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {Home} from "./pages/Home.tsx";

@@ -1,4 +1,4 @@
-import './layout.css'
+import './layout.sass'
 import {Link, Outlet} from "react-router-dom";
 import {useContext, useEffect, useRef, useState} from "react";
 import {LayoutContext, ListContext} from "../contexts.tsx";

@@ -10,57 +10,61 @@ a
 p>a
   color: $main-50
 
-header a
-  color: inherit
-
-.menu-content
-  position: absolute
-  background-color: $main-50
-  padding: 1em 2em 1em 1em
-  width: 100%
-  left: 0
-  border-radius: 1px
-
-svg
-  height: 1em
-  width: 1em
-  fill: $main-0
-  vertical-align: middle
-
 header
   text-align: center
   background: $main-50
   font-size: 20px
   user-select: none
 
-.open-menu-button
-  cursor: pointer
-  display: flex
-  align-items: center
+  *
+    color: $main-0
 
-.open-menu-button svg
-  vertical-align: middle
+  h2
+    font-weight: normal
+    font-size: 1em
 
-.navbar
-  flex-direction: column
-  align-items: flex-end
-  padding-right: 1em
-  padding-bottom: 1em
+  svg
+    height: 1em
+    width: 1em
+    fill: $main-0
+    vertical-align: middle
 
-.navbar h2
-  font-size: 1em
-  margin-top: 0.4em
-  margin-bottom: 0.4em
-  font-weight: normal
+  .open-menu-button
+    cursor: pointer
+    display: flex
+    align-items: center
 
-.menu-box
-  display: flex
-  justify-content: left
-  align-items: center
-  margin-left: 3rem
+  .mobile-header
+    display: flex
+    justify-content: space-between
+    margin: 0.5rem 1rem
+    align-items: center
 
-.menuitem
-  margin: 20px 30px
+  .mobile-item-list
+    flex-direction: column
+    align-items: flex-end
+    padding-right: 1em
+    padding-bottom: 1em
+
+    h2
+      margin-top: 0.4em
+      margin-bottom: 0.4em
+
+  .desktop-items
+    display: flex
+    margin: 0.5rem 1rem
+    align-items: center
+
+    h2
+      margin: 1em 1em
+
+  .desktop-sub-items
+    padding-bottom: 0.5em
+    flex-direction: row
+    justify-content: center
+
+    h2
+      margin: 0.5rem 1rem
 
 .content-mobile
   margin: 0.5rem 1rem

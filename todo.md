@@ -1,10 +1,11 @@
 
 - [ ] Adaptive layout
-  - [ ] Mobile - kebab/burger menu?
-  - [ ] px to rem
+  - [x] Mobile - kebab/burger menu?
+  - [x] px to rem
   - [ ] Widescreen
-  - [ ] Text size
+  - [x] Text size
   - [ ] Even fucking smaller images!
+  - [ ] jpg
 - [x] Icons
-- [ ] Title and icon 
-- [ ] Another menu item for code on site??
+- [x] Title and icon 
+- [x] Another menu item for code on site??

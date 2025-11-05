@@ -1,6 +1,5 @@
 import {Dinosaur} from "./projects/Dinosaur.tsx";
 import {WatchStrap} from "./projects/WatchStrap.tsx";
-import {TableClock} from "./projects/TableClock.tsx";
 import {BananaPancakes} from "./recipes/BananaPancakes.tsx";
 import {BananaIceCream} from "./recipes/BananaIceCream.tsx";
 
@@ -14,11 +13,6 @@ const dataLists = [{
   previewName: 'Leather watchstrap',
   previewText: 'Leather watchstrap to replace an old broken one',
   previewImage: 'images/watchstrap/watchstrap.png'
-},{
-  project: <TableClock/>,
-  previewName: 'Table clock',
-  previewText: 'Upcoming...',
-  previewImage: ''
 }];
 
 const recipesData = [{

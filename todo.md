@@ -4,8 +4,8 @@
   - [x] px to rem
   - [ ] Widescreen
   - [x] Text size
-  - [ ] Even fucking smaller images!
-  - [ ] jpg
+  - [x] Even fucking smaller images!
+  - [x] jpg
 - [x] Icons
 - [x] Title and icon 
 - [x] Another menu item for code on site??

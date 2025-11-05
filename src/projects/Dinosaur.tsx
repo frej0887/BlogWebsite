@@ -15,9 +15,9 @@ export const Dinosaur = () => {
         <MyLink
           href={'https://www.imerco.dk/casa-living-vandkande-dinosaur-1-liter-plastik-groen?id=100433309'}>Imerco</MyLink>
       </MyText>
-      <MyImage src={'watering_can/wateringcan_before.png'} alt={'The watering can before'}></MyImage>
+      <MyImage src={'watering_can/wateringcan_before.jpg'} alt={'The watering can before'}></MyImage>
       <MyText>This is it after</MyText>
-      <MyImage src={'watering_can/left.png'} alt={'The watering can after'}></MyImage>
+      <MyImage src={'watering_can/left.jpg'} alt={'The watering can after'}></MyImage>
       <MyHeader2>Materials</MyHeader2>
       <MyList>
         <MyListItem>Acrylic paint</MyListItem>
@@ -50,12 +50,12 @@ export const Dinosaur = () => {
       <MyText>The funny shape of the watering can it not the most practical, but the design is always a joy to look
         at.</MyText>
       <MyImageCarousel slideImages={[
-        {src:'watering_can/front.png', caption:''},
-        {src:'watering_can/front2.png', caption:''},
-        {src:'watering_can/left.png', caption:''},
-        {src:'watering_can/right.png', caption:''},
-        {src:'watering_can/wateringcan_before.png', caption:'The old and bland dinosaur-shaped watering can'},
-        {src:'watering_can/eater_of_worlds.png', caption:''},
+        {src:'watering_can/front.jpg', caption: ''},
+        {src:'watering_can/front2.jpg', caption: ''},
+        {src:'watering_can/left.jpg', caption: ''},
+        {src:'watering_can/right.jpg', caption: ''},
+        {src:'watering_can/wateringcan_before.jpg', caption: 'The old and bland dinosaur-shaped watering can'},
+        {src:'watering_can/eater_of_worlds.jpg', caption: 'Eater of worlds!'},
       ]}/>
     </MyOuter>
   )

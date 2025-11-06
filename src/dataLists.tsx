@@ -3,7 +3,7 @@ import {WatchStrap} from "./projects/WatchStrap.tsx";
 import {BananaPancakes} from "./recipes/BananaPancakes.tsx";
 import {BananaIceCream} from "./recipes/BananaIceCream.tsx";
 
-const dataLists = [{
+const materialContent = [{
   project: <Dinosaur/>,
   previewName: 'Dinosaur watering can',
   previewText: 'A storebought dinosaur shaped watering can painted to look better.',
@@ -15,7 +15,7 @@ const dataLists = [{
   previewImage: 'images/watchstrap/watchstrap.jpg'
 }];
 
-const recipesData = [{
+const recipeContent = [{
   project: <BananaPancakes/>,
   previewName: 'Banana pancakes',
   previewText: ''
@@ -25,15 +25,16 @@ const recipesData = [{
   previewText: ''
 }];
 
-const origamiData = [{
-  project: <BananaPancakes/>,
+const origamiContent = [{
+  project: <></>,
   previewName: 'Origami',
   previewText: '',
   previewImage: ''
 }];
 
 export const LIST_LIST = [
-  {title: "Projects", type: "projects", projectMapTypes: dataLists},
-  {title: "Recipes", type: "recipes", projectMapTypes: recipesData},
-  {title: "Origami", type: "origami", projectMapTypes: origamiData},
+  {title: "Material projects", type: "material", projectMapTypes: materialContent},
+  //{title: "Origami", type: "origami", projectMapTypes: origamiContent},
+  //{title: "Coding", type: "code", projectMapTypes: []},
+  {title: "Recipes", type: "recipes", projectMapTypes: recipeContent},
 ]

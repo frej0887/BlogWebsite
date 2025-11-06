@@ -25,12 +25,12 @@ const recipeContent = [{
   previewText: ''
 }];
 
-const origamiContent = [{
+/*const origamiContent = [{
   project: <></>,
   previewName: 'Origami',
   previewText: '',
   previewImage: ''
-}];
+}];*/
 
 export const LIST_LIST = [
   {title: "Material projects", type: "material", projectMapTypes: materialContent},

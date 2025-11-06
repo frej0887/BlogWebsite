@@ -4,8 +4,8 @@ import {
   MyImage, MyLink, MyList, MyListItem,
   MyOuter,
   MyText, MyProjectTitle
-} from "../components/SingleProjectComponents.tsx";
-import {MyImageCarousel} from "../components/ImageCarousel.tsx";
+} from "../../components/SingleProjectComponents.tsx";
+import {MyImageCarousel} from "../../components/ImageCarousel.tsx";
 
 export const Dinosaur = () => {
   return (

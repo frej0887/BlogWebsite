@@ -1,5 +1,5 @@
-import {RecipeUnits} from "../constants.ts";
-import {MyRecipe} from "../components/RecipeComponenents.tsx";
+import {RecipeUnits} from "../../constants.ts";
+import {MyRecipe} from "../../components/RecipeComponenents.tsx";
 
 export const BananaIceCream = () => {
   return <MyRecipe

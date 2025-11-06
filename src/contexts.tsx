@@ -1,5 +1,5 @@
 import {createContext, type ReactNode} from "react";
-import {LIST_LIST} from "./dataLists.tsx";
+import {LIST_LIST} from "./projects/dataLists.tsx";
 
 type layoutContext = {
   is_mobile: boolean;

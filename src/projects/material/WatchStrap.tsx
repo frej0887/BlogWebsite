@@ -6,8 +6,8 @@ import {
   MyListItem,
   MyOuter,
   MyText
-} from "../components/SingleProjectComponents.tsx";
-import {MyImageCarousel} from "../components/ImageCarousel.tsx";
+} from "../../components/SingleProjectComponents.tsx";
+import {MyImageCarousel} from "../../components/ImageCarousel.tsx";
 
 export const WatchStrap = () => {
 

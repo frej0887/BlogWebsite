@@ -1,5 +1,5 @@
-import {Dinosaur} from "./projects/Dinosaur.tsx";
-import {WatchStrap} from "./projects/WatchStrap.tsx";
+import {Dinosaur} from "./material/Dinosaur.tsx";
+import {WatchStrap} from "./material/WatchStrap.tsx";
 import {BananaPancakes} from "./recipes/BananaPancakes.tsx";
 import {BananaIceCream} from "./recipes/BananaIceCream.tsx";
 

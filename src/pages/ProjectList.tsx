@@ -2,6 +2,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useContext} from "react";
 import {LayoutContext, ListContext} from "../contexts.tsx";
 import {NoPage} from "./NoPage.tsx";
+import {slugify} from "../tools.ts";
 
 export const ProjectList = () => {
   const { type } = useParams();
@@ -19,8 +20,8 @@ export const ProjectList = () => {
     <>
       <h1>{project.title}</h1>
       {
-        project.projectMapTypes.map(({previewName, previewImage, previewText}, id) =>
-          <div onClick={() => navigate(`/${type}/${id}`)} style={theme.is_mobile ? styleMobile : styleDesktop} key={previewName}>
+        project.projectMapTypes.map(({previewName, previewImage, previewText}) =>
+          <div onClick={() => navigate(`/${type}/${slugify(previewName)}`)} style={theme.is_mobile ? styleMobile : styleDesktop} key={previewName}>
             <div>
               <h2>{previewName}</h2>
               <p>{previewText}</p>

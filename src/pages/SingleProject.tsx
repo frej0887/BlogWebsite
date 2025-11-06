@@ -2,19 +2,18 @@ import {useParams} from "react-router-dom";
 import {useContext} from "react";
 import {ListContext} from "../contexts.tsx";
 import {NoPage} from "./NoPage.tsx";
+import {slugify} from "../tools.ts";
 
 export const SingleProject = () => {
-  const { type, projectId } = useParams();
+  const { type, projectSlug } = useParams();
   const projectList = useContext(ListContext);
 
-  if (!projectId)
+  if (!projectSlug)
     return <NoPage/>
   if (!type)
     return <NoPage/>
   const project = projectList.find((x) => x.type === type);
   if (!project)
     return <NoPage/>
-  if (isNaN(parseInt(projectId)))
-    return <NoPage/>
-  return project.projectMapTypes[parseInt(projectId)].project
+  return project.projectMapTypes.find(({previewName}) => slugify(previewName) == projectSlug)!.project
 }

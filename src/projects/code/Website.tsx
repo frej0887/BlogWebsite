@@ -1,7 +1,7 @@
 import {
   MyCopyItem,
   MyHeader2,
-  MyHeader3,
+  MyHeader3, MyLink,
   MyProjectTitle,
   MyText
 } from "../../components/SingleProjectComponents.tsx";
@@ -12,6 +12,7 @@ export const Website = () => {
     <MyProjectTitle date={new Date('2025-05-11')}>This website</MyProjectTitle>
     <MyText>
       This project is written in React with a very iterative method. I keep a todo list, but really, what motivates me to work on this even when no one is ever going to see it, is doing what I feel like on that day. When I work on it, I think "Hmm.. would be nice to also have easy access to the recipes I just used without having to convert to metric" and then I extend my website to support it.
+      <MyLink href={'https://github.com/frej0887/BlogWebsite'}>Github</MyLink>
     </MyText>
     <MyHeader2>Motivation</MyHeader2>
     <MyHeader3>React</MyHeader3>

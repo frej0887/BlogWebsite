@@ -41,6 +41,7 @@
     "typescript-eslint": "^8.34.1",
     "vite": "~6.3.5",
     "sass": "^1.93.3",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "copy-to-clipboard": "^3.3.3"
   }
 }

@@ -2,6 +2,7 @@ import {Dinosaur} from "./material/Dinosaur.tsx";
 import {WatchStrap} from "./material/WatchStrap.tsx";
 import {BananaPancakes} from "./recipes/BananaPancakes.tsx";
 import {BananaIceCream} from "./recipes/BananaIceCream.tsx";
+import {Website} from "./code/Website.tsx";
 
 const materialContent = [{
   project: <Dinosaur/>,
@@ -25,6 +26,13 @@ const recipeContent = [{
   previewText: ''
 }];
 
+const codeContent = [{
+  project: <Website/>,
+  previewName: 'Website',
+  previewText: 'This website',
+  previewImage: 'images/website.jpg'
+}]
+
 /*const origamiContent = [{
   project: <></>,
   previewName: 'Origami',
@@ -35,6 +43,6 @@ const recipeContent = [{
 export const LIST_LIST = [
   {title: "Material projects", type: "material", projectMapTypes: materialContent},
   //{title: "Origami", type: "origami", projectMapTypes: origamiContent},
-  //{title: "Coding", type: "code", projectMapTypes: []},
+  {title: "Coding", type: "code", projectMapTypes: codeContent},
   {title: "Recipes", type: "recipes", projectMapTypes: recipeContent},
 ]

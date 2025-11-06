@@ -21,6 +21,10 @@ export const Home = () => {
       <MyText>
         This website is still under construction, so please bear with me or make a MR on <MyLink href={'https://github.com/frej0887/BlogWebsite'}>Github</MyLink>.
       </MyText>
+      <MyHeader2>Motivation</MyHeader2>
+      <MyText>
+        I mainly decided to make this website because I want to share the stuff I make. I want to share my experiences
+      </MyText>
       <MyHeader2>Recommendations</MyHeader2>
       <MyList>
         <MyListItem><MyText><MyLink href={'https://vedsted.me'}>vedsted.me</MyLink></MyText></MyListItem>

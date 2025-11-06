@@ -1,6 +1,8 @@
 import {type PropsWithChildren, type ReactNode, useContext} from "react";
 import 'react-slideshow-image/dist/styles.css'
 import {LayoutContext} from "../contexts.tsx";
+import copy from 'copy-to-clipboard';
+import {ReactSVG} from "react-svg";
 
 type Props = {
   children: string | ReactNode;
@@ -43,4 +45,6 @@ export const MyOuter = ({children}: PropsWithChildren<Props>) => <>{children}</>
 export const MyList = ({children}: ListProps) => <ul>{children}</ul>;
 export const MyListItem = ({children}: Props) => <li>{children}</li>
 export const MyEmail = ({href, children}: PropsWithChildren<AProps>) => <a href={'mailto:' + href}> {children}</a>;
-
+export const MyCopyItem = ({src, alt}: ImgProps) => <>
+  <span onClick={() => copy(src)} className={'copy-item'}>{alt} <ReactSVG src="../icons/copy.svg" wrapper={'span'}/></span>
+</>

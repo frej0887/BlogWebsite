@@ -22,7 +22,7 @@ export const Header = () => {
       </h2>
       <h2 onClick={() => setSubMenuVisible(!subMenuVisible)}>
         Projects
-        <ReactSVG src="./icons/down-arrow.svg" wrapper={'span'}/>
+        <ReactSVG src="../icons/down-arrow.svg" wrapper={'span'}/>
       </h2>
       <h2 onClick={() => setMainMenuVisible(false)}>
         <Link to="/about">About</Link>

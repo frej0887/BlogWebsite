@@ -3,6 +3,7 @@ import {WatchStrap} from "./material/WatchStrap.tsx";
 import {BananaPancakes} from "./recipes/BananaPancakes.tsx";
 import {BananaIceCream} from "./recipes/BananaIceCream.tsx";
 import {Website} from "./code/Website.tsx";
+import {GalaxyBuds} from "./repairs/GalaxyBuds.tsx";
 
 const materialContent = [{
   project: <Dinosaur/>,
@@ -40,9 +41,17 @@ const codeContent = [{
   previewImage: ''
 }];*/
 
+const repairContent = [{
+  project: <GalaxyBuds/>,
+  previewName: 'Galaxy Buds 2 Pro',
+  previewText: 'Fixing washed Galaxy Buds 2 Pro',
+  previewImage: ''
+}];
+
 export const LIST_LIST = [
   {title: "Material projects", type: "material", projectMapTypes: materialContent},
   //{title: "Origami", type: "origami", projectMapTypes: origamiContent},
+  //{title: "Repairs", type: "repairs", projectMapTypes: repairContent},
   {title: "Coding", type: "code", projectMapTypes: codeContent},
   {title: "Recipes", type: "recipes", projectMapTypes: recipeContent},
 ]

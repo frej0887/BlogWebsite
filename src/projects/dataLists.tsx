@@ -3,7 +3,8 @@ import {WatchStrap} from "./material/WatchStrap.tsx";
 import {BananaPancakes} from "./recipes/BananaPancakes.tsx";
 import {BananaIceCream} from "./recipes/BananaIceCream.tsx";
 import {Website} from "./code/Website.tsx";
-import {GalaxyBuds} from "./repairs/GalaxyBuds.tsx";
+//import {GalaxyBuds} from "./repairs/GalaxyBuds.tsx";
+import {MoneyCountingHelper} from "./code/MoneyCountingHelper.tsx";
 
 const materialContent = [{
   project: <Dinosaur/>,
@@ -32,6 +33,11 @@ const codeContent = [{
   previewName: 'Website',
   previewText: 'This website',
   previewImage: 'images/website.jpg'
+},{
+  project: <MoneyCountingHelper/>,
+  previewName: 'Money Counter',
+  previewText: 'Maths is hard',
+  previewImage: 'images/money.jpg'
 }]
 
 /*const origamiContent = [{
@@ -41,12 +47,12 @@ const codeContent = [{
   previewImage: ''
 }];*/
 
-const repairContent = [{
+/*const repairContent = [{
   project: <GalaxyBuds/>,
   previewName: 'Galaxy Buds 2 Pro',
   previewText: 'Fixing washed Galaxy Buds 2 Pro',
   previewImage: ''
-}];
+}];*/
 
 export const LIST_LIST = [
   {title: "Material projects", type: "material", projectMapTypes: materialContent},

@@ -1,5 +1,6 @@
 import {
   MyHeader1,
+  MyLink,
   MyList, MyListItem,
   MyOuter,
   MyProjectTitle,
@@ -13,12 +14,14 @@ export const GalaxyBuds = () => {
       <MyProjectTitle date={new Date('2025-11')}>Samsung Galaxy Buds 2 Pro</MyProjectTitle>
       <MyHeader1>The problem</MyHeader1>
       <MyText>
-        I've now accidentally washed my partners earbuds twice. First time it happened because I washed trousers and the earbuds where in the case in a pocket. We bought the same pair again but it happened again around two years after..
-        I noticed that in one pair, the right one worked as new and in the other pair the left one had great sound, but a bad microphone, which made calls and ambient mode awful. However that made one full pair, with noise cancelling, but without ambient mode.
+        I've now accidentally washed my partners earbuds twice. First time it happened because I washed trousers and the earbuds where in the case in a pocket. We bought the same pair again but it happened again two years after..
+      </MyText>
+      <MyText>
+        I noticed that in one pair, the right one worked as new and in the other pair the left one had great sound, but a bad microphone, which made ambient mode awful. However that made one full pair, with functioning noise cancelling.
       </MyText>
       <MyHeader1>The fix</MyHeader1>
       <MyText>
-        I found a guide online, telling me to open the earbuds, by moving slowly with a knife around the edges to pop the top off. No heat needed! When open, I saw that it has a raised band on the side and a rubber band to hold it in place.
+        I found a <MyLink href={'https://www.youtube.com/watch?v=2fRBIhEp1Rg'}>guide online</MyLink>, telling me to open the earbuds, by moving slowly with a knife around the edges to pop the top off. No heat needed! When open, I saw that it holds itself in place with a raised band on the side.
       </MyText>
       <MyText>
         In here we have a small board with a removable connector. Popping this off reveals a removable board with a battery underneath.

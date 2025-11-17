@@ -3,7 +3,7 @@ import {useState} from "react";
 import {setFunction} from "./constants.tsx";
 
 export const useStatusHandler = (): StateFunctions => {
-  const [halfKrone, setHalfKrone] = useState({value: 0.5, name: "50 øre", count: 0})
+  const [halfKrone, setHalfKrone] = useState({value: 0.5, name: "50 ører", count: 0})
   const [oneKrone, setOneKrone] = useState({value: 1, name: "1 krone", count: 0})
   const [twoKrone, setTwoKrone] = useState({value: 2, name: "2 kroner", count: 0})
   const [fiveKrone, setFiveKrone] = useState({value: 5, name: "5 kroner", count: 0})

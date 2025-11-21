@@ -7,10 +7,16 @@ type layoutContext = {
 
 export const LayoutContext = createContext<layoutContext>({is_mobile: false});
 
+export type QuickLink = {
+  title: string;
+  url: string;
+}
+
 export type ProjectListType = {
   type: string;
   title: string;
   projectMapTypes: ProjectMapType[];
+  quickLinks: QuickLink[],
 }
 
 export type ProjectMapType = {

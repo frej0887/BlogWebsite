@@ -3,7 +3,7 @@ import {WatchStrap} from "./material/WatchStrap.tsx";
 import {BananaPancakes} from "./recipes/BananaPancakes.tsx";
 import {BananaIceCream} from "./recipes/BananaIceCream.tsx";
 import {Website} from "./code/Website.tsx";
-//import {GalaxyBuds} from "./repairs/GalaxyBuds.tsx";
+import {GalaxyBuds} from "./repairs/GalaxyBuds.tsx";
 import {MoneyCountingHelper} from "./code/MoneyCountingHelper.tsx";
 
 const materialContent = [{
@@ -47,17 +47,21 @@ const codeContent = [{
   previewImage: ''
 }];*/
 
-/*const repairContent = [{
+const repairContent = [{
   project: <GalaxyBuds/>,
   previewName: 'Galaxy Buds 2 Pro',
   previewText: 'Fixing washed Galaxy Buds 2 Pro',
   previewImage: ''
-}];*/
+}];
+
+const repairQuickLinks = [
+  {title: "Replace laptop keyboard", url:"https://www.youtube.com/watch?v=YIJ-1oTwb48"}
+]
 
 export const LIST_LIST = [
-  {title: "Material projects", type: "material", projectMapTypes: materialContent},
-  //{title: "Origami", type: "origami", projectMapTypes: origamiContent},
-  //{title: "Repairs", type: "repairs", projectMapTypes: repairContent},
-  {title: "Coding", type: "code", projectMapTypes: codeContent},
-  {title: "Recipes", type: "recipes", projectMapTypes: recipeContent},
+  {title: "Material projects", type: "material", projectMapTypes: materialContent, quickLinks: []},
+  //{title: "Origami", type: "origami", projectMapTypes: origamiContent, quickLinks: []},
+  // {title: "Repairs", type: "repairs", projectMapTypes: repairContent, quickLinks: repairQuickLinks},
+  {title: "Coding", type: "code", projectMapTypes: codeContent, quickLinks: []},
+  {title: "Recipes", type: "recipes", projectMapTypes: recipeContent, quickLinks: []},
 ]

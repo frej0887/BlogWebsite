@@ -3,6 +3,7 @@ import {useContext} from "react";
 import {LayoutContext, ListContext} from "../contexts.tsx";
 import {NoPage} from "./NoPage.tsx";
 import {slugify} from "../tools.ts";
+import {MyLink, MyList, MyListItem} from "../components/SingleProjectComponents.tsx";
 
 export const ProjectList = () => {
   const { type } = useParams();
@@ -29,6 +30,14 @@ export const ProjectList = () => {
             {previewImage ? <img src={previewImage} style={theme.is_mobile ? {width: '100%'} : {width: "40%", height: "auto"}}/> : null}
           </div>
         )
+      }
+      {
+        project.quickLinks.length == 0 ? <></> : <>
+          <h1>Quick links</h1>
+          <MyList>
+            {project.quickLinks.map(({url, title}) => <MyListItem><MyLink href={url}>{title}</MyLink></MyListItem>)}
+          </MyList>
+        </>
       }
     </>
   )

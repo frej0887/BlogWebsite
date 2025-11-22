@@ -19,17 +19,19 @@ export const ProjectList = () => {
 
   return (
     <>
-      <h1>{project.title}</h1>
       {
-        project.projectMapTypes.map(({previewName, previewImage, previewText}) =>
-          <div onClick={() => navigate(`/${type}/${slugify(previewName)}`)} style={theme.is_mobile ? styleMobile : styleDesktop} key={previewName}>
-            <div>
-              <h2>{previewName}</h2>
-              <p>{previewText}</p>
+        project.projectMapTypes.length == 0 ? <></> : <>
+          <h1>{project.title}</h1>
+          {project.projectMapTypes.map(({previewName, previewImage, previewText}) =>
+            <div onClick={() => navigate(`/${type}/${slugify(previewName)}`)} style={theme.is_mobile ? styleMobile : styleDesktop} key={previewName}>
+              <div>
+                <h2>{previewName}</h2>
+                <p>{previewText}</p>
+              </div>
+              {previewImage ? <img src={previewImage} style={theme.is_mobile ? {width: '100%'} : {width: "40%", height: "auto"}}/> : null}
             </div>
-            {previewImage ? <img src={previewImage} style={theme.is_mobile ? {width: '100%'} : {width: "40%", height: "auto"}}/> : null}
-          </div>
-        )
+          )}
+        </>
       }
       {
         project.quickLinks.length == 0 ? <></> : <>

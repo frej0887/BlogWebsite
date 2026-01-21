@@ -33,7 +33,7 @@ export const GalaxyBuds = () => {
       <MyText>
         The battery can be flipped out, but is otherwise soldered to the rest of the electronics, and the speaker below is also hidden behind glue.
       </MyText>
-      <MyImage src={'galaxy_buds/exploded2.jpg'} alt={'All the parts of the bud'}/>
+      <MyImage src={'galaxy_buds/exploded.jpg'} alt={'All the parts of the bud'}/>
       <MyText>
         In the end there was only one thing that could easily be replaced, and they were non-symmetrical. I switched the removable boards from the bad speaker into the good speaker and viola, the two good speakers in the earbuds were now connected.
       </MyText>

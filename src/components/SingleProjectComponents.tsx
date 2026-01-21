@@ -13,6 +13,11 @@ type ImgProps = {
   alt: string;
 }
 
+type DoubleImgProps = {
+  img1: ImgProps
+  img2: ImgProps
+}
+
 type AProps = {
   href: string;
 }
@@ -35,6 +40,13 @@ export const MyHeader3 = ({children}: Props) => <h3>{children}</h3>;
 export const MyImage = ({src, alt}: ImgProps) => {
   const theme = useContext(LayoutContext);
   return <div id={"image"}><img src={'../images/' + src} alt={alt} className={theme.is_mobile ? 'image-mobile' : 'image-desktop'}/></div>;
+}
+export const MyDoubleImage = ({img1, img2}: DoubleImgProps) => {
+  const theme = useContext(LayoutContext);
+  return <div id={"double-image"}>
+    <img src={'../images/' + img1.src} alt={img1.alt} className={theme.is_mobile ? 'image-mobile' : 'image-desktop'}/>
+    <img src={'../images/' + img2.src} alt={img2.alt} className={theme.is_mobile ? 'image-mobile' : 'image-desktop'}/>
+  </div>;
 }
 export const MyText = ({children}: Props) => {
   const theme = useContext(LayoutContext);

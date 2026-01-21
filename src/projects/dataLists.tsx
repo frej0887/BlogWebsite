@@ -61,7 +61,7 @@ const repairQuickLinks = [
 export const LIST_LIST = [
   {title: "Material projects", type: "material", projectMapTypes: materialContent, quickLinks: []},
   //{title: "Origami", type: "origami", projectMapTypes: origamiContent, quickLinks: []},
-  {title: "Repairs", type: "repairs", projectMapTypes: [], quickLinks: repairQuickLinks},
+  {title: "Repairs", type: "repairs", projectMapTypes: repairContent, quickLinks: repairQuickLinks},
   {title: "Coding", type: "code", projectMapTypes: codeContent, quickLinks: []},
   {title: "Recipes", type: "recipes", projectMapTypes: recipeContent, quickLinks: []},
 ]

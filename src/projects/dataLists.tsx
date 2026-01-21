@@ -51,7 +51,7 @@ const repairContent = [{
   project: <GalaxyBuds/>,
   previewName: 'Galaxy Buds 2 Pro',
   previewText: 'Fixing washed Galaxy Buds 2 Pro',
-  previewImage: ''
+  previewImage: 'images/galaxy_buds/both_cases.jpg'
 }];
 
 const repairQuickLinks = [

@@ -21,7 +21,7 @@ const materialContent = [{
   project: <WoodenLampshade/>,
   previewName: 'Wooden lampshade',
   previewText: 'Layered wooden lampshade for bedside lamp',
-  previewImage: 'images/'
+  previewImage: 'images/wooden_lampshade/done.jpg'
 }];
 
 const recipeContent = [{

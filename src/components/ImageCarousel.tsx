@@ -5,7 +5,7 @@ import {LayoutContext} from "../contexts.tsx";
 
 type ImageCarouselItem = {
   src: string;
-  caption: string;
+  caption?: string;
 }
 type ImageCarouselProps = {
   slideImages: ImageCarouselItem[];
@@ -27,7 +27,7 @@ export const MyImageCarousel = ({slideImages}: ImageCarouselProps) => {
           return (
             <div key={index}>
               <div style={{...imageStyle, 'backgroundImage': `url(../images/${slideImage.src})`}}>
-                {slideImage.caption ? <span style={{...hoverOnImageStyle, ...deviceStyle, ...displayStyle, ...{marginTop: 'auto'}}}>{slideImage.caption}</span> : null}
+                {slideImage.caption == undefined ||slideImage.caption == '' ? null : <span style={{...hoverOnImageStyle, ...deviceStyle, ...displayStyle, ...{marginTop: 'auto'}}}>{slideImage.caption}</span>}
               </div>
             </div>
           );

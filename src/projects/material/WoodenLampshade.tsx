@@ -89,36 +89,36 @@ export const WoodenLampshade = () => {
         lined well up in a place with a nice pattern. Wrapping it around the old lampshade, revealed that the backside had
         a lot of very flat grain-lines which would be easier to line up nicely.
       </MyText>
-      <MyImage src={'wooden_lampshade/full_wood.jpg'} alt={'My main sheet of veneer'}/>
+      <MyImage src='wooden_lampshade/full_wood.jpg' alt='My main sheet of veneer'/>
 
 
       <MyHeader2>Cutting the veneer</MyHeader2>
       <MyText>My first instinct was to use a small baking sheet to trace the wanted shape with a pencil, cut it out and
         then use the template to cut the correct shape.</MyText>
       <MyImageCarousel slideImages={[
-        {src: 'wooden_lampshade/first_wood_template.jpg', caption: ''},
-        {src: 'wooden_lampshade/first_wood_cut.jpg', caption: ''},
-        {src: 'wooden_lampshade/first_wood_layered.jpg', caption: ''},
+        {src: 'wooden_lampshade/first_wood_template.jpg'},
+        {src: 'wooden_lampshade/first_wood_cut.jpg'},
+        {src: 'wooden_lampshade/first_wood_layered.jpg'},
       ]}/>
       <MyText>
         This worked quite well, but the areas quickly became too large for the small papers, so I replaced it with a large
         baking sheet where I traced all of the veins. This ended up being a huge help with planning the design, that is,
         choosing which veins to use and which to ignore.
       </MyText>
-      <MyImage src={'wooden_lampshade/screen.jpg'} alt={''}/>
+      <MyImage src='wooden_lampshade/screen.jpg' alt='The baking sheet with all veins traced onto it'/>
       <MyText>
         It was also allowed me to wrap it around the old lampshade, which made it easier to visualise, figure out which
         parts to keep, and helped lining up the back. I tried both masking tape and invisible tape, but neither were grat
         at holding it together.
       </MyText>
-      <MyImage src={'wooden_lampshade/screen_on_old_shade.jpg'} alt={''}/>
+      <MyImage src='wooden_lampshade/screen_on_old_shade.jpg' alt='screen on old shade'/>
       <MyText>
         For this big sheet, I did not want to cut it and ruin the structure, so instead I traced it again, this time from
         the paper onto the veneer. This however was a mistake, as it was quite hard to remove the pencil markings. I tried
         using both a normal rubber and to sand it out and while both helped, it is still there. Luckily you can't really
         see it much as it is on the inside of the lampshade.
       </MyText>
-      <MyImage src={'wooden_lampshade/traced_wood.jpg'} alt={''}/>
+      <MyImage src='wooden_lampshade/traced_wood.jpg' alt='My traced wood'/>
       <MyText>
         Lastly, I cut everything out with my trusty knife, cleaned the edges, and sanded the surface a bit. This was not
         going to be very visible on the outside, so it was mainly for comfort when handling.
@@ -158,9 +158,9 @@ export const WoodenLampshade = () => {
         this worked quite well.
       </MyNote>
       <MyImageCarousel slideImages={[
-        {src: 'wooden_lampshade/gluing.jpg', caption: ''},
-        {src: 'wooden_lampshade/full_glued_part.jpg', caption: ''},
-        {src: 'wooden_lampshade/gluing_with_light.jpg', caption: ''},
+        {src: 'wooden_lampshade/gluing.jpg'},
+        {src: 'wooden_lampshade/full_glued_part.jpg'},
+        {src: 'wooden_lampshade/gluing_with_light.jpg'},
       ]}/>
 
       <MyText>
@@ -172,9 +172,9 @@ export const WoodenLampshade = () => {
         glued the rest of the large sheet, removed the painters tape and did the last two inside pieces.
       </MyText>
       <MyImageCarousel slideImages={[
-        {src: 'wooden_lampshade/full_glued_wood.jpg', caption: ''},
-        {src: 'wooden_lampshade/standing.jpg', caption: ''},
-        {src: 'wooden_lampshade/preview_on.jpg', caption: ''},
+        {src: 'wooden_lampshade/full_glued_wood.jpg'},
+        {src: 'wooden_lampshade/standing.jpg'},
+        {src: 'wooden_lampshade/preview_on.jpg'},
       ]}/>
       <MyText>
         I must have made a mistake and accidentally glued it too tight, as I had created a bit of a hill with one of the
@@ -196,7 +196,7 @@ export const WoodenLampshade = () => {
         crack was already full of normal glue. I got a wax repair stick, but as my oil doesn't stick to wax, I decided to
         try to fix this later.
       </MyText>
-      <MyImage src={'wooden_lampshade/shade_metal.jpg'} alt={''}/>
+      <MyImage src='wooden_lampshade/shade_metal.jpg' alt='Lampshade metal'/>
       <MyText>
         Last step of putting the shade together, was gluing the lampshade metal to the inside of my new one, to keep the
         shape and to have a connection point to the lamp. I used violence to take out the metal from the old lampshade,
@@ -208,7 +208,7 @@ export const WoodenLampshade = () => {
         The fit here is quite tight, but it is easier to put the metal parts in, side first and then turn it into
         position.
       </MyNote>
-      <MyImage src={'wooden_lampshade/usable.jpg'} alt={''}/>
+      <MyImage src='wooden_lampshade/usable.jpg' alt='Wood is glued, with metal inlaid'/>
 
 
       <MyHeader2>Finishing</MyHeader2>
@@ -227,10 +227,10 @@ export const WoodenLampshade = () => {
       <MyDoubleImage
         img1={{
           src: 'wooden_lampshade/crack_front.jpg',
-          alt: 'Lampshade turned on',
+          alt: 'Lampshade crack 1',
         }} img2={{
-        src: 'wooden_lampshade/crack_back.jpg',
-        alt: 'Lampshade turned off',
+          src: 'wooden_lampshade/crack_back.jpg',
+          alt: 'Lampshade crack 2',
         }}
       />
       <MyText>
@@ -248,7 +248,7 @@ export const WoodenLampshade = () => {
         the spacer uneven to try to counter it. Perfecting it would take a lot of trial and error, but I am okay with my
         decent result in not too long time.
       </MyText>
-      <MyImage src={'wooden_lampshade/spacer.jpg'} alt={''}/>
+      <MyImage src='wooden_lampshade/spacer.jpg' alt='Wooden spacer'/>
 
 
       <MyHeader2>Lamp base</MyHeader2>
@@ -281,10 +281,10 @@ export const WoodenLampshade = () => {
 
       <MyHeader2>Microwave turntable for rotational gif</MyHeader2>
       <MyText>
-        I used the <MyLink href={'ezgif.com'}>ezgif.com</MyLink> and turntable-thing from the microwave to make this gif :)
+        I used the <MyLink href='ezgif.com'>ezgif.com</MyLink> and turntable-thing from the microwave to make this gif :)
       </MyText>
 
-      <MyImage src={'wooden_lampshade/gif.gif'} alt={'GIF with a full rotation'}/>
+      <MyImage src='wooden_lampshade/gif.gif' alt='GIF with a full rotation'/>
     </MyOuter>
   )
 }

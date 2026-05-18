@@ -63,10 +63,10 @@ export const Dinosaur = () => {
       <MyText>The funny shape of the watering can it not the most practical, but the design is always a joy to look
         at.</MyText>
       <MyImageCarousel slideImages={[
-        {src:'watering_can/front.jpg', caption: ''},
-        {src:'watering_can/front2.jpg', caption: ''},
-        {src:'watering_can/left.jpg', caption: ''},
-        {src:'watering_can/right.jpg', caption: ''},
+        {src:'watering_can/front.jpg'},
+        {src:'watering_can/front2.jpg'},
+        {src:'watering_can/left.jpg'},
+        {src:'watering_can/right.jpg'},
         {src:'watering_can/wateringcan_before.jpg', caption: 'The old and bland dinosaur-shaped watering can'},
         {src:'watering_can/eater_of_worlds.jpg', caption: 'Eater of worlds!'},
       ]}/>

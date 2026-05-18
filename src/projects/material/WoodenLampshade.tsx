@@ -1,7 +1,8 @@
 import {
+  MyDoubleImage,
   MyHeader1,
   MyHeader2,
-  MyImage,
+  MyImage, MyLink,
   MyList,
   MyListItem,
   MyMaterialList,
@@ -23,6 +24,15 @@ export const WoodenLampshade = () => {
         would have different amount of layers and therefore thicknesses, which would allow for different amount of light
         to pass through. The nice warm glow through the wood, makes it a nice bedside lamp.
       </MyText>
+      <MyDoubleImage
+        img1={{
+          src: 'wooden_lampshade/done.jpg',
+          alt: 'Lampshade turned on',
+        }} img2={{
+        src: 'wooden_lampshade/done_off.jpg',
+        alt: 'Lampshade turned off',
+      }}
+      />
       <MyText>
         The original idea was for the layers to be on the outside of the shade, such that the layers are visible at all
         times. For this to be possible, each layer would need to be from the same place on the same tree. This was the
@@ -155,18 +165,22 @@ export const WoodenLampshade = () => {
 
       <MyText>
         Gluing the pieces onto the outside veneer together was a bit more tricky because of the connections between the
-        two outer layers of veneer, but I had strategically placed a very large simple shape over one of the connection
-        lines. This makes the connection a lot more secure, but also a bit more troublesome, as it is extra important with
-        a large piece, to make sure it curves well. To do it, I taped it well on the other side, and glued a few
+        two outer layers of veneer, but I had strategically placed a very large shape over one of the connection lines.
+        This makes the connection a lot more secure, but also a bit more troublesome, as it is extra important with a
+        large piece, to make sure it curves well. To do it, I taped it well on the other side, and glued a few
         centimeters on one side first so I could make sure it still lined up on the other side when it is curved. I then
         glued the rest of the large sheet, removed the painters tape and did the last two inside pieces.
       </MyText>
+      <MyImageCarousel slideImages={[
+        {src: 'wooden_lampshade/full_glued_wood.jpg', caption: ''},
+        {src: 'wooden_lampshade/standing.jpg', caption: ''},
+        {src: 'wooden_lampshade/preview_on.jpg', caption: ''},
+      ]}/>
       <MyText>
         I must have made a mistake and accidentally glued it too tight, as I had created a bit of a hill with one of the
         outside veneer connections. To fix it, I just cut it down with the blade of my knife and luckily, it was not very
         visible afterwards.
       </MyText>
-      <MyImage src={'wooden_lampshade/full_glued_wood.jpg'} alt={''}/>
       <MyText>
         Before I glued everything together, I wrapped it around the old lampshade, and used the right angles of the
         manufactured lampshade to trace two flat lines around the inside of my lampshade, which I then used to cut it to
@@ -194,6 +208,7 @@ export const WoodenLampshade = () => {
         The fit here is quite tight, but it is easier to put the metal parts in, side first and then turn it into
         position.
       </MyNote>
+      <MyImage src={'wooden_lampshade/usable.jpg'} alt={''}/>
 
 
       <MyHeader2>Finishing</MyHeader2>
@@ -209,9 +224,18 @@ export const WoodenLampshade = () => {
         getting the natural tone. It filled the cracks nicely and added a little bit of darkness, but sadly the cracks are
         still quite visible.
       </MyText>
+      <MyDoubleImage
+        img1={{
+          src: 'wooden_lampshade/crack_front.jpg',
+          alt: 'Lampshade turned on',
+        }} img2={{
+        src: 'wooden_lampshade/crack_back.jpg',
+        alt: 'Lampshade turned off',
+        }}
+      />
       <MyText>
         I did try to match the birch color with paint, and to paint the cracks a bit darker, but it is hard to match the
-        color and to paint it only on the crack, so I decided tp give up on that idea.
+        color and to paint it only on the crack, so I decided to give up on that idea.
       </MyText>
 
 
@@ -224,6 +248,7 @@ export const WoodenLampshade = () => {
         the spacer uneven to try to counter it. Perfecting it would take a lot of trial and error, but I am okay with my
         decent result in not too long time.
       </MyText>
+      <MyImage src={'wooden_lampshade/spacer.jpg'} alt={''}/>
 
 
       <MyHeader2>Lamp base</MyHeader2>
@@ -253,6 +278,13 @@ export const WoodenLampshade = () => {
         apart and take out the LCD panel, so there only was the LED backlight left. I originally did it to use it for
         better lightning while doing product photography, but it works quite well for tracing the grain of the wood.
       </MyText>
+
+      <MyHeader2>Microwave turntable for rotational gif</MyHeader2>
+      <MyText>
+        I used the <MyLink href={'ezgif.com'}>ezgif.com</MyLink> and turntable-thing from the microwave to make this gif :)
+      </MyText>
+
+      <MyImage src={'wooden_lampshade/gif.gif'} alt={'GIF with a full rotation'}/>
     </MyOuter>
   )
 }

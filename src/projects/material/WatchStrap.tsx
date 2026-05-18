@@ -1,11 +1,12 @@
 import {
   MyProjectTitle,
-  MyHeader2, MyHeader3,
+  MyHeader1,
+  MyHeader2,
   MyImage,
   MyList,
   MyListItem,
   MyOuter,
-  MyText
+  MyText, MyMaterialList
 } from "../../components/SingleProjectComponents.tsx";
 import {MyImageCarousel} from "../../components/ImageCarousel.tsx";
 
@@ -23,15 +24,27 @@ export const WatchStrap = () => {
         There exists a lot of tools for leatherwork, but I decided to try to create this strap while buying as few
         tools as possible.
       </MyText>
-      <MyHeader2>Materials</MyHeader2>
-      <MyList>
-        <MyListItem>20mm ⋅ 3mm leather strap from Panduro</MyListItem>
-        <MyListItem>Watch buckle</MyListItem>
-        <MyListItem>Quick release spring bars</MyListItem>
-        <MyListItem>Leather thread</MyListItem>
-        <MyListItem>Mister Minit shoe polishing cream</MyListItem>
-      </MyList>
-      <MyHeader2>How it was made</MyHeader2>
+      <MyMaterialList materialListItems={[
+        {
+          text: '20mm ⋅ 3mm leather strap from Panduro',
+          link: 'https://panduro.com/da-dk/products/sy-strik/lader-tilbehor/lader/laderrem-2-mm-sort-20mm-100cm-305386',
+          note: 'Other colors are of course available, but hard leather is recommended. Remember to measure' +
+            ' watchband width before buying the leather.'
+        },
+        {
+          text: 'Watch buckle and quick release spring bars',
+          note: 'I found these on Amazon, but you could of course reuse the old ones'
+        },
+        {
+          text: 'Waxed leather thread',
+        },
+        {
+          text: 'Mister Minit shoe polishing cream',
+          note: 'The only leather treatment I already had',
+          optional: true,
+        },
+      ]}/>
+      <MyHeader1>How it was made</MyHeader1>
       <MyText>
         The leather strap was 3mm thick, which is a bit thick for a watch strap, so the first step was to thin the
         leather. The normal way of doing this is with a specific thinning knife, but I had to replace it with the knife
@@ -45,7 +58,7 @@ export const WatchStrap = () => {
         watchstrap.
       </MyText>
 
-      <MyHeader3>Making the holes</MyHeader3>
+      <MyHeader2>Making the holes</MyHeader2>
       <MyText>
         Having the leather thin and malleable, I went on to making fixing the ends.
       </MyText>
@@ -84,7 +97,7 @@ export const WatchStrap = () => {
         I did by making multiple holes and cutting the sides to connect them.
       </MyText>
 
-      <MyHeader3>The edges</MyHeader3>
+      <MyHeader2>The edges</MyHeader2>
       <MyText>
         To make the watch more comfortable to wear, I decided to round the edges. Usually an edge beveler would be handy
         here, which are for cutting off corners, but are made to always cut the same amount off. In my case I used my
@@ -92,14 +105,14 @@ export const WatchStrap = () => {
         don't have the tools, I had to compromise by only sanding and cutting the edges.
       </MyText>
 
-      <MyHeader3>The finishing touches</MyHeader3>
+      <MyHeader2>The finishing touches</MyHeader2>
       <MyText>
         I also made a free loop to hold the point side in place. For this, I sewed it together and made an attempt at
         hardening the leather with water, but it didn't work.
         Lastly I gave the strop a leather treatment meant for polishing shoes, let it dry and have worn it since then.
       </MyText>
 
-      <MyHeader2>My experience</MyHeader2>
+      <MyHeader1>My experience</MyHeader1>
       <MyText>
         I have worn the new watch strap for a few months now, and while it is clearly a lot thicker and the inside more
         coarse, it doesn't bother me.

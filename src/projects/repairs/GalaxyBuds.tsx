@@ -1,12 +1,13 @@
 import {
-  MyDoubleImage,
+  MyProjectTitle,
   MyHeader1,
   MyImage,
+  MyDoubleImage,
   MyLink,
-  MyList, MyListItem,
+  MyList,
+  MyListItem,
   MyOuter,
-  MyProjectTitle,
-  MyText
+  MyText,
 } from "../../components/SingleProjectComponents.tsx";
 
 

@@ -5,6 +5,7 @@ import {BananaIceCream} from "./recipes/BananaIceCream.tsx";
 import {Website} from "./code/Website.tsx";
 import {GalaxyBuds} from "./repairs/GalaxyBuds.tsx";
 import {MoneyCountingHelper} from "./code/MoneyCountingHelper.tsx";
+import {WoodenLampshade} from "./material/WoodenLampshade.tsx";
 
 const materialContent = [{
   project: <Dinosaur/>,
@@ -16,6 +17,11 @@ const materialContent = [{
   previewName: 'Leather watchstrap',
   previewText: 'Leather watchstrap to replace an old broken one',
   previewImage: 'images/watchstrap/watchstrap.jpg'
+},{
+  project: <WoodenLampshade/>,
+  previewName: 'Wooden lampshade',
+  previewText: 'Layered wooden lampshade for bedside lamp',
+  previewImage: 'images/'
 }];
 
 const recipeContent = [{

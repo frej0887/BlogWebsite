@@ -3,6 +3,8 @@ import 'react-slideshow-image/dist/styles.css'
 import {LayoutContext} from "../contexts.tsx";
 import copy from 'copy-to-clipboard';
 import {ReactSVG} from "react-svg";
+import { Tooltip } from 'react-tooltip'
+
 
 type Props = {
   children: string | ReactNode;
@@ -27,16 +29,36 @@ type ListProps = {
 }
 
 type DateProps = {
-  date: Date
+  date?: Date
 }
 
-export const MyHeader1 = ({children}: Props) => <h1>{children}</h1>;
-export const MyProjectTitle = ({date, children}: PropsWithChildren<DateProps>) => <div style={{marginBottom: '1rem'}}>
-  <h1>{children}</h1>
-  <i>{date.toLocaleString('default', { month: 'long' }) + " " + date.getFullYear().toString()}</i>
-</div>;
-export const MyHeader2 = ({children}: Props) => <h2>{children}</h2>;
-export const MyHeader3 = ({children}: Props) => <h3>{children}</h3>;
+type MyListItemProps = {
+  note?: string;
+}
+
+type MyMaterialListProps = {
+  materialListItems: MyMaterialListItemProps[]
+}
+
+type MyMaterialListItemProps = {
+  text: string;
+  note?: string;
+  link?: string;
+  optional?: boolean;
+}
+
+export const MyProjectTitle = ({children, date}: PropsWithChildren<DateProps>) => {
+  if (date == undefined)
+    return <h1>{children}</h1>
+  return (
+    <div style={{marginBottom: '1rem'}}>
+      <h1>{children}</h1>
+      <i>{date.toLocaleString('default', {month: 'long'}) + " " + date.getFullYear().toString()}</i>
+    </div>
+  )
+};
+export const MyHeader1 = ({children}: Props) => <h2>{children}</h2>;
+export const MyHeader2 = ({children}: Props) => <h3>{children}</h3>;
 export const MyImage = ({src, alt}: ImgProps) => {
   const theme = useContext(LayoutContext);
   return <div id={"image"}><img src={'../images/' + src} alt={alt} className={theme.is_mobile ? 'image-mobile' : 'image-desktop'}/></div>;
@@ -52,11 +74,35 @@ export const MyText = ({children}: Props) => {
   const theme = useContext(LayoutContext);
   return (<p style={{textAlign: (theme.is_mobile ? 'left' : 'justify')}}>{children}</p>)
 };
+export const MyNote = ({children}: Props) => {
+  const theme = useContext(LayoutContext);
+  return (<><i style={{textAlign: (theme.is_mobile ? 'left' : 'justify')}}>Note: {children}</i></>)
+};
 export const MyLink = ({href, children}: PropsWithChildren<AProps>) => <a href={href}> {children}</a>;
 export const MyOuter = ({children}: PropsWithChildren<Props>) => <>{children}</>;
 export const MyList = ({children}: ListProps) => <ul>{children}</ul>;
-export const MyListItem = ({children}: Props) => <li>{children}</li>
+export const MyListItem = ({note, children}: PropsWithChildren<MyListItemProps>) => {
+  if (note == undefined)
+    return <li>{children}</li>
+  return <li>{children}<br/><i>{note}</i></li>
+}
 export const MyEmail = ({href, children}: PropsWithChildren<AProps>) => <a href={'mailto:' + href}> {children}</a>;
 export const MyCopyItem = ({src, alt}: ImgProps) => <>
   <span onClick={() => copy(src)} className={'copy-item'}>{alt} <ReactSVG src="../icons/copy.svg" wrapper={'span'}/></span>
 </>
+export const MyMaterialList = ({materialListItems}: MyMaterialListProps) => {
+  return (
+    <>
+      <MyHeader1>Materials</MyHeader1>
+      <MyList>
+        {materialListItems.map(({text, note, link, optional}) => {
+          const noteElm = note == undefined ? <></> : <><br/><i>{note}</i></>
+          const textElm = link == undefined ? <>{text}</> : <a href={link}>{text}</a>
+          const optionalElm = optional == true ? <></> : <span style={{color: 'darkred'}} data-tooltip-id="mandatory" data-tooltip-content="This item or similar is required" data-tooltip-place='top-start'> * </span>
+          return <li>{textElm}{optionalElm}{noteElm}</li>
+        })}
+      </MyList>
+      <Tooltip id='mandatory'/>
+    </>
+  )
+}

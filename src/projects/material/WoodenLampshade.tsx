@@ -268,6 +268,11 @@ export const WoodenLampshade = () => {
       <MyText>
         I am a bit unsatisfied with the very visible cracks, but mostly I am just so happy that I finally got around to
         making it, especially the fix with the not perfectly matching veneer.
+      </MyText>
+      <MyText>
+        It is not very straight, but that is usually not really visible in everyday use.
+      </MyText>
+      <MyText>
         It also made me clean up my website a bit :)
       </MyText>
 

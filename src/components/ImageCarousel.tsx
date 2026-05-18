@@ -1,6 +1,5 @@
 import {useContext, useState} from "react";
 import {Slide} from "react-slideshow-image";
-import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import {LayoutContext} from "../contexts.tsx";
 
 type ImageCarouselItem = {
@@ -17,12 +16,9 @@ export const MyImageCarousel = ({slideImages}: ImageCarouselProps) => {
   const displayStyle = display ? {} : {display: 'none'};
   const deviceStyle= theme.is_mobile ? {padding: '0.5rem'} : {padding: '1rem'};
 
-  const nextArrow = <button type="button" style={{...hoverOnImageStyle, ...deviceStyle, ...displayStyle, ...{marginLeft: 'auto'}}}><SlArrowRight/></button>;
-  const prevArrow = <button type="button" style={{...hoverOnImageStyle, ...deviceStyle, ...displayStyle, ...{marginLeft: 'auto'}}}><SlArrowLeft/></button>;
-  const beneathSpacing = theme.is_mobile ? {marginBottom: "10rem"} : {marginBottom: "5rem"};
   return (
-    <div style={{...{marginTop: '2rem'}, ...beneathSpacing}} onMouseEnter={() => setDisplay(true)} onMouseLeave={() => setDisplay(false)}>
-      <Slide transitionDuration={250} arrows={true} nextArrow={nextArrow} prevArrow={prevArrow} canSwipe={true}>
+    <div style={{...{marginTop: '2rem'}}} onMouseEnter={() => setDisplay(true)} onMouseLeave={() => setDisplay(false)}>
+      <Slide transitionDuration={250} arrows={theme.is_mobile ? false : display} canSwipe={true} indicators={true}>
         {slideImages.map((slideImage, index) => {
           return (
             <div key={index}>
@@ -48,6 +44,5 @@ const imageStyle = {
   backgroundSize: 'contain',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
-  // width: 'auto',
   aspectRatio: '3/2',
 }
